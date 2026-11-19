@@ -8,15 +8,6 @@ $env:Path += ";C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\I
 
 Aplicação Windows Forms em C# para gerir campeonatos, torneios, equipas, jogadores, partidas e classificações. Sem base de dados: tudo é lido e guardado em XML e JSON.
 
-## Divisão de tarefas
-
-| Quem | Faz |
-|---|---|
-| **Rodrigo** | Classes (`Models`), `DataService`, importar/exportar XML, `FormMain`, juntar o código de todos no Git |
-| **Tiago** | Importar/exportar JSON, conversão XML↔JSON, erros de ficheiros malformados, guardar ao fechar e carregar ao abrir, `FormStatistics` (LINQ) |
-| **Duarte** | `FormTeams`, `FormTournaments`, `FormMatches` e todas as validações |
-| **Leslie** | Montar os forms no designer seguindo as tabelas desta página, dados de teste, ficheiros inválidos para testes, testes manuais, relatório e slides |
-
 ## Ecrãs (protótipos)
 
 Protótipos dos forms da aplicação. Os dados das imagens são de exemplo. **Nomes de controlos e variáveis em inglês; textos visíveis ao utilizador em português.** As classes de dados (`Campeonato`, `Equipa`...) ficam em português para coincidirem com os nomes do XML e do JSON do professor.

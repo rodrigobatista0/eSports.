@@ -126,6 +126,9 @@
     <Compile Include="Services\UiHelper.cs" />
     <Compile Include="Services\Validations.cs" />
     <Compile Include="Services\XmlService.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTeam.resx">
       <DependentUpon>FormTeam.cs</DependentUpon>
     </EmbeddedResource>

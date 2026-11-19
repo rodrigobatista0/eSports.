@@ -29,40 +29,6 @@
         private void InitializeComponent()
         {
             this.menuMain = new System.Windows.Forms.MenuStrip();
-            this.grpChampionships = new System.Windows.Forms.GroupBox();
-            this.btnRemoveChampionship = new System.Windows.Forms.Button();
-            this.btnEditChampionship = new System.Windows.Forms.Button();
-            this.btnAddChampionship = new System.Windows.Forms.Button();
-            this.nudChampionshipYear = new System.Windows.Forms.NumericUpDown();
-            this.lblChampionshipYear = new System.Windows.Forms.Label();
-            this.txtChampionshipName = new System.Windows.Forms.TextBox();
-            this.lblChampionshipName = new System.Windows.Forms.Label();
-            this.nudChampionshipId = new System.Windows.Forms.NumericUpDown();
-            this.lblChampionshipId = new System.Windows.Forms.Label();
-            this.dgvChampionships = new System.Windows.Forms.DataGridView();
-            this.grpOpen = new System.Windows.Forms.GroupBox();
-            this.btnStatistics = new System.Windows.Forms.Button();
-            this.btnMatches = new System.Windows.Forms.Button();
-            this.btnTournaments = new System.Windows.Forms.Button();
-            this.btnTeams = new System.Windows.Forms.Button();
-            this.grpSummary = new System.Windows.Forms.GroupBox();
-            this.lblChampionshipsText = new System.Windows.Forms.Label();
-            this.lblTotalChampionships = new System.Windows.Forms.Label();
-            this.lblMatchesText = new System.Windows.Forms.Label();
-            this.lblPlayersText = new System.Windows.Forms.Label();
-            this.lblTeamsText = new System.Windows.Forms.Label();
-            this.lblTournamentsText = new System.Windows.Forms.Label();
-            this.lblScoresText = new System.Windows.Forms.Label();
-            this.lblTotalPlayers = new System.Windows.Forms.Label();
-            this.lblTotalMatches = new System.Windows.Forms.Label();
-            this.lblTotalTeams = new System.Windows.Forms.Label();
-            this.lblTotalTournaments = new System.Windows.Forms.Label();
-            this.lblTotalScores = new System.Windows.Forms.Label();
-            this.statusMain = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblAutoSave = new System.Windows.Forms.ToolStripStatusLabel();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImportXml = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuImportJson = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,11 +47,45 @@
             this.mnuStatistics = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpChampionships = new System.Windows.Forms.GroupBox();
+            this.btnRemoveChampionship = new System.Windows.Forms.Button();
+            this.btnEditChampionship = new System.Windows.Forms.Button();
+            this.btnAddChampionship = new System.Windows.Forms.Button();
+            this.nudChampionshipYear = new System.Windows.Forms.NumericUpDown();
+            this.lblChampionshipYear = new System.Windows.Forms.Label();
+            this.txtChampionshipName = new System.Windows.Forms.TextBox();
+            this.lblChampionshipName = new System.Windows.Forms.Label();
+            this.nudChampionshipId = new System.Windows.Forms.NumericUpDown();
+            this.lblChampionshipId = new System.Windows.Forms.Label();
+            this.dgvChampionships = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTournaments = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTeams = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpOpen = new System.Windows.Forms.GroupBox();
+            this.btnStatistics = new System.Windows.Forms.Button();
+            this.btnMatches = new System.Windows.Forms.Button();
+            this.btnTournaments = new System.Windows.Forms.Button();
+            this.btnTeams = new System.Windows.Forms.Button();
+            this.grpSummary = new System.Windows.Forms.GroupBox();
+            this.statusMain = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblAutoSave = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTotalScores = new System.Windows.Forms.Label();
+            this.lblTotalTournaments = new System.Windows.Forms.Label();
+            this.lblTotalTeams = new System.Windows.Forms.Label();
+            this.lblTotalMatches = new System.Windows.Forms.Label();
+            this.lblTotalPlayers = new System.Windows.Forms.Label();
+            this.lblScoresText = new System.Windows.Forms.Label();
+            this.lblTournamentsText = new System.Windows.Forms.Label();
+            this.lblTeamsText = new System.Windows.Forms.Label();
+            this.lblPlayersText = new System.Windows.Forms.Label();
+            this.lblMatchesText = new System.Windows.Forms.Label();
+            this.lblTotalChampionships = new System.Windows.Forms.Label();
+            this.lblChampionshipsText = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuMain.SuspendLayout();
             this.grpChampionships.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudChampionshipYear)).BeginInit();
@@ -105,369 +105,10 @@
             this.ajudaToolStripMenuItem});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Size = new System.Drawing.Size(866, 28);
+            this.menuMain.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuMain.Size = new System.Drawing.Size(650, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "menuStrip1";
-            // 
-            // grpChampionships
-            // 
-            this.grpChampionships.Controls.Add(this.btnRemoveChampionship);
-            this.grpChampionships.Controls.Add(this.btnEditChampionship);
-            this.grpChampionships.Controls.Add(this.btnAddChampionship);
-            this.grpChampionships.Controls.Add(this.nudChampionshipYear);
-            this.grpChampionships.Controls.Add(this.lblChampionshipYear);
-            this.grpChampionships.Controls.Add(this.txtChampionshipName);
-            this.grpChampionships.Controls.Add(this.lblChampionshipName);
-            this.grpChampionships.Controls.Add(this.nudChampionshipId);
-            this.grpChampionships.Controls.Add(this.lblChampionshipId);
-            this.grpChampionships.Controls.Add(this.dgvChampionships);
-            this.grpChampionships.Location = new System.Drawing.Point(12, 36);
-            this.grpChampionships.Name = "grpChampionships";
-            this.grpChampionships.Size = new System.Drawing.Size(640, 300);
-            this.grpChampionships.TabIndex = 1;
-            this.grpChampionships.TabStop = false;
-            this.grpChampionships.Text = "Campeonatos";
-            // 
-            // btnRemoveChampionship
-            // 
-            this.btnRemoveChampionship.Location = new System.Drawing.Point(224, 240);
-            this.btnRemoveChampionship.Name = "btnRemoveChampionship";
-            this.btnRemoveChampionship.Size = new System.Drawing.Size(100, 27);
-            this.btnRemoveChampionship.TabIndex = 9;
-            this.btnRemoveChampionship.Text = "Remover";
-            this.btnRemoveChampionship.UseVisualStyleBackColor = true;
-            // 
-            // btnEditChampionship
-            // 
-            this.btnEditChampionship.Location = new System.Drawing.Point(118, 240);
-            this.btnEditChampionship.Name = "btnEditChampionship";
-            this.btnEditChampionship.Size = new System.Drawing.Size(100, 27);
-            this.btnEditChampionship.TabIndex = 8;
-            this.btnEditChampionship.Text = "Editar";
-            this.btnEditChampionship.UseVisualStyleBackColor = true;
-            // 
-            // btnAddChampionship
-            // 
-            this.btnAddChampionship.Location = new System.Drawing.Point(12, 240);
-            this.btnAddChampionship.Name = "btnAddChampionship";
-            this.btnAddChampionship.Size = new System.Drawing.Size(100, 27);
-            this.btnAddChampionship.TabIndex = 7;
-            this.btnAddChampionship.Text = "Adicionar";
-            this.btnAddChampionship.UseVisualStyleBackColor = true;
-            // 
-            // nudChampionshipYear
-            // 
-            this.nudChampionshipYear.Location = new System.Drawing.Point(456, 196);
-            this.nudChampionshipYear.Maximum = new decimal(new int[] {
-            2100,
-            0,
-            0,
-            0});
-            this.nudChampionshipYear.Minimum = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            this.nudChampionshipYear.Name = "nudChampionshipYear";
-            this.nudChampionshipYear.Size = new System.Drawing.Size(80, 22);
-            this.nudChampionshipYear.TabIndex = 6;
-            this.nudChampionshipYear.Value = new decimal(new int[] {
-            2026,
-            0,
-            0,
-            0});
-            // 
-            // lblChampionshipYear
-            // 
-            this.lblChampionshipYear.AutoSize = true;
-            this.lblChampionshipYear.Location = new System.Drawing.Point(424, 200);
-            this.lblChampionshipYear.Name = "lblChampionshipYear";
-            this.lblChampionshipYear.Size = new System.Drawing.Size(31, 16);
-            this.lblChampionshipYear.TabIndex = 5;
-            this.lblChampionshipYear.Text = "Ano";
-            // 
-            // txtChampionshipName
-            // 
-            this.txtChampionshipName.Location = new System.Drawing.Point(168, 196);
-            this.txtChampionshipName.MaxLength = 60;
-            this.txtChampionshipName.Name = "txtChampionshipName";
-            this.txtChampionshipName.Size = new System.Drawing.Size(240, 22);
-            this.txtChampionshipName.TabIndex = 4;
-            // 
-            // lblChampionshipName
-            // 
-            this.lblChampionshipName.AutoSize = true;
-            this.lblChampionshipName.Location = new System.Drawing.Point(124, 200);
-            this.lblChampionshipName.Name = "lblChampionshipName";
-            this.lblChampionshipName.Size = new System.Drawing.Size(44, 16);
-            this.lblChampionshipName.TabIndex = 3;
-            this.lblChampionshipName.Text = "Nome";
-            // 
-            // nudChampionshipId
-            // 
-            this.nudChampionshipId.Location = new System.Drawing.Point(40, 196);
-            this.nudChampionshipId.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudChampionshipId.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudChampionshipId.Name = "nudChampionshipId";
-            this.nudChampionshipId.Size = new System.Drawing.Size(70, 22);
-            this.nudChampionshipId.TabIndex = 2;
-            this.nudChampionshipId.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblChampionshipId
-            // 
-            this.lblChampionshipId.AutoSize = true;
-            this.lblChampionshipId.Location = new System.Drawing.Point(12, 200);
-            this.lblChampionshipId.Name = "lblChampionshipId";
-            this.lblChampionshipId.Size = new System.Drawing.Size(18, 16);
-            this.lblChampionshipId.TabIndex = 1;
-            this.lblChampionshipId.Text = "Id";
-            // 
-            // dgvChampionships
-            // 
-            this.dgvChampionships.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChampionships.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colName,
-            this.colYear,
-            this.colTournaments,
-            this.colTeams});
-            this.dgvChampionships.Location = new System.Drawing.Point(12, 22);
-            this.dgvChampionships.Name = "dgvChampionships";
-            this.dgvChampionships.ReadOnly = true;
-            this.dgvChampionships.RowHeadersWidth = 51;
-            this.dgvChampionships.RowTemplate.Height = 24;
-            this.dgvChampionships.Size = new System.Drawing.Size(616, 160);
-            this.dgvChampionships.TabIndex = 0;
-            // 
-            // grpOpen
-            // 
-            this.grpOpen.Controls.Add(this.btnStatistics);
-            this.grpOpen.Controls.Add(this.btnMatches);
-            this.grpOpen.Controls.Add(this.btnTournaments);
-            this.grpOpen.Controls.Add(this.btnTeams);
-            this.grpOpen.Location = new System.Drawing.Point(664, 36);
-            this.grpOpen.Name = "grpOpen";
-            this.grpOpen.Size = new System.Drawing.Size(208, 180);
-            this.grpOpen.TabIndex = 10;
-            this.grpOpen.TabStop = false;
-            this.grpOpen.Text = "Abrir";
-            // 
-            // btnStatistics
-            // 
-            this.btnStatistics.Location = new System.Drawing.Point(12, 138);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(184, 30);
-            this.btnStatistics.TabIndex = 3;
-            this.btnStatistics.Text = "Estatísticas";
-            this.btnStatistics.UseVisualStyleBackColor = true;
-            // 
-            // btnMatches
-            // 
-            this.btnMatches.Location = new System.Drawing.Point(12, 100);
-            this.btnMatches.Name = "btnMatches";
-            this.btnMatches.Size = new System.Drawing.Size(184, 30);
-            this.btnMatches.TabIndex = 2;
-            this.btnMatches.Text = "Partidas";
-            this.btnMatches.UseVisualStyleBackColor = true;
-            // 
-            // btnTournaments
-            // 
-            this.btnTournaments.Location = new System.Drawing.Point(12, 62);
-            this.btnTournaments.Name = "btnTournaments";
-            this.btnTournaments.Size = new System.Drawing.Size(184, 30);
-            this.btnTournaments.TabIndex = 1;
-            this.btnTournaments.Text = "Torneios";
-            this.btnTournaments.UseVisualStyleBackColor = true;
-            // 
-            // btnTeams
-            // 
-            this.btnTeams.Location = new System.Drawing.Point(12, 24);
-            this.btnTeams.Name = "btnTeams";
-            this.btnTeams.Size = new System.Drawing.Size(184, 30);
-            this.btnTeams.TabIndex = 0;
-            this.btnTeams.Text = "Equipas e Jogadores";
-            this.btnTeams.UseVisualStyleBackColor = true;
-            // 
-            // grpSummary
-            // 
-            this.grpSummary.Controls.Add(this.statusMain);
-            this.grpSummary.Controls.Add(this.lblTotalScores);
-            this.grpSummary.Controls.Add(this.lblTotalTournaments);
-            this.grpSummary.Controls.Add(this.lblTotalTeams);
-            this.grpSummary.Controls.Add(this.lblTotalMatches);
-            this.grpSummary.Controls.Add(this.lblTotalPlayers);
-            this.grpSummary.Controls.Add(this.lblScoresText);
-            this.grpSummary.Controls.Add(this.lblTournamentsText);
-            this.grpSummary.Controls.Add(this.lblTeamsText);
-            this.grpSummary.Controls.Add(this.lblPlayersText);
-            this.grpSummary.Controls.Add(this.lblMatchesText);
-            this.grpSummary.Controls.Add(this.lblTotalChampionships);
-            this.grpSummary.Controls.Add(this.lblChampionshipsText);
-            this.grpSummary.Location = new System.Drawing.Point(664, 228);
-            this.grpSummary.Name = "grpSummary";
-            this.grpSummary.Size = new System.Drawing.Size(208, 190);
-            this.grpSummary.TabIndex = 4;
-            this.grpSummary.TabStop = false;
-            this.grpSummary.Text = "Resumo";
-            // 
-            // lblChampionshipsText
-            // 
-            this.lblChampionshipsText.AutoSize = true;
-            this.lblChampionshipsText.Location = new System.Drawing.Point(12, 26);
-            this.lblChampionshipsText.Name = "lblChampionshipsText";
-            this.lblChampionshipsText.Size = new System.Drawing.Size(95, 16);
-            this.lblChampionshipsText.TabIndex = 0;
-            this.lblChampionshipsText.Text = "Campeonatos:";
-            // 
-            // lblTotalChampionships
-            // 
-            this.lblTotalChampionships.AutoSize = true;
-            this.lblTotalChampionships.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalChampionships.Location = new System.Drawing.Point(120, 26);
-            this.lblTotalChampionships.Name = "lblTotalChampionships";
-            this.lblTotalChampionships.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalChampionships.TabIndex = 1;
-            this.lblTotalChampionships.Text = "0";
-            // 
-            // lblMatchesText
-            // 
-            this.lblMatchesText.AutoSize = true;
-            this.lblMatchesText.Location = new System.Drawing.Point(12, 138);
-            this.lblMatchesText.Name = "lblMatchesText";
-            this.lblMatchesText.Size = new System.Drawing.Size(60, 16);
-            this.lblMatchesText.TabIndex = 2;
-            this.lblMatchesText.Text = "Partidas:";
-            // 
-            // lblPlayersText
-            // 
-            this.lblPlayersText.AutoSize = true;
-            this.lblPlayersText.Location = new System.Drawing.Point(12, 110);
-            this.lblPlayersText.Name = "lblPlayersText";
-            this.lblPlayersText.Size = new System.Drawing.Size(76, 16);
-            this.lblPlayersText.TabIndex = 3;
-            this.lblPlayersText.Text = "Jogadores:";
-            // 
-            // lblTeamsText
-            // 
-            this.lblTeamsText.AutoSize = true;
-            this.lblTeamsText.Location = new System.Drawing.Point(12, 82);
-            this.lblTeamsText.Name = "lblTeamsText";
-            this.lblTeamsText.Size = new System.Drawing.Size(60, 16);
-            this.lblTeamsText.TabIndex = 4;
-            this.lblTeamsText.Text = "Equipas:";
-            // 
-            // lblTournamentsText
-            // 
-            this.lblTournamentsText.AutoSize = true;
-            this.lblTournamentsText.Location = new System.Drawing.Point(12, 54);
-            this.lblTournamentsText.Name = "lblTournamentsText";
-            this.lblTournamentsText.Size = new System.Drawing.Size(64, 16);
-            this.lblTournamentsText.TabIndex = 5;
-            this.lblTournamentsText.Text = "Torneios:";
-            // 
-            // lblScoresText
-            // 
-            this.lblScoresText.AutoSize = true;
-            this.lblScoresText.Location = new System.Drawing.Point(12, 166);
-            this.lblScoresText.Name = "lblScoresText";
-            this.lblScoresText.Size = new System.Drawing.Size(82, 16);
-            this.lblScoresText.TabIndex = 6;
-            this.lblScoresText.Text = "Pontuações:";
-            // 
-            // lblTotalPlayers
-            // 
-            this.lblTotalPlayers.AutoSize = true;
-            this.lblTotalPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPlayers.Location = new System.Drawing.Point(120, 110);
-            this.lblTotalPlayers.Name = "lblTotalPlayers";
-            this.lblTotalPlayers.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalPlayers.TabIndex = 7;
-            this.lblTotalPlayers.Text = "0";
-            // 
-            // lblTotalMatches
-            // 
-            this.lblTotalMatches.AutoSize = true;
-            this.lblTotalMatches.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalMatches.Location = new System.Drawing.Point(120, 138);
-            this.lblTotalMatches.Name = "lblTotalMatches";
-            this.lblTotalMatches.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalMatches.TabIndex = 8;
-            this.lblTotalMatches.Text = "0";
-            // 
-            // lblTotalTeams
-            // 
-            this.lblTotalTeams.AutoSize = true;
-            this.lblTotalTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalTeams.Location = new System.Drawing.Point(120, 82);
-            this.lblTotalTeams.Name = "lblTotalTeams";
-            this.lblTotalTeams.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalTeams.TabIndex = 9;
-            this.lblTotalTeams.Text = "0";
-            // 
-            // lblTotalTournaments
-            // 
-            this.lblTotalTournaments.AutoSize = true;
-            this.lblTotalTournaments.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalTournaments.Location = new System.Drawing.Point(120, 54);
-            this.lblTotalTournaments.Name = "lblTotalTournaments";
-            this.lblTotalTournaments.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalTournaments.TabIndex = 10;
-            this.lblTotalTournaments.Text = "0";
-            // 
-            // lblTotalScores
-            // 
-            this.lblTotalScores.AutoSize = true;
-            this.lblTotalScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalScores.Location = new System.Drawing.Point(120, 166);
-            this.lblTotalScores.Name = "lblTotalScores";
-            this.lblTotalScores.Size = new System.Drawing.Size(15, 16);
-            this.lblTotalScores.TabIndex = 11;
-            this.lblTotalScores.Text = "0";
-            // 
-            // statusMain
-            // 
-            this.statusMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus,
-            this.lblAutoSave});
-            this.statusMain.Location = new System.Drawing.Point(3, 161);
-            this.statusMain.Name = "statusMain";
-            this.statusMain.Size = new System.Drawing.Size(202, 26);
-            this.statusMain.TabIndex = 12;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(53, 20);
-            this.lblStatus.Text = "Pronto";
-            // 
-            // lblAutoSave
-            // 
-            this.lblAutoSave.ForeColor = System.Drawing.Color.DimGray;
-            this.lblAutoSave.Name = "lblAutoSave";
-            this.lblAutoSave.Size = new System.Drawing.Size(262, 20);
-            this.lblAutoSave.Text = "Guardado automaticamente ao fechar";
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "\"XML (.xml)|.xml|JSON (.json)|.json\"";
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.Filter = "\"XML (.xml)|.xml|JSON (.json)|.json\"";
             // 
             // mnuFile
             // 
@@ -483,64 +124,64 @@
             this.toolStripSeparator3,
             this.mnuExit});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(75, 24);
+            this.mnuFile.Size = new System.Drawing.Size(61, 20);
             this.mnuFile.Text = "Ficheiro";
             // 
             // mnuImportXml
             // 
             this.mnuImportXml.Name = "mnuImportXml";
-            this.mnuImportXml.Size = new System.Drawing.Size(254, 26);
+            this.mnuImportXml.Size = new System.Drawing.Size(206, 22);
             this.mnuImportXml.Text = "Importar XML...";
             // 
             // mnuImportJson
             // 
             this.mnuImportJson.Name = "mnuImportJson";
-            this.mnuImportJson.Size = new System.Drawing.Size(254, 26);
+            this.mnuImportJson.Size = new System.Drawing.Size(206, 22);
             this.mnuImportJson.Text = "Importar JSON...";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(251, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
             // 
             // mnuExportXml
             // 
             this.mnuExportXml.Name = "mnuExportXml";
-            this.mnuExportXml.Size = new System.Drawing.Size(254, 26);
+            this.mnuExportXml.Size = new System.Drawing.Size(206, 22);
             this.mnuExportXml.Text = "Exportar XML...";
             // 
             // mnuExportJson
             // 
             this.mnuExportJson.Name = "mnuExportJson";
-            this.mnuExportJson.Size = new System.Drawing.Size(254, 26);
+            this.mnuExportJson.Size = new System.Drawing.Size(206, 22);
             this.mnuExportJson.Text = "\tExportar JSON...";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
             // 
             // mnuConvertXmlToJson
             // 
             this.mnuConvertXmlToJson.Name = "mnuConvertXmlToJson";
-            this.mnuConvertXmlToJson.Size = new System.Drawing.Size(254, 26);
+            this.mnuConvertXmlToJson.Size = new System.Drawing.Size(206, 22);
             this.mnuConvertXmlToJson.Text = "Converter XML → JSON...";
             // 
             // mnuConvertJsonToXml
             // 
             this.mnuConvertJsonToXml.Name = "mnuConvertJsonToXml";
-            this.mnuConvertJsonToXml.Size = new System.Drawing.Size(254, 26);
+            this.mnuConvertJsonToXml.Size = new System.Drawing.Size(206, 22);
             this.mnuConvertJsonToXml.Text = "Converter JSON → XML...";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(251, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(203, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(254, 26);
+            this.mnuExit.Size = new System.Drawing.Size(206, 22);
             this.mnuExit.Text = "Sair";
             // 
             // mnuManage
@@ -551,31 +192,31 @@
             this.mnuMatches,
             this.mnuStatistics});
             this.mnuManage.Name = "mnuManage";
-            this.mnuManage.Size = new System.Drawing.Size(69, 24);
+            this.mnuManage.Size = new System.Drawing.Size(55, 20);
             this.mnuManage.Text = "Gestão";
             // 
             // mnuTeams
             // 
             this.mnuTeams.Name = "mnuTeams";
-            this.mnuTeams.Size = new System.Drawing.Size(228, 26);
+            this.mnuTeams.Size = new System.Drawing.Size(180, 22);
             this.mnuTeams.Text = "Equipas e Jogadores";
             // 
             // mnuTournaments
             // 
             this.mnuTournaments.Name = "mnuTournaments";
-            this.mnuTournaments.Size = new System.Drawing.Size(228, 26);
+            this.mnuTournaments.Size = new System.Drawing.Size(180, 22);
             this.mnuTournaments.Text = "Torneios";
             // 
             // mnuMatches
             // 
             this.mnuMatches.Name = "mnuMatches";
-            this.mnuMatches.Size = new System.Drawing.Size(228, 26);
+            this.mnuMatches.Size = new System.Drawing.Size(180, 22);
             this.mnuMatches.Text = "Partidas";
             // 
             // mnuStatistics
             // 
             this.mnuStatistics.Name = "mnuStatistics";
-            this.mnuStatistics.Size = new System.Drawing.Size(228, 26);
+            this.mnuStatistics.Size = new System.Drawing.Size(180, 22);
             this.mnuStatistics.Text = "Estastísticas";
             // 
             // ajudaToolStripMenuItem
@@ -583,14 +224,168 @@
             this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAbout});
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // mnuAbout
             // 
             this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(224, 26);
+            this.mnuAbout.Size = new System.Drawing.Size(135, 22);
             this.mnuAbout.Text = "Acerca de...";
+            // 
+            // grpChampionships
+            // 
+            this.grpChampionships.Controls.Add(this.btnRemoveChampionship);
+            this.grpChampionships.Controls.Add(this.btnEditChampionship);
+            this.grpChampionships.Controls.Add(this.btnAddChampionship);
+            this.grpChampionships.Controls.Add(this.nudChampionshipYear);
+            this.grpChampionships.Controls.Add(this.lblChampionshipYear);
+            this.grpChampionships.Controls.Add(this.txtChampionshipName);
+            this.grpChampionships.Controls.Add(this.lblChampionshipName);
+            this.grpChampionships.Controls.Add(this.nudChampionshipId);
+            this.grpChampionships.Controls.Add(this.lblChampionshipId);
+            this.grpChampionships.Controls.Add(this.dgvChampionships);
+            this.grpChampionships.Location = new System.Drawing.Point(9, 29);
+            this.grpChampionships.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpChampionships.Name = "grpChampionships";
+            this.grpChampionships.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpChampionships.Size = new System.Drawing.Size(480, 244);
+            this.grpChampionships.TabIndex = 1;
+            this.grpChampionships.TabStop = false;
+            this.grpChampionships.Text = "Campeonatos";
+            // 
+            // btnRemoveChampionship
+            // 
+            this.btnRemoveChampionship.Location = new System.Drawing.Point(168, 195);
+            this.btnRemoveChampionship.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveChampionship.Name = "btnRemoveChampionship";
+            this.btnRemoveChampionship.Size = new System.Drawing.Size(75, 22);
+            this.btnRemoveChampionship.TabIndex = 9;
+            this.btnRemoveChampionship.Text = "Remover";
+            this.btnRemoveChampionship.UseVisualStyleBackColor = true;
+            // 
+            // btnEditChampionship
+            // 
+            this.btnEditChampionship.Location = new System.Drawing.Point(88, 195);
+            this.btnEditChampionship.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditChampionship.Name = "btnEditChampionship";
+            this.btnEditChampionship.Size = new System.Drawing.Size(75, 22);
+            this.btnEditChampionship.TabIndex = 8;
+            this.btnEditChampionship.Text = "Editar";
+            this.btnEditChampionship.UseVisualStyleBackColor = true;
+            // 
+            // btnAddChampionship
+            // 
+            this.btnAddChampionship.Location = new System.Drawing.Point(9, 195);
+            this.btnAddChampionship.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddChampionship.Name = "btnAddChampionship";
+            this.btnAddChampionship.Size = new System.Drawing.Size(75, 22);
+            this.btnAddChampionship.TabIndex = 7;
+            this.btnAddChampionship.Text = "Adicionar";
+            this.btnAddChampionship.UseVisualStyleBackColor = true;
+            // 
+            // nudChampionshipYear
+            // 
+            this.nudChampionshipYear.Location = new System.Drawing.Point(342, 159);
+            this.nudChampionshipYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudChampionshipYear.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.nudChampionshipYear.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.nudChampionshipYear.Name = "nudChampionshipYear";
+            this.nudChampionshipYear.Size = new System.Drawing.Size(60, 20);
+            this.nudChampionshipYear.TabIndex = 6;
+            this.nudChampionshipYear.Value = new decimal(new int[] {
+            2026,
+            0,
+            0,
+            0});
+            // 
+            // lblChampionshipYear
+            // 
+            this.lblChampionshipYear.AutoSize = true;
+            this.lblChampionshipYear.Location = new System.Drawing.Point(318, 162);
+            this.lblChampionshipYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChampionshipYear.Name = "lblChampionshipYear";
+            this.lblChampionshipYear.Size = new System.Drawing.Size(26, 13);
+            this.lblChampionshipYear.TabIndex = 5;
+            this.lblChampionshipYear.Text = "Ano";
+            // 
+            // txtChampionshipName
+            // 
+            this.txtChampionshipName.Location = new System.Drawing.Point(126, 159);
+            this.txtChampionshipName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtChampionshipName.MaxLength = 60;
+            this.txtChampionshipName.Name = "txtChampionshipName";
+            this.txtChampionshipName.Size = new System.Drawing.Size(181, 20);
+            this.txtChampionshipName.TabIndex = 4;
+            // 
+            // lblChampionshipName
+            // 
+            this.lblChampionshipName.AutoSize = true;
+            this.lblChampionshipName.Location = new System.Drawing.Point(93, 162);
+            this.lblChampionshipName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChampionshipName.Name = "lblChampionshipName";
+            this.lblChampionshipName.Size = new System.Drawing.Size(35, 13);
+            this.lblChampionshipName.TabIndex = 3;
+            this.lblChampionshipName.Text = "Nome";
+            // 
+            // nudChampionshipId
+            // 
+            this.nudChampionshipId.Location = new System.Drawing.Point(30, 159);
+            this.nudChampionshipId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudChampionshipId.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudChampionshipId.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudChampionshipId.Name = "nudChampionshipId";
+            this.nudChampionshipId.Size = new System.Drawing.Size(52, 20);
+            this.nudChampionshipId.TabIndex = 2;
+            this.nudChampionshipId.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblChampionshipId
+            // 
+            this.lblChampionshipId.AutoSize = true;
+            this.lblChampionshipId.Location = new System.Drawing.Point(9, 162);
+            this.lblChampionshipId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChampionshipId.Name = "lblChampionshipId";
+            this.lblChampionshipId.Size = new System.Drawing.Size(16, 13);
+            this.lblChampionshipId.TabIndex = 1;
+            this.lblChampionshipId.Text = "Id";
+            // 
+            // dgvChampionships
+            // 
+            this.dgvChampionships.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChampionships.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colName,
+            this.colYear,
+            this.colTournaments,
+            this.colTeams});
+            this.dgvChampionships.Location = new System.Drawing.Point(9, 18);
+            this.dgvChampionships.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvChampionships.Name = "dgvChampionships";
+            this.dgvChampionships.ReadOnly = true;
+            this.dgvChampionships.RowHeadersWidth = 51;
+            this.dgvChampionships.RowTemplate.Height = 24;
+            this.dgvChampionships.Size = new System.Drawing.Size(462, 130);
+            this.dgvChampionships.TabIndex = 0;
             // 
             // colId
             // 
@@ -631,16 +426,256 @@
             this.colTeams.Name = "colTeams";
             this.colTeams.ReadOnly = true;
             // 
+            // grpOpen
+            // 
+            this.grpOpen.Controls.Add(this.btnStatistics);
+            this.grpOpen.Controls.Add(this.btnMatches);
+            this.grpOpen.Controls.Add(this.btnTournaments);
+            this.grpOpen.Controls.Add(this.btnTeams);
+            this.grpOpen.Location = new System.Drawing.Point(498, 29);
+            this.grpOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpOpen.Name = "grpOpen";
+            this.grpOpen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpOpen.Size = new System.Drawing.Size(156, 146);
+            this.grpOpen.TabIndex = 10;
+            this.grpOpen.TabStop = false;
+            this.grpOpen.Text = "Abrir";
+            // 
+            // btnStatistics
+            // 
+            this.btnStatistics.Location = new System.Drawing.Point(9, 112);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Size = new System.Drawing.Size(138, 24);
+            this.btnStatistics.TabIndex = 3;
+            this.btnStatistics.Text = "Estatísticas";
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            // 
+            // btnMatches
+            // 
+            this.btnMatches.Location = new System.Drawing.Point(9, 81);
+            this.btnMatches.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMatches.Name = "btnMatches";
+            this.btnMatches.Size = new System.Drawing.Size(138, 24);
+            this.btnMatches.TabIndex = 2;
+            this.btnMatches.Text = "Partidas";
+            this.btnMatches.UseVisualStyleBackColor = true;
+            // 
+            // btnTournaments
+            // 
+            this.btnTournaments.Location = new System.Drawing.Point(9, 50);
+            this.btnTournaments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTournaments.Name = "btnTournaments";
+            this.btnTournaments.Size = new System.Drawing.Size(138, 24);
+            this.btnTournaments.TabIndex = 1;
+            this.btnTournaments.Text = "Torneios";
+            this.btnTournaments.UseVisualStyleBackColor = true;
+            // 
+            // btnTeams
+            // 
+            this.btnTeams.Location = new System.Drawing.Point(9, 20);
+            this.btnTeams.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTeams.Name = "btnTeams";
+            this.btnTeams.Size = new System.Drawing.Size(138, 24);
+            this.btnTeams.TabIndex = 0;
+            this.btnTeams.Text = "Equipas e Jogadores";
+            this.btnTeams.UseVisualStyleBackColor = true;
+            // 
+            // grpSummary
+            // 
+            this.grpSummary.Controls.Add(this.statusMain);
+            this.grpSummary.Controls.Add(this.lblTotalScores);
+            this.grpSummary.Controls.Add(this.lblTotalTournaments);
+            this.grpSummary.Controls.Add(this.lblTotalTeams);
+            this.grpSummary.Controls.Add(this.lblTotalMatches);
+            this.grpSummary.Controls.Add(this.lblTotalPlayers);
+            this.grpSummary.Controls.Add(this.lblScoresText);
+            this.grpSummary.Controls.Add(this.lblTournamentsText);
+            this.grpSummary.Controls.Add(this.lblTeamsText);
+            this.grpSummary.Controls.Add(this.lblPlayersText);
+            this.grpSummary.Controls.Add(this.lblMatchesText);
+            this.grpSummary.Controls.Add(this.lblTotalChampionships);
+            this.grpSummary.Controls.Add(this.lblChampionshipsText);
+            this.grpSummary.Location = new System.Drawing.Point(498, 185);
+            this.grpSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSummary.Name = "grpSummary";
+            this.grpSummary.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSummary.Size = new System.Drawing.Size(156, 154);
+            this.grpSummary.TabIndex = 4;
+            this.grpSummary.TabStop = false;
+            this.grpSummary.Text = "Resumo";
+            // 
+            // statusMain
+            // 
+            this.statusMain.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.lblAutoSave});
+            this.statusMain.Location = new System.Drawing.Point(2, 130);
+            this.statusMain.Name = "statusMain";
+            this.statusMain.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusMain.Size = new System.Drawing.Size(152, 22);
+            this.statusMain.TabIndex = 12;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(43, 17);
+            this.lblStatus.Text = "Pronto";
+            // 
+            // lblAutoSave
+            // 
+            this.lblAutoSave.ForeColor = System.Drawing.Color.DimGray;
+            this.lblAutoSave.Name = "lblAutoSave";
+            this.lblAutoSave.Size = new System.Drawing.Size(208, 15);
+            this.lblAutoSave.Text = "Guardado automaticamente ao fechar";
+            // 
+            // lblTotalScores
+            // 
+            this.lblTotalScores.AutoSize = true;
+            this.lblTotalScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalScores.Location = new System.Drawing.Point(90, 135);
+            this.lblTotalScores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalScores.Name = "lblTotalScores";
+            this.lblTotalScores.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalScores.TabIndex = 11;
+            this.lblTotalScores.Text = "0";
+            // 
+            // lblTotalTournaments
+            // 
+            this.lblTotalTournaments.AutoSize = true;
+            this.lblTotalTournaments.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTournaments.Location = new System.Drawing.Point(90, 44);
+            this.lblTotalTournaments.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalTournaments.Name = "lblTotalTournaments";
+            this.lblTotalTournaments.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalTournaments.TabIndex = 10;
+            this.lblTotalTournaments.Text = "0";
+            // 
+            // lblTotalTeams
+            // 
+            this.lblTotalTeams.AutoSize = true;
+            this.lblTotalTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTeams.Location = new System.Drawing.Point(90, 67);
+            this.lblTotalTeams.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalTeams.Name = "lblTotalTeams";
+            this.lblTotalTeams.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalTeams.TabIndex = 9;
+            this.lblTotalTeams.Text = "0";
+            // 
+            // lblTotalMatches
+            // 
+            this.lblTotalMatches.AutoSize = true;
+            this.lblTotalMatches.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalMatches.Location = new System.Drawing.Point(90, 112);
+            this.lblTotalMatches.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalMatches.Name = "lblTotalMatches";
+            this.lblTotalMatches.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalMatches.TabIndex = 8;
+            this.lblTotalMatches.Text = "0";
+            // 
+            // lblTotalPlayers
+            // 
+            this.lblTotalPlayers.AutoSize = true;
+            this.lblTotalPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPlayers.Location = new System.Drawing.Point(90, 89);
+            this.lblTotalPlayers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalPlayers.Name = "lblTotalPlayers";
+            this.lblTotalPlayers.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalPlayers.TabIndex = 7;
+            this.lblTotalPlayers.Text = "0";
+            // 
+            // lblScoresText
+            // 
+            this.lblScoresText.AutoSize = true;
+            this.lblScoresText.Location = new System.Drawing.Point(9, 135);
+            this.lblScoresText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblScoresText.Name = "lblScoresText";
+            this.lblScoresText.Size = new System.Drawing.Size(67, 13);
+            this.lblScoresText.TabIndex = 6;
+            this.lblScoresText.Text = "Pontuações:";
+            // 
+            // lblTournamentsText
+            // 
+            this.lblTournamentsText.AutoSize = true;
+            this.lblTournamentsText.Location = new System.Drawing.Point(9, 44);
+            this.lblTournamentsText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTournamentsText.Name = "lblTournamentsText";
+            this.lblTournamentsText.Size = new System.Drawing.Size(51, 13);
+            this.lblTournamentsText.TabIndex = 5;
+            this.lblTournamentsText.Text = "Torneios:";
+            // 
+            // lblTeamsText
+            // 
+            this.lblTeamsText.AutoSize = true;
+            this.lblTeamsText.Location = new System.Drawing.Point(9, 67);
+            this.lblTeamsText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTeamsText.Name = "lblTeamsText";
+            this.lblTeamsText.Size = new System.Drawing.Size(48, 13);
+            this.lblTeamsText.TabIndex = 4;
+            this.lblTeamsText.Text = "Equipas:";
+            // 
+            // lblPlayersText
+            // 
+            this.lblPlayersText.AutoSize = true;
+            this.lblPlayersText.Location = new System.Drawing.Point(9, 89);
+            this.lblPlayersText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPlayersText.Name = "lblPlayersText";
+            this.lblPlayersText.Size = new System.Drawing.Size(59, 13);
+            this.lblPlayersText.TabIndex = 3;
+            this.lblPlayersText.Text = "Jogadores:";
+            // 
+            // lblMatchesText
+            // 
+            this.lblMatchesText.AutoSize = true;
+            this.lblMatchesText.Location = new System.Drawing.Point(9, 112);
+            this.lblMatchesText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMatchesText.Name = "lblMatchesText";
+            this.lblMatchesText.Size = new System.Drawing.Size(48, 13);
+            this.lblMatchesText.TabIndex = 2;
+            this.lblMatchesText.Text = "Partidas:";
+            // 
+            // lblTotalChampionships
+            // 
+            this.lblTotalChampionships.AutoSize = true;
+            this.lblTotalChampionships.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalChampionships.Location = new System.Drawing.Point(90, 21);
+            this.lblTotalChampionships.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalChampionships.Name = "lblTotalChampionships";
+            this.lblTotalChampionships.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalChampionships.TabIndex = 1;
+            this.lblTotalChampionships.Text = "0";
+            // 
+            // lblChampionshipsText
+            // 
+            this.lblChampionshipsText.AutoSize = true;
+            this.lblChampionshipsText.Location = new System.Drawing.Point(9, 21);
+            this.lblChampionshipsText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChampionshipsText.Name = "lblChampionshipsText";
+            this.lblChampionshipsText.Size = new System.Drawing.Size(75, 13);
+            this.lblChampionshipsText.TabIndex = 0;
+            this.lblChampionshipsText.Text = "Campeonatos:";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "\"XML (.xml)|.xml|JSON (.json)|.json\"";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "\"XML (.xml)|.xml|JSON (.json)|.json\"";
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 423);
+            this.ClientSize = new System.Drawing.Size(650, 344);
             this.Controls.Add(this.grpSummary);
             this.Controls.Add(this.grpOpen);
             this.Controls.Add(this.grpChampionships);
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Campeonatos de eSports";

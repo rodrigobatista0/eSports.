@@ -33,18 +33,18 @@ namespace eSports
         }
         private void LoadChampionships()
         {
-            cmbChamp.Items.Clear();
+            cmbChampionships.Items.Clear();
 
             foreach (Campeonato championship in m_service.Data.Campeonatos)
-                cmbChamp.Items.Add(championship);
+                cmbChampionships.Items.Add(championship);
 
-            UiHelper.SelectFirst(cmbChamp);
+            UiHelper.SelectFirst(cmbChampionships);
         }
         private void LoadTournaments()
         {
             cmbTournament.Items.Clear();
 
-            Campeonato championship = cmbChamp.SelectedItem as Campeonato;
+            Campeonato championship = cmbChampionships.SelectedItem as Campeonato;
 
             if (championship != null)
             {
@@ -151,23 +151,218 @@ namespace eSports
         #endregion
 
         #region Choose championship / tournament / team
-
-        #endregion
-
         private void cmbTournament_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadTournaments();
+            LoadTeams();
+            LoadTeamCombo();
+            LoadPlayers();
+            ClearTeamFields();
+            ClearPlayerFields();
         }
-
-        private void cmbTournemant_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbChampionships_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadTournaments();
+
+        }
+        private void cmbTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPlayers();
+            ClearPlayerFields();
+        }
+        #endregion
+
+        #region Equipas
+        private void dgvTeams_SelectionChanged(object sender, EventArgs e)
+        {
+            if (m_loading)
+                return;
+
+            Equipa team = UiHelper.SelectedTag(dgvTeams) as Equipa;
+
+            if (team == null)
+                return;
+
+            UiHelper.SetNumber(nudID, team.Id);
+            txtNameTeam.Text = team.Nome;
+            txtCountryTeams.Text = team.Pais;
         }
 
-        private void cmbChamp_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAdc_Click(object sender, EventArgs e)
         {
+            try
+            {
+                m_service.AddTeam(CurrentTournament(), (int)nudID.Value, txtNameTeam.Text, txtCountryTeams.Text);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
 
+            AfterTeamChange();
+        }
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Equipa team = UiHelper.SelectedTag(dgvTeams) as Equipa;
+
+            try
+            {
+                m_service.EditTeam(CurrentTournament(), team, (int)nudID.Value, txtNameTeam.Text, txtCountryTeams.Text);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
+
+            AfterTeamChange();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            Equipa team = UiHelper.SelectedTag(dgvTeams) as Equipa;
+
+            if (team == null)
+            {
+                ShowError("Escolha uma equipa na grelha.");
+                return;
+            }
+
+            if (MessageBox.Show("Remover a equipa " + team.Nome + " e os seus jogadores?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            try
+            {
+                m_service.RemoveTeam(CurrentTournament(), team);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
+
+            AfterTeamChange();
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            dgvTeams.ClearSelection();
+            ClearTeamFields();
+        }
+        #endregion
+
+        #region Players
+        private void dgvPlayers_SelectionChanged(object sender, EventArgs e)
+        {
+            if (m_loading)
+                return;
+
+            Jogador player = UiHelper.SelectedTag(dgvPlayers) as Jogador;
+
+            if (player == null)
+                return;
+
+            UiHelper.SetNumber(nudIdPlayer, player.Id);
+            txtNamePlayer.Text = player.Nome;
+            txtNickNamePlayer.Text = player.Nickname;
+            UiHelper.SetNumber(nudAgePlayer, player.Idade);
+
+            lstScores.Items.Clear();
+
+            foreach (int score in player.Pontuacoes)
+                lstScores.Items.Add(score);
+        }
+
+        private void txtSearchNick_TextChanged(object sender, EventArgs e)
+        {
+            LoadPlayers();
+        }
+
+        private void btnAddPlayer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_service.AddPlayer(CurrentTeam(), (int)nudIdPlayer.Value, txtNamePlayer.Text, txtNickNamePlayer.Text, (int)nudAgePlayer.Value, GetScores());
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
+
+            AfterPlayerChange();
+
+        }
+
+        private void btnEditPlayer_Click(object sender, EventArgs e)
+        {
+            Jogador player = UiHelper.SelectedTag(dgvPlayers) as Jogador;
+
+            try
+            {
+                m_service.EditPlayer(CurrentTeam(), player, (int)nudIdPlayer.Value, txtNamePlayer.Text, txtNickNamePlayer.Text, (int)nudAgePlayer.Value, GetScores());
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
+
+            AfterPlayerChange();
+        }
+
+        private void btnRemovePlayer_Click(object sender, EventArgs e)
+        {
+            Jogador player = UiHelper.SelectedTag(dgvPlayers) as Jogador;
+
+            if (player == null)
+            {
+                ShowError("Escolha um jogador na grelha.");
+                return;
+            }
+
+            if (MessageBox.Show("Remover o jogador " + player.Nickname + "?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            try
+            {
+                m_service.RemovePlayer(CurrentTeam(), player);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
+
+            AfterPlayerChange();
+        }
+
+        private List<int> GetScores()
+        {
+            List<int> scores = new List<int>();
+
+            foreach (object item in lstScores.Items)
+                scores.Add((int)item);
+
+            return scores;
+        }
+
+        private void btnAddScore_Click(object sender, EventArgs e)
+        {
+            lstScores.Items.Add((int)nudScore.Value);
+
+        }
+
+        private void btnRemoveScore_Click(object sender, EventArgs e)
+        {
+            if (lstScores.SelectedIndex < 0)
+            {
+                ShowError("Escolha uma pontuação na lista.");
+                return;
+            }
+
+            lstScores.Items.RemoveAt(lstScores.SelectedIndex);
         }
     }
-
+    #endregion
 }

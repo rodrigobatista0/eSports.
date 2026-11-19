@@ -126,6 +126,9 @@
     <Compile Include="Services\UiHelper.cs" />
     <Compile Include="Services\Validations.cs" />
     <Compile Include="Services\XmlService.cs" />
+    <EmbeddedResource Include="FormTeam.resx">
+      <DependentUpon>FormTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

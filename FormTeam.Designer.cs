@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbTournemant = new System.Windows.Forms.ComboBox();
+            this.cmbChamp = new System.Windows.Forms.ComboBox();
             this.lblChamp = new System.Windows.Forms.Label();
             this.lblTournament = new System.Windows.Forms.Label();
             this.cmbTournament = new System.Windows.Forms.ComboBox();
@@ -82,15 +82,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayers)).BeginInit();
             this.SuspendLayout();
             // 
-            // cmbTournemant
+            // cmbChamp
             // 
-            this.cmbTournemant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTournemant.FormattingEnabled = true;
-            this.cmbTournemant.Location = new System.Drawing.Point(116, 45);
-            this.cmbTournemant.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbTournemant.Name = "cmbTournemant";
-            this.cmbTournemant.Size = new System.Drawing.Size(192, 28);
-            this.cmbTournemant.TabIndex = 0;
+            this.cmbChamp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChamp.FormattingEnabled = true;
+            this.cmbChamp.Location = new System.Drawing.Point(116, 45);
+            this.cmbChamp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbChamp.Name = "cmbChamp";
+            this.cmbChamp.Size = new System.Drawing.Size(192, 28);
+            this.cmbChamp.TabIndex = 0;
+            this.cmbChamp.SelectedIndexChanged += new System.EventHandler(this.cmbChamp_SelectedIndexChanged);
             // 
             // lblChamp
             // 
@@ -119,6 +120,7 @@
             this.cmbTournament.Name = "cmbTournament";
             this.cmbTournament.Size = new System.Drawing.Size(195, 28);
             this.cmbTournament.TabIndex = 3;
+            this.cmbTournament.SelectedIndexChanged += new System.EventHandler(this.cmbTournament_SelectedIndexChanged);
             // 
             // tbcTeamsPlayer
             // 
@@ -529,7 +531,7 @@
             this.Controls.Add(this.cmbTournament);
             this.Controls.Add(this.lblTournament);
             this.Controls.Add(this.lblChamp);
-            this.Controls.Add(this.cmbTournemant);
+            this.Controls.Add(this.cmbChamp);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -560,7 +562,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbTournemant;
+        private System.Windows.Forms.ComboBox cmbChamp;
         private System.Windows.Forms.Label lblChamp;
         private System.Windows.Forms.Label lblTournament;
         private System.Windows.Forms.ComboBox cmbTournament;

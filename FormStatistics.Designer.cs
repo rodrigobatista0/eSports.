@@ -33,25 +33,15 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tpStandings = new System.Windows.Forms.TabPage();
-            this.tpTop3 = new System.Windows.Forms.TabPage();
-            this.dgvStandings = new System.Windows.Forms.DataGridView();
             this.lblStandingsHint = new System.Windows.Forms.Label();
-            this.lblOverallAverageText = new System.Windows.Forms.Label();
-            this.lblOverallAverage = new System.Windows.Forms.Label();
-            this.lblPlayersCountText = new System.Windows.Forms.Label();
-            this.lblPlayersCount = new System.Windows.Forms.Label();
-            this.tpSearch = new System.Windows.Forms.TabPage();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.lblResultsCount = new System.Windows.Forms.Label();
-            this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+            this.dgvStandings = new System.Windows.Forms.DataGridView();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPlayed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWins = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLosses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAverage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpTop3 = new System.Windows.Forms.TabPage();
             this.dgvTop3 = new System.Windows.Forms.DataGridView();
             this.colNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,13 +49,23 @@
             this.colTeam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTournament = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAverage1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPlayersCount = new System.Windows.Forms.Label();
+            this.lblPlayersCountText = new System.Windows.Forms.Label();
+            this.lblOverallAverage = new System.Windows.Forms.Label();
+            this.lblOverallAverageText = new System.Windows.Forms.Label();
+            this.tpSearch = new System.Windows.Forms.TabPage();
+            this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+            this.lblResultsCount = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tpStandings.SuspendLayout();
-            this.tpTop3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStandings)).BeginInit();
+            this.tpTop3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTop3)).BeginInit();
             this.tpSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTop3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTournamentFilter
@@ -85,6 +85,7 @@
             this.cmbTournamentFilter.Name = "cmbTournamentFilter";
             this.cmbTournamentFilter.Size = new System.Drawing.Size(220, 28);
             this.cmbTournamentFilter.TabIndex = 1;
+            this.cmbTournamentFilter.SelectedIndexChanged += new System.EventHandler(this.cmbTournamentFilter_SelectedIndexChanged);
             // 
             // btnRefresh
             // 
@@ -94,6 +95,7 @@
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Atualizar";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // tabMain
             // 
@@ -118,20 +120,15 @@
             this.tpStandings.Text = "Classificação";
             this.tpStandings.UseVisualStyleBackColor = true;
             // 
-            // tpTop3
+            // lblStandingsHint
             // 
-            this.tpTop3.Controls.Add(this.dgvTop3);
-            this.tpTop3.Controls.Add(this.lblPlayersCount);
-            this.tpTop3.Controls.Add(this.lblPlayersCountText);
-            this.tpTop3.Controls.Add(this.lblOverallAverage);
-            this.tpTop3.Controls.Add(this.lblOverallAverageText);
-            this.tpTop3.Location = new System.Drawing.Point(4, 29);
-            this.tpTop3.Name = "tpTop3";
-            this.tpTop3.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTop3.Size = new System.Drawing.Size(806, 296);
-            this.tpTop3.TabIndex = 1;
-            this.tpTop3.Text = "Top 3 jogadores";
-            this.tpTop3.UseVisualStyleBackColor = true;
+            this.lblStandingsHint.AutoSize = true;
+            this.lblStandingsHint.ForeColor = System.Drawing.Color.DimGray;
+            this.lblStandingsHint.Location = new System.Drawing.Point(6, 267);
+            this.lblStandingsHint.Name = "lblStandingsHint";
+            this.lblStandingsHint.Size = new System.Drawing.Size(214, 20);
+            this.lblStandingsHint.TabIndex = 4;
+            this.lblStandingsHint.Text = "Vitória = 3 pontos, derrota = 0.";
             // 
             // dgvStandings
             // 
@@ -155,119 +152,6 @@
             this.dgvStandings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStandings.Size = new System.Drawing.Size(794, 258);
             this.dgvStandings.TabIndex = 0;
-            // 
-            // lblStandingsHint
-            // 
-            this.lblStandingsHint.AutoSize = true;
-            this.lblStandingsHint.ForeColor = System.Drawing.Color.DimGray;
-            this.lblStandingsHint.Location = new System.Drawing.Point(6, 267);
-            this.lblStandingsHint.Name = "lblStandingsHint";
-            this.lblStandingsHint.Size = new System.Drawing.Size(214, 20);
-            this.lblStandingsHint.TabIndex = 4;
-            this.lblStandingsHint.Text = "Vitória = 3 pontos, derrota = 0.";
-            // 
-            // lblOverallAverageText
-            // 
-            this.lblOverallAverageText.AutoSize = true;
-            this.lblOverallAverageText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblOverallAverageText.Location = new System.Drawing.Point(6, 269);
-            this.lblOverallAverageText.Name = "lblOverallAverageText";
-            this.lblOverallAverageText.Size = new System.Drawing.Size(194, 20);
-            this.lblOverallAverageText.TabIndex = 6;
-            this.lblOverallAverageText.Text = "Média geral de pontuações:";
-            // 
-            // lblOverallAverage
-            // 
-            this.lblOverallAverage.AutoSize = true;
-            this.lblOverallAverage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverallAverage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblOverallAverage.Location = new System.Drawing.Point(206, 269);
-            this.lblOverallAverage.Name = "lblOverallAverage";
-            this.lblOverallAverage.Size = new System.Drawing.Size(18, 20);
-            this.lblOverallAverage.TabIndex = 7;
-            this.lblOverallAverage.Text = "0";
-            // 
-            // lblPlayersCountText
-            // 
-            this.lblPlayersCountText.AutoSize = true;
-            this.lblPlayersCountText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPlayersCountText.Location = new System.Drawing.Point(230, 269);
-            this.lblPlayersCountText.Name = "lblPlayersCountText";
-            this.lblPlayersCountText.Size = new System.Drawing.Size(80, 20);
-            this.lblPlayersCountText.TabIndex = 8;
-            this.lblPlayersCountText.Text = "Jogadores:";
-            // 
-            // lblPlayersCount
-            // 
-            this.lblPlayersCount.AutoSize = true;
-            this.lblPlayersCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayersCount.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPlayersCount.Location = new System.Drawing.Point(316, 269);
-            this.lblPlayersCount.Name = "lblPlayersCount";
-            this.lblPlayersCount.Size = new System.Drawing.Size(18, 20);
-            this.lblPlayersCount.TabIndex = 9;
-            this.lblPlayersCount.Text = "0";
-            // 
-            // tpSearch
-            // 
-            this.tpSearch.Controls.Add(this.dgvSearchResults);
-            this.tpSearch.Controls.Add(this.lblResultsCount);
-            this.tpSearch.Controls.Add(this.btnSearch);
-            this.tpSearch.Controls.Add(this.txtSearch);
-            this.tpSearch.Controls.Add(this.lblSearch);
-            this.tpSearch.Location = new System.Drawing.Point(4, 29);
-            this.tpSearch.Name = "tpSearch";
-            this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSearch.Size = new System.Drawing.Size(806, 296);
-            this.tpSearch.TabIndex = 2;
-            this.tpSearch.Text = "Pesquisar nickname";
-            this.tpSearch.UseVisualStyleBackColor = true;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(6, 12);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(75, 20);
-            this.lblSearch.TabIndex = 4;
-            this.lblSearch.Text = "Nickname";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(87, 9);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(200, 27);
-            this.txtSearch.TabIndex = 5;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(293, 9);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 27);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Pesquisar";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // lblResultsCount
-            // 
-            this.lblResultsCount.AutoSize = true;
-            this.lblResultsCount.ForeColor = System.Drawing.Color.DimGray;
-            this.lblResultsCount.Location = new System.Drawing.Point(394, 12);
-            this.lblResultsCount.Name = "lblResultsCount";
-            this.lblResultsCount.Size = new System.Drawing.Size(89, 20);
-            this.lblResultsCount.TabIndex = 6;
-            this.lblResultsCount.Text = "0 resultados";
-            // 
-            // dgvSearchResults
-            // 
-            this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchResults.Location = new System.Drawing.Point(6, 42);
-            this.dgvSearchResults.Name = "dgvSearchResults";
-            this.dgvSearchResults.ReadOnly = true;
-            this.dgvSearchResults.RowHeadersWidth = 51;
-            this.dgvSearchResults.RowTemplate.Height = 24;
-            this.dgvSearchResults.Size = new System.Drawing.Size(794, 248);
-            this.dgvSearchResults.TabIndex = 7;
             // 
             // colPosition
             // 
@@ -317,6 +201,21 @@
             this.colAverage.Name = "colAverage";
             this.colAverage.ReadOnly = true;
             // 
+            // tpTop3
+            // 
+            this.tpTop3.Controls.Add(this.dgvTop3);
+            this.tpTop3.Controls.Add(this.lblPlayersCount);
+            this.tpTop3.Controls.Add(this.lblPlayersCountText);
+            this.tpTop3.Controls.Add(this.lblOverallAverage);
+            this.tpTop3.Controls.Add(this.lblOverallAverageText);
+            this.tpTop3.Location = new System.Drawing.Point(4, 29);
+            this.tpTop3.Name = "tpTop3";
+            this.tpTop3.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTop3.Size = new System.Drawing.Size(806, 296);
+            this.tpTop3.TabIndex = 1;
+            this.tpTop3.Text = "Top 3 jogadores";
+            this.tpTop3.UseVisualStyleBackColor = true;
+            // 
             // dgvTop3
             // 
             this.dgvTop3.AllowUserToAddRows = false;
@@ -346,6 +245,7 @@
             this.colNickname.MinimumWidth = 6;
             this.colNickname.Name = "colNickname";
             this.colNickname.ReadOnly = true;
+            this.colNickname.Width = 125;
             // 
             // colName
             // 
@@ -387,6 +287,110 @@
             this.colAverage1.Name = "colAverage1";
             this.colAverage1.ReadOnly = true;
             // 
+            // lblPlayersCount
+            // 
+            this.lblPlayersCount.AutoSize = true;
+            this.lblPlayersCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayersCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlayersCount.Location = new System.Drawing.Point(316, 269);
+            this.lblPlayersCount.Name = "lblPlayersCount";
+            this.lblPlayersCount.Size = new System.Drawing.Size(18, 20);
+            this.lblPlayersCount.TabIndex = 9;
+            this.lblPlayersCount.Text = "0";
+            // 
+            // lblPlayersCountText
+            // 
+            this.lblPlayersCountText.AutoSize = true;
+            this.lblPlayersCountText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlayersCountText.Location = new System.Drawing.Point(230, 269);
+            this.lblPlayersCountText.Name = "lblPlayersCountText";
+            this.lblPlayersCountText.Size = new System.Drawing.Size(80, 20);
+            this.lblPlayersCountText.TabIndex = 8;
+            this.lblPlayersCountText.Text = "Jogadores:";
+            // 
+            // lblOverallAverage
+            // 
+            this.lblOverallAverage.AutoSize = true;
+            this.lblOverallAverage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverallAverage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOverallAverage.Location = new System.Drawing.Point(206, 269);
+            this.lblOverallAverage.Name = "lblOverallAverage";
+            this.lblOverallAverage.Size = new System.Drawing.Size(18, 20);
+            this.lblOverallAverage.TabIndex = 7;
+            this.lblOverallAverage.Text = "0";
+            // 
+            // lblOverallAverageText
+            // 
+            this.lblOverallAverageText.AutoSize = true;
+            this.lblOverallAverageText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOverallAverageText.Location = new System.Drawing.Point(6, 269);
+            this.lblOverallAverageText.Name = "lblOverallAverageText";
+            this.lblOverallAverageText.Size = new System.Drawing.Size(194, 20);
+            this.lblOverallAverageText.TabIndex = 6;
+            this.lblOverallAverageText.Text = "Média geral de pontuações:";
+            // 
+            // tpSearch
+            // 
+            this.tpSearch.Controls.Add(this.dgvSearchResults);
+            this.tpSearch.Controls.Add(this.lblResultsCount);
+            this.tpSearch.Controls.Add(this.btnSearch);
+            this.tpSearch.Controls.Add(this.txtSearch);
+            this.tpSearch.Controls.Add(this.lblSearch);
+            this.tpSearch.Location = new System.Drawing.Point(4, 29);
+            this.tpSearch.Name = "tpSearch";
+            this.tpSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSearch.Size = new System.Drawing.Size(806, 296);
+            this.tpSearch.TabIndex = 2;
+            this.tpSearch.Text = "Pesquisar nickname";
+            this.tpSearch.UseVisualStyleBackColor = true;
+            // 
+            // dgvSearchResults
+            // 
+            this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchResults.Location = new System.Drawing.Point(6, 42);
+            this.dgvSearchResults.Name = "dgvSearchResults";
+            this.dgvSearchResults.ReadOnly = true;
+            this.dgvSearchResults.RowHeadersWidth = 51;
+            this.dgvSearchResults.RowTemplate.Height = 24;
+            this.dgvSearchResults.Size = new System.Drawing.Size(794, 248);
+            this.dgvSearchResults.TabIndex = 7;
+            // 
+            // lblResultsCount
+            // 
+            this.lblResultsCount.AutoSize = true;
+            this.lblResultsCount.ForeColor = System.Drawing.Color.DimGray;
+            this.lblResultsCount.Location = new System.Drawing.Point(394, 12);
+            this.lblResultsCount.Name = "lblResultsCount";
+            this.lblResultsCount.Size = new System.Drawing.Size(89, 20);
+            this.lblResultsCount.TabIndex = 6;
+            this.lblResultsCount.Text = "0 resultados";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(293, 9);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(95, 27);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Pesquisar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(87, 9);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(200, 27);
+            this.txtSearch.TabIndex = 5;
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(6, 12);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(75, 20);
+            this.lblSearch.TabIndex = 4;
+            this.lblSearch.Text = "Nickname";
+            // 
             // FormStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -405,16 +409,17 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStatistics";
+            this.Load += new System.EventHandler(this.FormStatistics_Load);
             this.tabMain.ResumeLayout(false);
             this.tpStandings.ResumeLayout(false);
             this.tpStandings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStandings)).EndInit();
             this.tpTop3.ResumeLayout(false);
             this.tpTop3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStandings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTop3)).EndInit();
             this.tpSearch.ResumeLayout(false);
             this.tpSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTop3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

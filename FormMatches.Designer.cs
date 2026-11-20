@@ -168,6 +168,7 @@
             this.cmbchampionship.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbchampionship.Size = new System.Drawing.Size(210, 28);
             this.cmbchampionship.TabIndex = 10;
+            this.cmbchampionship.SelectedIndexChanged += new System.EventHandler(this.cmbchampionship_SelectedIndexChanged);
             // 
             // cmbTournament
             // 
@@ -177,6 +178,7 @@
             this.cmbTournament.Name = "cmbTournament";
             this.cmbTournament.Size = new System.Drawing.Size(200, 28);
             this.cmbTournament.TabIndex = 11;
+            this.cmbTournament.SelectedIndexChanged += new System.EventHandler(this.cmbchampionship_SelectedIndexChanged);
             // 
             // dgvMatches
             // 
@@ -194,6 +196,7 @@
             this.dgvMatches.RowTemplate.Height = 24;
             this.dgvMatches.Size = new System.Drawing.Size(860, 190);
             this.dgvMatches.TabIndex = 12;
+            this.dgvMatches.SelectionChanged += new System.EventHandler(this.dgvMatches_SelectionChanged);
             // 
             // colId
             // 
@@ -264,6 +267,7 @@
             this.btnRemoveMatch.TabIndex = 9;
             this.btnRemoveMatch.Text = "Remover partida";
             this.btnRemoveMatch.UseVisualStyleBackColor = true;
+            this.btnRemoveMatch.Click += new System.EventHandler(this.btnRemoveMatch_Click);
             // 
             // btnSchedule
             // 
@@ -273,6 +277,7 @@
             this.btnSchedule.TabIndex = 8;
             this.btnSchedule.Text = "Agenda";
             this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // cmbTeamB
             // 
@@ -344,6 +349,7 @@
             this.btnSaveResult.TabIndex = 11;
             this.btnSaveResult.Text = "Salvar resultado";
             this.btnSaveResult.UseVisualStyleBackColor = true;
+            this.btnSaveResult.Click += new System.EventHandler(this.btnSaveResult_Click);
             // 
             // nudScoreB
             // 

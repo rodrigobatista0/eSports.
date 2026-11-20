@@ -391,6 +391,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Partidas";
+            this.Load += new System.EventHandler(this.FormMatches_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).EndInit();
             this.grpSchedule.ResumeLayout(false);
             this.grpSchedule.PerformLayout();

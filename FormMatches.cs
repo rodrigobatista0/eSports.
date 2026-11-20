@@ -14,227 +14,118 @@ namespace eSports
 {
     public partial class FormMatches : Form
     {
-       
+        private DataService m_service;
 
-       
-        private List<string> campeonatos = new List<string>();
+        // fica true enquanto a grelha esta a ser preenchida
+        private bool m_loading = false;
 
-       
-        private List<string> torneios = new List<string>();
-        private List<int> torneioCampeonato = new List<int>();
-
-       
-        private List<string> equipas = new List<string>();
-        private List<int> equipaTorneio = new List<int>();
-
-        
-        private List<int> partidaId = new List<int>();
-        private List<int> partidaTorneio = new List<int>();
-        private List<DateTime> partidaData = new List<DateTime>();
-        private List<int> partidaEquipaA = new List<int>();
-        private List<int> partidaEquipaB = new List<int>();
-        private List<int> partidaResA = new List<int>();  
-        private List<int> partidaResB = new List<int>();
-
-       
-        private List<int> torneiosVisiveis = new List<int>();
-        private List<int> equipasVisiveis = new List<int>();
-
-        
-        private bool loading = false;
-
-        public FormMatches()
+        public FormMatches(DataService service)
         {
             InitializeComponent();
-        }
 
-        
-       
-        private void FormMatches_Load(object sender, EventArgs e)
-        {
-            
-            dgvMatches.AutoGenerateColumns = false;
-            dgvMatches.AllowUserToAddRows = false;
-            dgvMatches.AllowUserToDeleteRows = false;
-            dgvMatches.ReadOnly = true;
-            dgvMatches.MultiSelect = false;
-            dgvMatches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMatches.RowHeadersVisible = false;
-            colWinner.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            m_service = service;
 
-            dtpDate.Format = DateTimePickerFormat.Short;
-
-            LoadData();
             LoadChampionships();
             LoadTournaments();
             LoadMatches();
             LoadTeamCombos();
             ClearScheduleFields();
             ClearResultFields();
-
-           
-            cmbchampionship.SelectedIndexChanged += cmbchampionship_SelectedIndexChanged;
-            cmbTournament.SelectedIndexChanged += cmbTournament_SelectedIndexChanged;
-            dgvMatches.SelectionChanged += dgvMatches_SelectionChanged;
-            btnSchedule.Click += btnSchedule_Click;
-            btnRemoveMatch.Click += btnRemoveMatch_Click;
-            btnSaveResult.Click += btnSaveResult_Click;
         }
 
-        #region Dados de exemplo
-
-        private void LoadData()
+        // devolve o torneio que esta escolhido na combo
+        private Torneio CurrentTournament()
         {
-            campeonatos.Add("Liga Portuguesa");
-            campeonatos.Add("Campeonato Europeu");
-
-            AddTorneio("Torneio de Inverno", 0);
-            AddTorneio("Torneio de Verao", 0);
-            AddTorneio("Taca Europa", 1);
-
-           
-            AddEquipa("Dragons", 0);
-            AddEquipa("Wolves", 0);
-            AddEquipa("Falcons", 0);
-            
-            AddEquipa("Tigers", 1);
-            AddEquipa("Sharks", 1);
-           
-            AddEquipa("Titans", 2);
-            AddEquipa("Vikings", 2);
-            AddEquipa("Knights", 2);
-        }
-
-        private void AddTorneio(string nome, int campeonato)
-        {
-            torneios.Add(nome);
-            torneioCampeonato.Add(campeonato);
-        }
-
-        private void AddEquipa(string nome, int torneio)
-        {
-            equipas.Add(nome);
-            equipaTorneio.Add(torneio);
-        }
-
-        #endregion
-
-        #region Load
-
-       
-        private int CurrentTournament()
-        {
-            if (cmbTournament.SelectedIndex == -1)
-                return -1;
-
-            return torneiosVisiveis[cmbTournament.SelectedIndex];
-        }
-
-     
-        private int SelectedMatch()
-        {
-            if (dgvMatches.SelectedRows.Count == 0)
-                return -1;
-
-            return (int)dgvMatches.SelectedRows[0].Tag;
-        }
-
-        private void SelectFirst(ComboBox combo)
-        {
-            if (combo.Items.Count > 0)
-                combo.SelectedIndex = 0;
-            else
-                combo.SelectedIndex = -1;
+            return cmbTournament.SelectedItem as Torneio;
         }
 
         private void LoadChampionships()
         {
             cmbchampionship.Items.Clear();
 
-            for (int i = 0; i < campeonatos.Count; i++)
-                cmbchampionship.Items.Add(campeonatos[i]);
+            foreach (Campeonato championship in m_service.Data.Campeonatos)
+            {
+                cmbchampionship.Items.Add(championship);
+            }
 
-            SelectFirst(cmbchampionship);
+            UiHelper.SelectFirst(cmbchampionship);
         }
 
         private void LoadTournaments()
         {
             cmbTournament.Items.Clear();
-            torneiosVisiveis.Clear();
 
-            int campeonato = cmbchampionship.SelectedIndex;
+            Campeonato championship = cmbchampionship.SelectedItem as Campeonato;
 
-            for (int i = 0; i < torneios.Count; i++)
+            if (championship != null)
             {
-                if (torneioCampeonato[i] == campeonato)
+                foreach (Torneio tournament in championship.Torneios)
                 {
-                    cmbTournament.Items.Add(torneios[i]);
-                    torneiosVisiveis.Add(i);
+                    cmbTournament.Items.Add(tournament);
                 }
             }
 
-            SelectFirst(cmbTournament);
+            UiHelper.SelectFirst(cmbTournament);
         }
 
         private void LoadMatches()
         {
-            loading = true;
+            m_loading = true;
             dgvMatches.Rows.Clear();
 
-            int torneio = CurrentTournament();
+            Torneio tournament = CurrentTournament();
 
-            for (int i = 0; i < partidaId.Count; i++)
+            if (tournament != null)
             {
-                if (partidaTorneio[i] == torneio)
+                foreach (Partida match in tournament.Partidas)
                 {
-                    int linha = dgvMatches.Rows.Add(
-                        partidaId[i],
-                        partidaData[i].ToString("dd/MM/yyyy"),
-                        equipas[partidaEquipaA[i]],
-                        ResultText(i),
-                        equipas[partidaEquipaB[i]],
-                        WinnerName(i));
-
-                   
-                    dgvMatches.Rows[linha].Tag = i;
+                    UiHelper.AddRow(dgvMatches, match,
+                        match.Id,
+                        match.Data.ToString("dd/MM/yyyy"),
+                        m_service.TeamName(tournament, match.IdEquipaA),
+                        m_service.ResultText(match),
+                        m_service.TeamName(tournament, match.IdEquipaB),
+                        m_service.WinnerName(tournament, match));
                 }
             }
 
             dgvMatches.ClearSelection();
-            loading = false;
+            m_loading = false;
         }
 
+        // so aparecem as equipas que estao inscritas no torneio
         private void LoadTeamCombos()
         {
             cmbTeamA.Items.Clear();
             cmbTeamB.Items.Clear();
-            equipasVisiveis.Clear();
 
-            int torneio = CurrentTournament();
+            Torneio tournament = CurrentTournament();
 
-            for (int i = 0; i < equipas.Count; i++)
+            if (tournament != null)
             {
-                if (equipaTorneio[i] == torneio)
+                foreach (Equipa team in tournament.Equipas)
                 {
-                    cmbTeamA.Items.Add(equipas[i]);
-                    cmbTeamB.Items.Add(equipas[i]);
-                    equipasVisiveis.Add(i);
+                    cmbTeamA.Items.Add(team);
+                    cmbTeamB.Items.Add(team);
                 }
             }
 
-            SelectFirst(cmbTeamA);
+            UiHelper.SelectFirst(cmbTeamA);
 
-           
-
+            // a equipa B comeca na segunda para nao ser igual a A
             if (cmbTeamB.Items.Count > 1)
+            {
                 cmbTeamB.SelectedIndex = 1;
+            }
             else
-                SelectFirst(cmbTeamB);
+            {
+                UiHelper.SelectFirst(cmbTeamB);
+            }
         }
 
         private void ClearScheduleFields()
         {
-            nudMatchId.Value = NextMatchId(CurrentTournament());
+            UiHelper.SetNumber(nudMatchId, m_service.NextMatchId(CurrentTournament()));
             dtpDate.Value = DateTime.Today;
         }
 
@@ -252,62 +143,23 @@ namespace eSports
             MessageBox.Show(message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-      
+        // ---------- eventos ----------
 
-        private int NextMatchId(int torneio)
+        private void FormMatches_Load(object sender, EventArgs e)
         {
-            int maior = 0;
-
-            for (int i = 0; i < partidaId.Count; i++)
-            {
-                if (partidaTorneio[i] == torneio && partidaId[i] > maior)
-                    maior = partidaId[i];
-            }
-
-            int proximo = maior + 1;
-
-            if (proximo > nudMatchId.Maximum)
-                proximo = (int)nudMatchId.Maximum;
-
-            return proximo;
+            // o Designer chama este metodo, nao precisa de fazer nada
         }
 
-        private string ResultText(int partida)
-        {
-            if (partidaResA[partida] == -1)
-                return "-";
-
-            return partidaResA[partida] + " - " + partidaResB[partida];
-        }
-
-        private string WinnerName(int partida)
-        {
-            if (partidaResA[partida] == -1)
-                return "";
-
-            if (partidaResA[partida] > partidaResB[partida])
-                return equipas[partidaEquipaA[partida]];
-
-            if (partidaResA[partida] < partidaResB[partida])
-                return equipas[partidaEquipaB[partida]];
-
-            return "Empate";
-        }
-
-        #endregion
-
-        #region Events
-
+        // o Designer liga as duas combos a este metodo, por isso ve-se qual foi a combo
         private void cmbchampionship_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (sender == cmbTournament)
+            {
+                cmbTournament_SelectedIndexChanged(sender, e);
+                return;
+            }
+
             LoadTournaments();
-
-           
-
-            LoadMatches();
-            LoadTeamCombos();
-            ClearScheduleFields();
-            ClearResultFields();
         }
 
         private void cmbTournament_SelectedIndexChanged(object sender, EventArgs e)
@@ -320,80 +172,43 @@ namespace eSports
 
         private void dgvMatches_SelectionChanged(object sender, EventArgs e)
         {
-            if (loading)
-                return;
-
-            int partida = SelectedMatch();
-
-            if (partida == -1)
-                return;
-
-            string nomeA = equipas[partidaEquipaA[partida]];
-            string nomeB = equipas[partidaEquipaB[partida]];
-
-            lblSelectedMatch.Text = "Partida " + partidaId[partida] + ": " + nomeA + " vs " + nomeB;
-            lblScoreTeamA.Text = nomeA;
-            lblScoreTeamB.Text = nomeB;
-
-          
-
-            if (partidaResA[partida] == -1)
+            if (m_loading)
             {
-                nudScoreA.Value = 0;
-                nudScoreB.Value = 0;
+                return;
             }
-            else
+
+            Partida match = UiHelper.SelectedTag(dgvMatches) as Partida;
+            Torneio tournament = CurrentTournament();
+
+            if (match == null || tournament == null)
             {
-                nudScoreA.Value = partidaResA[partida];
-                nudScoreB.Value = partidaResB[partida];
+                return;
             }
+
+            string nameA = m_service.TeamName(tournament, match.IdEquipaA);
+            string nameB = m_service.TeamName(tournament, match.IdEquipaB);
+
+            lblSelectedMatch.Text = "Partida " + match.Id + ": " + nameA + " vs " + nameB;
+            lblScoreTeamA.Text = nameA;
+            lblScoreTeamB.Text = nameB;
+
+            // se ja tem resultado mostra, senao fica a 0
+            UiHelper.SetNumber(nudScoreA, match.ResultadoA.GetValueOrDefault());
+            UiHelper.SetNumber(nudScoreB, match.ResultadoB.GetValueOrDefault());
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            int torneio = CurrentTournament();
-
-            if (torneio == -1)
+            try
             {
-                ShowError("Escolha um torneio.");
+                m_service.ScheduleMatch(CurrentTournament(), (int)nudMatchId.Value, dtpDate.Value,
+                    cmbTeamA.SelectedItem as Equipa, cmbTeamB.SelectedItem as Equipa);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
                 return;
             }
-
-            if (cmbTeamA.SelectedIndex == -1 || cmbTeamB.SelectedIndex == -1)
-            {
-                ShowError("Escolha as duas equipas.");
-                return;
-            }
-
-            int equipaA = equipasVisiveis[cmbTeamA.SelectedIndex];
-            int equipaB = equipasVisiveis[cmbTeamB.SelectedIndex];
-
-            if (equipaA == equipaB)
-            {
-                ShowError("A equipa A nao pode ser igual a equipa B.");
-                return;
-            }
-
-            int id = (int)nudMatchId.Value;
-
-           
-
-            for (int i = 0; i < partidaId.Count; i++)
-            {
-                if (partidaTorneio[i] == torneio && partidaId[i] == id)
-                {
-                    ShowError("Ja existe uma partida com esse ID neste torneio.");
-                    return;
-                }
-            }
-
-            partidaId.Add(id);
-            partidaTorneio.Add(torneio);
-            partidaData.Add(dtpDate.Value.Date);
-            partidaEquipaA.Add(equipaA);
-            partidaEquipaB.Add(equipaB);
-            partidaResA.Add(-1);
-            partidaResB.Add(-1);
 
             LoadMatches();
             ClearScheduleFields();
@@ -401,24 +216,31 @@ namespace eSports
 
         private void btnRemoveMatch_Click(object sender, EventArgs e)
         {
-            int partida = SelectedMatch();
+            Partida match = UiHelper.SelectedTag(dgvMatches) as Partida;
 
-            if (partida == -1)
+            if (match == null)
             {
                 ShowError("Escolha uma partida na grelha.");
                 return;
             }
 
-            if (MessageBox.Show("Remover a partida " + partidaId[partida] + "?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                return;
+            DialogResult answer = MessageBox.Show("Remover a partida " + match.Id + "?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            partidaId.RemoveAt(partida);
-            partidaTorneio.RemoveAt(partida);
-            partidaData.RemoveAt(partida);
-            partidaEquipaA.RemoveAt(partida);
-            partidaEquipaB.RemoveAt(partida);
-            partidaResA.RemoveAt(partida);
-            partidaResB.RemoveAt(partida);
+            if (answer != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                m_service.RemoveMatch(CurrentTournament(), match);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+                return;
+            }
 
             LoadMatches();
             ClearScheduleFields();
@@ -427,21 +249,20 @@ namespace eSports
 
         private void btnSaveResult_Click(object sender, EventArgs e)
         {
-            int partida = SelectedMatch();
+            Partida match = UiHelper.SelectedTag(dgvMatches) as Partida;
 
-            if (partida == -1)
+            try
             {
-                ShowError("Escolha uma partida na grelha.");
+                m_service.SaveResult(match, (int)nudScoreA.Value, (int)nudScoreB.Value);
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
                 return;
             }
-
-            partidaResA[partida] = (int)nudScoreA.Value;
-            partidaResB[partida] = (int)nudScoreB.Value;
 
             LoadMatches();
             ClearResultFields();
         }
-
-        #endregion
     }
 }

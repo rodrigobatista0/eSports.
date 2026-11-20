@@ -61,7 +61,6 @@ namespace eSports.Services
             return grid.SelectedRows[0].Tag;
         }
 
-        // Mete um numero numa NumericUpDown sem rebentar se estiver fora dos limites
         public static void SetNumber(NumericUpDown box, int value)
         {
             decimal number = value;
@@ -75,7 +74,6 @@ namespace eSports.Services
             box.Value = number;
         }
 
-        // Escolhe o primeiro item da ComboBox (se existir)
         public static void SelectFirst(ComboBox combo)
         {
             if (combo.Items.Count > 0)

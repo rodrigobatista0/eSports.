@@ -129,6 +129,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMatches.resx">
+      <DependentUpon>FormMatches.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTeam.resx">
       <DependentUpon>FormTeam.cs</DependentUpon>
     </EmbeddedResource>

@@ -431,6 +431,8 @@ Classificações, melhores jogadores e pesquisa, tudo feito com LINQ e expressõ
 
 ---
 
+![FormLogs](Screenshot 2026-11-26 143206.png)
+
 # REGRAS (VALIDAÇÕES)
 
 - IDs únicos dentro do seu âmbito (equipa única no torneio, jogador único na equipa, etc.)

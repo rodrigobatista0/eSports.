@@ -16,7 +16,7 @@ namespace eSports
     {
         private DataService m_service;
 
-        // fica true enquanto a grelha esta a ser preenchida
+        
         private bool m_loading = false;
 
         public FormMatches(DataService service)
@@ -33,7 +33,7 @@ namespace eSports
             ClearResultFields();
         }
 
-        // devolve o torneio que esta escolhido na combo
+        
         private Torneio CurrentTournament()
         {
             return cmbTournament.SelectedItem as Torneio;
@@ -93,7 +93,7 @@ namespace eSports
             m_loading = false;
         }
 
-        // so aparecem as equipas que estao inscritas no torneio
+        
         private void LoadTeamCombos()
         {
             cmbTeamA.Items.Clear();
@@ -112,7 +112,7 @@ namespace eSports
 
             UiHelper.SelectFirst(cmbTeamA);
 
-            // a equipa B comeca na segunda para nao ser igual a A
+            
             if (cmbTeamB.Items.Count > 1)
             {
                 cmbTeamB.SelectedIndex = 1;
@@ -143,14 +143,14 @@ namespace eSports
             MessageBox.Show(message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        // ---------- eventos ----------
+        
 
         private void FormMatches_Load(object sender, EventArgs e)
         {
-            // o Designer chama este metodo, nao precisa de fazer nada
+
         }
 
-        // o Designer liga as duas combos a este metodo, por isso ve-se qual foi a combo
+
         private void cmbchampionship_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sender == cmbTournament)
@@ -192,7 +192,7 @@ namespace eSports
             lblScoreTeamA.Text = nameA;
             lblScoreTeamB.Text = nameB;
 
-            // se ja tem resultado mostra, senao fica a 0
+            
             UiHelper.SetNumber(nudScoreA, match.ResultadoA.GetValueOrDefault());
             UiHelper.SetNumber(nudScoreB, match.ResultadoB.GetValueOrDefault());
         }

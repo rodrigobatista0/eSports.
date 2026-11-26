@@ -431,7 +431,7 @@ Classificações, melhores jogadores e pesquisa, tudo feito com LINQ e expressõ
 
 ---
 
-![FormLogs](Screenshot 2026-11-26 143206.png)
+![FormLogs](FormLogs.png)
 
 # REGRAS (VALIDAÇÕES)
 

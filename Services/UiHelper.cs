@@ -7,10 +7,8 @@ using System.Windows.Forms;
 
 namespace eSports.Services
 {
-    // Pequenas ajudas para as grelhas e caixas numericas (so mexem no aspeto, nao tem regras)
     public static class UiHelper
     {
-        // Deixa a grelha pronta: sem colunas, so de leitura, linha inteira selecionada
         public static void PrepareGrid(DataGridView grid)
         {
             grid.Columns.Clear();

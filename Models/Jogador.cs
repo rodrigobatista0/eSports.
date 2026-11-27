@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace eSports.Models
 {
@@ -12,6 +13,8 @@ namespace eSports.Models
         public string Nome { get; set; } = "";
         public string Nickname { get; set; } = "";
         public int Idade { get; set; }
+        [XmlArray("Pontuacoes")]
+        [XmlArrayItem("Ponto")]
         public List<int> Pontuacoes { get; set; } = new List<int>();
     }
 }

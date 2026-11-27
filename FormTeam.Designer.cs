@@ -86,28 +86,28 @@
             // 
             this.cmbChampionships.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChampionships.FormattingEnabled = true;
-            this.cmbChampionships.Location = new System.Drawing.Point(116, 45);
+            this.cmbChampionships.Location = new System.Drawing.Point(116, 5);
             this.cmbChampionships.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbChampionships.Name = "cmbChampionships";
-            this.cmbChampionships.Size = new System.Drawing.Size(192, 23);
+            this.cmbChampionships.Size = new System.Drawing.Size(192, 28);
             this.cmbChampionships.TabIndex = 0;
             this.cmbChampionships.SelectedIndexChanged += new System.EventHandler(this.cmbChampionships_SelectedIndexChanged);
             // 
             // lblChampionships
             // 
             this.lblChampionships.AutoSize = true;
-            this.lblChampionships.Location = new System.Drawing.Point(12, 49);
+            this.lblChampionships.Location = new System.Drawing.Point(12, 9);
             this.lblChampionships.Name = "lblChampionships";
-            this.lblChampionships.Size = new System.Drawing.Size(79, 15);
+            this.lblChampionships.Size = new System.Drawing.Size(98, 20);
             this.lblChampionships.TabIndex = 1;
             this.lblChampionships.Text = "Campeonato:";
             // 
             // lblTournament
             // 
             this.lblTournament.AutoSize = true;
-            this.lblTournament.Location = new System.Drawing.Point(338, 49);
+            this.lblTournament.Location = new System.Drawing.Point(338, 9);
             this.lblTournament.Name = "lblTournament";
-            this.lblTournament.Size = new System.Drawing.Size(50, 15);
+            this.lblTournament.Size = new System.Drawing.Size(62, 20);
             this.lblTournament.TabIndex = 2;
             this.lblTournament.Text = "Torneio:";
             // 
@@ -115,10 +115,10 @@
             // 
             this.cmbTournament.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTournament.FormattingEnabled = true;
-            this.cmbTournament.Location = new System.Drawing.Point(401, 45);
+            this.cmbTournament.Location = new System.Drawing.Point(401, 5);
             this.cmbTournament.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbTournament.Name = "cmbTournament";
-            this.cmbTournament.Size = new System.Drawing.Size(195, 23);
+            this.cmbTournament.Size = new System.Drawing.Size(195, 28);
             this.cmbTournament.TabIndex = 3;
             this.cmbTournament.SelectedIndexChanged += new System.EventHandler(this.cmbTournament_SelectedIndexChanged);
             // 
@@ -126,7 +126,7 @@
             // 
             this.tbcTeamsPlayer.Controls.Add(this.tbpTeam);
             this.tbcTeamsPlayer.Controls.Add(this.tbpPlayers);
-            this.tbcTeamsPlayer.Location = new System.Drawing.Point(12, 96);
+            this.tbcTeamsPlayer.Location = new System.Drawing.Point(12, 41);
             this.tbcTeamsPlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbcTeamsPlayer.Name = "tbcTeamsPlayer";
             this.tbcTeamsPlayer.SelectedIndex = 0;
@@ -137,11 +137,11 @@
             // 
             this.tbpTeam.Controls.Add(this.grbTeamData);
             this.tbpTeam.Controls.Add(this.dgvTeams);
-            this.tbpTeam.Location = new System.Drawing.Point(4, 24);
+            this.tbpTeam.Location = new System.Drawing.Point(4, 29);
             this.tbpTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbpTeam.Name = "tbpTeam";
             this.tbpTeam.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbpTeam.Size = new System.Drawing.Size(897, 390);
+            this.tbpTeam.Size = new System.Drawing.Size(897, 385);
             this.tbpTeam.TabIndex = 1;
             this.tbpTeam.Text = "Equipas";
             this.tbpTeam.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             this.txtCountryTeams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCountryTeams.MaxLength = 40;
             this.txtCountryTeams.Name = "txtCountryTeams";
-            this.txtCountryTeams.Size = new System.Drawing.Size(198, 23);
+            this.txtCountryTeams.Size = new System.Drawing.Size(198, 27);
             this.txtCountryTeams.TabIndex = 9;
             // 
             // txtNameTeam
@@ -182,7 +182,7 @@
             this.txtNameTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNameTeam.MaxLength = 40;
             this.txtNameTeam.Name = "txtNameTeam";
-            this.txtNameTeam.Size = new System.Drawing.Size(198, 23);
+            this.txtNameTeam.Size = new System.Drawing.Size(198, 27);
             this.txtNameTeam.TabIndex = 8;
             // 
             // nudID
@@ -200,7 +200,7 @@
             0,
             0});
             this.nudID.Name = "nudID";
-            this.nudID.Size = new System.Drawing.Size(69, 23);
+            this.nudID.Size = new System.Drawing.Size(69, 27);
             this.nudID.TabIndex = 7;
             this.nudID.Value = new decimal(new int[] {
             1,
@@ -257,7 +257,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Location = new System.Drawing.Point(17, 150);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(31, 15);
+            this.lblCountry.Size = new System.Drawing.Size(37, 20);
             this.lblCountry.TabIndex = 2;
             this.lblCountry.Text = "País:";
             // 
@@ -266,7 +266,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(17, 101);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(43, 15);
+            this.lblName.Size = new System.Drawing.Size(53, 20);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Nome:";
             // 
@@ -275,7 +275,7 @@
             this.lblId.AutoSize = true;
             this.lblId.Location = new System.Drawing.Point(17, 51);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 15);
+            this.lblId.Size = new System.Drawing.Size(27, 20);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "ID:";
             // 
@@ -300,11 +300,11 @@
             this.tbpPlayers.Controls.Add(this.lblTeam);
             this.tbpPlayers.Controls.Add(this.grbPlayersData);
             this.tbpPlayers.Controls.Add(this.dgvPlayers);
-            this.tbpPlayers.Location = new System.Drawing.Point(4, 24);
+            this.tbpPlayers.Location = new System.Drawing.Point(4, 29);
             this.tbpPlayers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbpPlayers.Name = "tbpPlayers";
             this.tbpPlayers.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbpPlayers.Size = new System.Drawing.Size(897, 390);
+            this.tbpPlayers.Size = new System.Drawing.Size(897, 385);
             this.tbpPlayers.TabIndex = 2;
             this.tbpPlayers.Text = "Jogadores";
             this.tbpPlayers.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             // 
             this.txtSearchNick.Location = new System.Drawing.Point(409, 15);
             this.txtSearchNick.Name = "txtSearchNick";
-            this.txtSearchNick.Size = new System.Drawing.Size(171, 23);
+            this.txtSearchNick.Size = new System.Drawing.Size(171, 27);
             this.txtSearchNick.TabIndex = 5;
             this.txtSearchNick.TextChanged += new System.EventHandler(this.txtSearchNick_TextChanged);
             // 
@@ -322,7 +322,7 @@
             this.lblSearchNick.AutoSize = true;
             this.lblSearchNick.Location = new System.Drawing.Point(263, 17);
             this.lblSearchNick.Name = "lblSearchNick";
-            this.lblSearchNick.Size = new System.Drawing.Size(115, 15);
+            this.lblSearchNick.Size = new System.Drawing.Size(140, 20);
             this.lblSearchNick.TabIndex = 4;
             this.lblSearchNick.Text = "Pesquisar nickname:";
             // 
@@ -332,7 +332,7 @@
             this.cmbTeam.FormattingEnabled = true;
             this.cmbTeam.Location = new System.Drawing.Point(70, 14);
             this.cmbTeam.Name = "cmbTeam";
-            this.cmbTeam.Size = new System.Drawing.Size(176, 23);
+            this.cmbTeam.Size = new System.Drawing.Size(176, 28);
             this.cmbTeam.TabIndex = 3;
             this.cmbTeam.SelectedIndexChanged += new System.EventHandler(this.cmbTeam_SelectedIndexChanged);
             // 
@@ -341,7 +341,7 @@
             this.lblTeam.AutoSize = true;
             this.lblTeam.Location = new System.Drawing.Point(6, 17);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(46, 15);
+            this.lblTeam.Size = new System.Drawing.Size(58, 20);
             this.lblTeam.TabIndex = 2;
             this.lblTeam.Text = "Equipa:";
             // 
@@ -432,17 +432,17 @@
             this.nudScore.Location = new System.Drawing.Point(185, 198);
             this.nudScore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudScore.Name = "nudScore";
-            this.nudScore.Size = new System.Drawing.Size(100, 23);
+            this.nudScore.Size = new System.Drawing.Size(100, 27);
             this.nudScore.TabIndex = 2;
             // 
             // lstScores
             // 
             this.lstScores.FormattingEnabled = true;
-            this.lstScores.ItemHeight = 15;
+            this.lstScores.ItemHeight = 20;
             this.lstScores.Location = new System.Drawing.Point(107, 198);
             this.lstScores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstScores.Name = "lstScores";
-            this.lstScores.Size = new System.Drawing.Size(72, 79);
+            this.lstScores.Size = new System.Drawing.Size(72, 64);
             this.lstScores.TabIndex = 9;
             // 
             // nudAgePlayer
@@ -450,7 +450,7 @@
             this.nudAgePlayer.Location = new System.Drawing.Point(111, 154);
             this.nudAgePlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudAgePlayer.Name = "nudAgePlayer";
-            this.nudAgePlayer.Size = new System.Drawing.Size(120, 23);
+            this.nudAgePlayer.Size = new System.Drawing.Size(120, 27);
             this.nudAgePlayer.TabIndex = 8;
             // 
             // txtNickNamePlayer
@@ -458,7 +458,7 @@
             this.txtNickNamePlayer.Location = new System.Drawing.Point(111, 112);
             this.txtNickNamePlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNickNamePlayer.Name = "txtNickNamePlayer";
-            this.txtNickNamePlayer.Size = new System.Drawing.Size(174, 23);
+            this.txtNickNamePlayer.Size = new System.Drawing.Size(174, 27);
             this.txtNickNamePlayer.TabIndex = 7;
             // 
             // txtNamePlayer
@@ -466,7 +466,7 @@
             this.txtNamePlayer.Location = new System.Drawing.Point(111, 76);
             this.txtNamePlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamePlayer.Name = "txtNamePlayer";
-            this.txtNamePlayer.Size = new System.Drawing.Size(174, 23);
+            this.txtNamePlayer.Size = new System.Drawing.Size(174, 27);
             this.txtNamePlayer.TabIndex = 6;
             // 
             // nudIdPlayer
@@ -474,7 +474,7 @@
             this.nudIdPlayer.Location = new System.Drawing.Point(111, 39);
             this.nudIdPlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudIdPlayer.Name = "nudIdPlayer";
-            this.nudIdPlayer.Size = new System.Drawing.Size(120, 23);
+            this.nudIdPlayer.Size = new System.Drawing.Size(120, 27);
             this.nudIdPlayer.TabIndex = 5;
             // 
             // lblPointsPlayers
@@ -482,7 +482,7 @@
             this.lblPointsPlayers.AutoSize = true;
             this.lblPointsPlayers.Location = new System.Drawing.Point(19, 198);
             this.lblPointsPlayers.Name = "lblPointsPlayers";
-            this.lblPointsPlayers.Size = new System.Drawing.Size(72, 15);
+            this.lblPointsPlayers.Size = new System.Drawing.Size(87, 20);
             this.lblPointsPlayers.TabIndex = 4;
             this.lblPointsPlayers.Text = "Pontuações:";
             // 
@@ -491,7 +491,7 @@
             this.lblAgePlayer.AutoSize = true;
             this.lblAgePlayer.Location = new System.Drawing.Point(17, 154);
             this.lblAgePlayer.Name = "lblAgePlayer";
-            this.lblAgePlayer.Size = new System.Drawing.Size(39, 15);
+            this.lblAgePlayer.Size = new System.Drawing.Size(50, 20);
             this.lblAgePlayer.TabIndex = 3;
             this.lblAgePlayer.Text = "Idade:";
             // 
@@ -500,7 +500,7 @@
             this.lblNicknamePlayer.AutoSize = true;
             this.lblNicknamePlayer.Location = new System.Drawing.Point(15, 116);
             this.lblNicknamePlayer.Name = "lblNicknamePlayer";
-            this.lblNicknamePlayer.Size = new System.Drawing.Size(64, 15);
+            this.lblNicknamePlayer.Size = new System.Drawing.Size(78, 20);
             this.lblNicknamePlayer.TabIndex = 2;
             this.lblNicknamePlayer.Text = "Nickname:";
             // 
@@ -509,7 +509,7 @@
             this.lblNamePlayer.AutoSize = true;
             this.lblNamePlayer.Location = new System.Drawing.Point(15, 80);
             this.lblNamePlayer.Name = "lblNamePlayer";
-            this.lblNamePlayer.Size = new System.Drawing.Size(43, 15);
+            this.lblNamePlayer.Size = new System.Drawing.Size(53, 20);
             this.lblNamePlayer.TabIndex = 1;
             this.lblNamePlayer.Text = "Nome:";
             // 
@@ -518,7 +518,7 @@
             this.lblIdPlayers.AutoSize = true;
             this.lblIdPlayers.Location = new System.Drawing.Point(15, 41);
             this.lblIdPlayers.Name = "lblIdPlayers";
-            this.lblIdPlayers.Size = new System.Drawing.Size(21, 15);
+            this.lblIdPlayers.Size = new System.Drawing.Size(27, 20);
             this.lblIdPlayers.TabIndex = 0;
             this.lblIdPlayers.Text = "ID:";
             // 
@@ -537,9 +537,9 @@
             // 
             // FormTeam
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 529);
+            this.ClientSize = new System.Drawing.Size(917, 457);
             this.Controls.Add(this.tbcTeamsPlayer);
             this.Controls.Add(this.cmbTournament);
             this.Controls.Add(this.lblTournament);

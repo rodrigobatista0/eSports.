@@ -22,21 +22,13 @@ namespace eSports
 
             m_service = service;
 
-            // por defeito mostra a ultima semana
             dtpFrom.Value = DateTime.Today.AddDays(-7);
             dtpTo.Value = DateTime.Today;
             ShowLogs();
-
-            // O Designer nao tem eventos, por isso ligam-se aqui
-            btnSearch.Click += btnSearch_Click;
-            btnToday.Click += btnToday_Click;
-            btnLast7Days.Click += btnLast7Days_Click;
         }
 
 
         #region Show data
-
-        // Mostra na grelha os logs entre a data inicial e a final
         private void ShowLogs()
         {
             try

@@ -87,6 +87,7 @@ Form de arranque (`Application.Run(new FormMain())`). `MaximizeBox = False`.
 | &nbsp;&nbsp;↳ | `mnuMatches` | Partidas |
 | &nbsp;&nbsp;↳ | `mnuStatistics` | Estatísticas |
 | **Ajuda** | `mnuHelp` | Ajuda |
+| &nbsp;&nbsp;↳ | `mnuLogs` | Registos / Logs |
 | &nbsp;&nbsp;↳ | `mnuAbout` | Acerca de... |
 
 **Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
@@ -431,7 +432,47 @@ Classificações, melhores jogadores e pesquisa, tudo feito com LINQ e expressõ
 
 ---
 
+### FormLogs
+
+Consultar os logs da aplicação entre duas datas. Cada ação (adicionar, editar, remover, guardar resultado, importar, exportar, converter, carregar e guardar dados) fica registada em `logs.txt`, ao lado do `.exe`. O utilizador escolhe a data inicial e a final e vê só os logs desse intervalo (os dois dias contam inteiros), do mais recente para o mais antigo.
+
 ![FormLogs](FormLogs.png)
+
+**Propriedades do form**
+
+| Propriedade | Valor |
+|---|---|
+| `Name` | `FormLogs` |
+| `Text` | Registo de Logs |
+| `ClientSize` | 744, 430 |
+| `StartPosition` | CenterScreen |
+| `Font` | Segoe UI, 9pt (por defeito) |
+
+`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()` a partir do `FormMain` (menu **Ajuda → Registos / Logs**, `mnuLogs`).
+
+**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
+
+| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
+|---|---|---|---|---|---|---|
+| Label | `lblFrom` | `Form` | De: | 12, 18 | auto |  |
+| DateTimePicker | `dtpFrom` | `Form` |  | 50, 14 | 110 x 20 | Format = Short, MinDate = 01/01/2000 |
+| Label | `lblTo` | `Form` | Até: | 176, 18 | auto |  |
+| DateTimePicker | `dtpTo` | `Form` |  | 214, 14 | 110 x 20 | Format = Short, MinDate = 01/01/2000 |
+| Button | `btnSearch` | `Form` | Pesquisar | 340, 12 | 90 x 27 |  |
+| Button | `btnToday` | `Form` | Hoje | 436, 12 | 80 x 27 |  |
+| Button | `btnLast7Days` | `Form` | Últimos 7 dias | 522, 12 | 110 x 27 |  |
+| DataGridView | `dgvLogs` | `Form` |  | 12, 52 | 720 x 340 | ReadOnly, ver colunas abaixo |
+| Label | `lblTotal` | `Form` | Registos encontrados: 0 | 12, 404 | auto |  |
+
+**Colunas do `dgvLogs`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
+
+| Name | HeaderText | Largura |
+|---|---|---|
+| `colDate` | Data/Hora | 140 |
+| `colAction` | Ação | 110 |
+| `colDetails` | Detalhes | AutoSizeMode = Fill |
+
+Ordem de tabulação: `dtpFrom`, `dtpTo`, `btnSearch`, `btnToday`, `btnLast7Days`, `dgvLogs`.
 
 # REGRAS (VALIDAÇÕES)
 
@@ -461,9 +502,9 @@ Pontos na classificação: vitória = 3, derrota = 0.
 
 ```
 App1-Esports/
-├── Models/        Dados, Campeonato, Torneio, Equipa, Jogador, Partida, StandingRow
-├── Services/      DataService, XmlService, JsonService, StatisticsService, Validations
-├── Forms/         FormMain, FormTeams, FormTournaments, FormMatches, FormStatistics
+├── Models/        Dados, Campeonato, Torneio, Equipa, Jogador, Partida, StandingRow, LogEntry
+├── Services/      DataService, XmlService, JsonService, StatisticsService, Validations, LogService
+├── Forms/         FormMain, FormTeams, FormTournaments, FormMatches, FormStatistics, FormLogs
 └── Dados/         campeonatos.xml, campeonatos.json, resultados.json, dados_invalidos.*
 ```
 

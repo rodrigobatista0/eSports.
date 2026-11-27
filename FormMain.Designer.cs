@@ -247,6 +247,7 @@
             this.mnuLogs.Name = "mnuLogs";
             this.mnuLogs.Size = new System.Drawing.Size(224, 26);
             this.mnuLogs.Text = "Resgistos / Logs";
+            this.mnuLogs.Click += new System.EventHandler(this.mnuLogs_Click);
             // 
             // grpChampionships
             // 

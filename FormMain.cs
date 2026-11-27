@@ -349,6 +349,12 @@ namespace eSports
 
         #region Menu Ajuda
 
+        private void mnuLogs_Click(object sender, EventArgs e)
+        {
+            FormLogs childForm = new FormLogs(m_service);
+            childForm.ShowDialog();
+        }
+
         private void mnuAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Gestão de Campeonatos de eSports\n\n" +

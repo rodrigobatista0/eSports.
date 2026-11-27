@@ -43,12 +43,6 @@
             this.colAverage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpTop3 = new System.Windows.Forms.TabPage();
             this.dgvTop3 = new System.Windows.Forms.DataGridView();
-            this.colNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTeam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTournament = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAverage1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPlayersCount = new System.Windows.Forms.Label();
             this.lblPlayersCountText = new System.Windows.Forms.Label();
             this.lblOverallAverage = new System.Windows.Forms.Label();
@@ -59,6 +53,18 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.colPosSt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTeam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAverage1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalSt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNicknameS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NicknameS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAgeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTeamSt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTournamentS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAverageS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tpStandings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStandings)).BeginInit();
@@ -222,12 +228,12 @@
             this.dgvTop3.AllowUserToDeleteRows = false;
             this.dgvTop3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTop3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPosSt,
             this.colNickname,
             this.colName,
-            this.colAge,
             this.colTeam1,
-            this.colTournament,
-            this.colAverage1});
+            this.colAverage1,
+            this.colTotalSt});
             this.dgvTop3.Location = new System.Drawing.Point(6, 8);
             this.dgvTop3.MultiSelect = false;
             this.dgvTop3.Name = "dgvTop3";
@@ -238,54 +244,6 @@
             this.dgvTop3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTop3.Size = new System.Drawing.Size(794, 258);
             this.dgvTop3.TabIndex = 10;
-            // 
-            // colNickname
-            // 
-            this.colNickname.HeaderText = "Nickname";
-            this.colNickname.MinimumWidth = 6;
-            this.colNickname.Name = "colNickname";
-            this.colNickname.ReadOnly = true;
-            this.colNickname.Width = 125;
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Nome";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 140;
-            // 
-            // colAge
-            // 
-            this.colAge.HeaderText = "Idade";
-            this.colAge.MinimumWidth = 6;
-            this.colAge.Name = "colAge";
-            this.colAge.ReadOnly = true;
-            this.colAge.Width = 50;
-            // 
-            // colTeam1
-            // 
-            this.colTeam1.HeaderText = "Equipa";
-            this.colTeam1.MinimumWidth = 6;
-            this.colTeam1.Name = "colTeam1";
-            this.colTeam1.ReadOnly = true;
-            this.colTeam1.Width = 110;
-            // 
-            // colTournament
-            // 
-            this.colTournament.HeaderText = "Torneio";
-            this.colTournament.MinimumWidth = 6;
-            this.colTournament.Name = "colTournament";
-            this.colTournament.ReadOnly = true;
-            this.colTournament.Width = 130;
-            // 
-            // colAverage1
-            // 
-            this.colAverage1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colAverage1.HeaderText = "Média";
-            this.colAverage1.MinimumWidth = 6;
-            this.colAverage1.Name = "colAverage1";
-            this.colAverage1.ReadOnly = true;
             // 
             // lblPlayersCount
             // 
@@ -346,12 +304,24 @@
             // 
             // dgvSearchResults
             // 
+            this.dgvSearchResults.AllowUserToAddRows = false;
+            this.dgvSearchResults.AllowUserToDeleteRows = false;
             this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNicknameS,
+            this.NicknameS,
+            this.colAgeS,
+            this.colTeamSt,
+            this.colTournamentS,
+            this.colAverageS});
             this.dgvSearchResults.Location = new System.Drawing.Point(6, 42);
+            this.dgvSearchResults.MultiSelect = false;
             this.dgvSearchResults.Name = "dgvSearchResults";
             this.dgvSearchResults.ReadOnly = true;
+            this.dgvSearchResults.RowHeadersVisible = false;
             this.dgvSearchResults.RowHeadersWidth = 51;
             this.dgvSearchResults.RowTemplate.Height = 24;
+            this.dgvSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSearchResults.Size = new System.Drawing.Size(794, 248);
             this.dgvSearchResults.TabIndex = 7;
             // 
@@ -390,6 +360,102 @@
             this.lblSearch.Size = new System.Drawing.Size(75, 20);
             this.lblSearch.TabIndex = 4;
             this.lblSearch.Text = "Nickname";
+            // 
+            // colPosSt
+            // 
+            this.colPosSt.HeaderText = "Posição";
+            this.colPosSt.MinimumWidth = 6;
+            this.colPosSt.Name = "colPosSt";
+            this.colPosSt.ReadOnly = true;
+            this.colPosSt.Width = 125;
+            // 
+            // colNickname
+            // 
+            this.colNickname.HeaderText = "Nickname";
+            this.colNickname.MinimumWidth = 6;
+            this.colNickname.Name = "colNickname";
+            this.colNickname.ReadOnly = true;
+            this.colNickname.Width = 125;
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Nome";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 140;
+            // 
+            // colTeam1
+            // 
+            this.colTeam1.HeaderText = "Equipa";
+            this.colTeam1.MinimumWidth = 6;
+            this.colTeam1.Name = "colTeam1";
+            this.colTeam1.ReadOnly = true;
+            this.colTeam1.Width = 110;
+            // 
+            // colAverage1
+            // 
+            this.colAverage1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAverage1.HeaderText = "Média";
+            this.colAverage1.MinimumWidth = 6;
+            this.colAverage1.Name = "colAverage1";
+            this.colAverage1.ReadOnly = true;
+            // 
+            // colTotalSt
+            // 
+            this.colTotalSt.HeaderText = "Total";
+            this.colTotalSt.MinimumWidth = 6;
+            this.colTotalSt.Name = "colTotalSt";
+            this.colTotalSt.ReadOnly = true;
+            this.colTotalSt.Width = 130;
+            // 
+            // colNicknameS
+            // 
+            this.colNicknameS.HeaderText = "Nickname";
+            this.colNicknameS.MinimumWidth = 6;
+            this.colNicknameS.Name = "colNicknameS";
+            this.colNicknameS.ReadOnly = true;
+            this.colNicknameS.Width = 125;
+            // 
+            // NicknameS
+            // 
+            this.NicknameS.HeaderText = "Nome";
+            this.NicknameS.MinimumWidth = 6;
+            this.NicknameS.Name = "NicknameS";
+            this.NicknameS.ReadOnly = true;
+            this.NicknameS.Width = 125;
+            // 
+            // colAgeS
+            // 
+            this.colAgeS.HeaderText = "Idade";
+            this.colAgeS.MinimumWidth = 6;
+            this.colAgeS.Name = "colAgeS";
+            this.colAgeS.ReadOnly = true;
+            this.colAgeS.Width = 125;
+            // 
+            // colTeamSt
+            // 
+            this.colTeamSt.HeaderText = "Equipa";
+            this.colTeamSt.MinimumWidth = 6;
+            this.colTeamSt.Name = "colTeamSt";
+            this.colTeamSt.ReadOnly = true;
+            this.colTeamSt.Width = 125;
+            // 
+            // colTournamentS
+            // 
+            this.colTournamentS.HeaderText = "Torneio";
+            this.colTournamentS.MinimumWidth = 6;
+            this.colTournamentS.Name = "colTournamentS";
+            this.colTournamentS.ReadOnly = true;
+            this.colTournamentS.Width = 125;
+            // 
+            // colAverageS
+            // 
+            this.colAverageS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAverageS.HeaderText = "Média";
+            this.colAverageS.MinimumWidth = 6;
+            this.colAverageS.Name = "colAverageS";
+            this.colAverageS.ReadOnly = true;
             // 
             // FormStatistics
             // 
@@ -452,11 +518,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLosses;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAverage;
         private System.Windows.Forms.DataGridView dgvTop3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPosSt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNickname;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTeam1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTournament;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAverage1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotalSt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNicknameS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NicknameS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAgeS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTeamSt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTournamentS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAverageS;
     }
 }

@@ -1,0 +1,544 @@
+{
+  "partidas": [
+    {
+      "idTorneio": 101,
+      "id": 1,
+      "data": "2026-03-04T00:00:00",
+      "idEquipaA": 1,
+      "idEquipaB": 2,
+      "resultadoA": 11,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 101,
+      "id": 2,
+      "data": "2026-03-04T00:00:00",
+      "idEquipaA": 1,
+      "idEquipaB": 3,
+      "resultadoA": 16,
+      "resultadoB": 8
+    },
+    {
+      "idTorneio": 101,
+      "id": 3,
+      "data": "2026-03-11T00:00:00",
+      "idEquipaA": 1,
+      "idEquipaB": 4,
+      "resultadoA": 16,
+      "resultadoB": 9
+    },
+    {
+      "idTorneio": 101,
+      "id": 4,
+      "data": "2026-03-11T00:00:00",
+      "idEquipaA": 2,
+      "idEquipaB": 3,
+      "resultadoA": 1,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 101,
+      "id": 5,
+      "data": "2026-03-18T00:00:00",
+      "idEquipaA": 2,
+      "idEquipaB": 4,
+      "resultadoA": 16,
+      "resultadoB": 14
+    },
+    {
+      "idTorneio": 101,
+      "id": 6,
+      "data": "2026-03-18T00:00:00",
+      "idEquipaA": 3,
+      "idEquipaB": 4,
+      "resultadoA": 8,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 101,
+      "id": 7,
+      "data": "2026-03-25T00:00:00",
+      "idEquipaA": 2,
+      "idEquipaB": 1,
+      "resultadoA": 16,
+      "resultadoB": 8
+    },
+    {
+      "idTorneio": 101,
+      "id": 8,
+      "data": "2026-03-25T00:00:00",
+      "idEquipaA": 4,
+      "idEquipaB": 3,
+      "resultadoA": 0,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 101,
+      "id": 9,
+      "data": "2026-04-01T00:00:00",
+      "idEquipaA": 3,
+      "idEquipaB": 1,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 101,
+      "id": 10,
+      "data": "2026-04-01T00:00:00",
+      "idEquipaA": 4,
+      "idEquipaB": 2,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 102,
+      "id": 11,
+      "data": "2026-03-05T00:00:00",
+      "idEquipaA": 5,
+      "idEquipaB": 6,
+      "resultadoA": 9,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 102,
+      "id": 12,
+      "data": "2026-03-05T00:00:00",
+      "idEquipaA": 5,
+      "idEquipaB": 7,
+      "resultadoA": 0,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 102,
+      "id": 13,
+      "data": "2026-03-12T00:00:00",
+      "idEquipaA": 5,
+      "idEquipaB": 8,
+      "resultadoA": 16,
+      "resultadoB": 5
+    },
+    {
+      "idTorneio": 102,
+      "id": 14,
+      "data": "2026-03-12T00:00:00",
+      "idEquipaA": 6,
+      "idEquipaB": 7,
+      "resultadoA": 3,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 102,
+      "id": 15,
+      "data": "2026-03-19T00:00:00",
+      "idEquipaA": 6,
+      "idEquipaB": 8,
+      "resultadoA": 16,
+      "resultadoB": 12
+    },
+    {
+      "idTorneio": 102,
+      "id": 16,
+      "data": "2026-03-19T00:00:00",
+      "idEquipaA": 7,
+      "idEquipaB": 8,
+      "resultadoA": 16,
+      "resultadoB": 10
+    },
+    {
+      "idTorneio": 102,
+      "id": 17,
+      "data": "2026-03-26T00:00:00",
+      "idEquipaA": 6,
+      "idEquipaB": 5,
+      "resultadoA": 14,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 102,
+      "id": 18,
+      "data": "2026-03-26T00:00:00",
+      "idEquipaA": 8,
+      "idEquipaB": 7,
+      "resultadoA": 9,
+      "resultadoB": 9
+    },
+    {
+      "idTorneio": 102,
+      "id": 19,
+      "data": "2026-04-02T00:00:00",
+      "idEquipaA": 7,
+      "idEquipaB": 5,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 102,
+      "id": 20,
+      "data": "2026-04-02T00:00:00",
+      "idEquipaA": 8,
+      "idEquipaB": 6,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 103,
+      "id": 21,
+      "data": "2026-03-06T00:00:00",
+      "idEquipaA": 9,
+      "idEquipaB": 10,
+      "resultadoA": 16,
+      "resultadoB": 7
+    },
+    {
+      "idTorneio": 103,
+      "id": 22,
+      "data": "2026-03-06T00:00:00",
+      "idEquipaA": 9,
+      "idEquipaB": 11,
+      "resultadoA": 16,
+      "resultadoB": 6
+    },
+    {
+      "idTorneio": 103,
+      "id": 23,
+      "data": "2026-03-13T00:00:00",
+      "idEquipaA": 9,
+      "idEquipaB": 12,
+      "resultadoA": 16,
+      "resultadoB": 5
+    },
+    {
+      "idTorneio": 103,
+      "id": 24,
+      "data": "2026-03-13T00:00:00",
+      "idEquipaA": 10,
+      "idEquipaB": 11,
+      "resultadoA": 4,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 103,
+      "id": 25,
+      "data": "2026-03-20T00:00:00",
+      "idEquipaA": 10,
+      "idEquipaB": 12,
+      "resultadoA": 3,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 103,
+      "id": 26,
+      "data": "2026-03-20T00:00:00",
+      "idEquipaA": 11,
+      "idEquipaB": 12,
+      "resultadoA": 16,
+      "resultadoB": 8
+    },
+    {
+      "idTorneio": 103,
+      "id": 27,
+      "data": "2026-03-27T00:00:00",
+      "idEquipaA": 10,
+      "idEquipaB": 9,
+      "resultadoA": 4,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 103,
+      "id": 28,
+      "data": "2026-03-27T00:00:00",
+      "idEquipaA": 12,
+      "idEquipaB": 11,
+      "resultadoA": 10,
+      "resultadoB": 10
+    },
+    {
+      "idTorneio": 103,
+      "id": 29,
+      "data": "2026-04-03T00:00:00",
+      "idEquipaA": 11,
+      "idEquipaB": 9,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 103,
+      "id": 30,
+      "data": "2026-04-03T00:00:00",
+      "idEquipaA": 12,
+      "idEquipaB": 10,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 201,
+      "id": 31,
+      "data": "2026-03-06T00:00:00",
+      "idEquipaA": 13,
+      "idEquipaB": 14,
+      "resultadoA": 5,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 201,
+      "id": 32,
+      "data": "2026-03-06T00:00:00",
+      "idEquipaA": 13,
+      "idEquipaB": 15,
+      "resultadoA": 16,
+      "resultadoB": 8
+    },
+    {
+      "idTorneio": 201,
+      "id": 33,
+      "data": "2026-03-13T00:00:00",
+      "idEquipaA": 13,
+      "idEquipaB": 16,
+      "resultadoA": 16,
+      "resultadoB": 6
+    },
+    {
+      "idTorneio": 201,
+      "id": 34,
+      "data": "2026-03-13T00:00:00",
+      "idEquipaA": 14,
+      "idEquipaB": 15,
+      "resultadoA": 16,
+      "resultadoB": 13
+    },
+    {
+      "idTorneio": 201,
+      "id": 35,
+      "data": "2026-03-20T00:00:00",
+      "idEquipaA": 14,
+      "idEquipaB": 16,
+      "resultadoA": 16,
+      "resultadoB": 3
+    },
+    {
+      "idTorneio": 201,
+      "id": 36,
+      "data": "2026-03-20T00:00:00",
+      "idEquipaA": 15,
+      "idEquipaB": 16,
+      "resultadoA": 3,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 201,
+      "id": 37,
+      "data": "2026-03-27T00:00:00",
+      "idEquipaA": 14,
+      "idEquipaB": 13,
+      "resultadoA": 11,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 201,
+      "id": 38,
+      "data": "2026-03-27T00:00:00",
+      "idEquipaA": 16,
+      "idEquipaB": 15,
+      "resultadoA": 11,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 201,
+      "id": 39,
+      "data": "2026-04-03T00:00:00",
+      "idEquipaA": 15,
+      "idEquipaB": 13,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 201,
+      "id": 40,
+      "data": "2026-04-03T00:00:00",
+      "idEquipaA": 16,
+      "idEquipaB": 14,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 202,
+      "id": 41,
+      "data": "2026-03-07T00:00:00",
+      "idEquipaA": 17,
+      "idEquipaB": 18,
+      "resultadoA": 1,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 202,
+      "id": 42,
+      "data": "2026-03-07T00:00:00",
+      "idEquipaA": 17,
+      "idEquipaB": 19,
+      "resultadoA": 16,
+      "resultadoB": 8
+    },
+    {
+      "idTorneio": 202,
+      "id": 43,
+      "data": "2026-03-14T00:00:00",
+      "idEquipaA": 17,
+      "idEquipaB": 20,
+      "resultadoA": 16,
+      "resultadoB": 7
+    },
+    {
+      "idTorneio": 202,
+      "id": 44,
+      "data": "2026-03-14T00:00:00",
+      "idEquipaA": 18,
+      "idEquipaB": 19,
+      "resultadoA": 3,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 202,
+      "id": 45,
+      "data": "2026-03-21T00:00:00",
+      "idEquipaA": 18,
+      "idEquipaB": 20,
+      "resultadoA": 1,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 202,
+      "id": 46,
+      "data": "2026-03-21T00:00:00",
+      "idEquipaA": 19,
+      "idEquipaB": 20,
+      "resultadoA": 16,
+      "resultadoB": 6
+    },
+    {
+      "idTorneio": 202,
+      "id": 47,
+      "data": "2026-03-28T00:00:00",
+      "idEquipaA": 18,
+      "idEquipaB": 17,
+      "resultadoA": 16,
+      "resultadoB": 7
+    },
+    {
+      "idTorneio": 202,
+      "id": 48,
+      "data": "2026-03-28T00:00:00",
+      "idEquipaA": 20,
+      "idEquipaB": 19,
+      "resultadoA": 16,
+      "resultadoB": 2
+    },
+    {
+      "idTorneio": 202,
+      "id": 49,
+      "data": "2026-04-04T00:00:00",
+      "idEquipaA": 19,
+      "idEquipaB": 17,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 202,
+      "id": 50,
+      "data": "2026-04-04T00:00:00",
+      "idEquipaA": 20,
+      "idEquipaB": 18,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 203,
+      "id": 51,
+      "data": "2026-03-01T00:00:00",
+      "idEquipaA": 21,
+      "idEquipaB": 22,
+      "resultadoA": 10,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 203,
+      "id": 52,
+      "data": "2026-03-01T00:00:00",
+      "idEquipaA": 21,
+      "idEquipaB": 23,
+      "resultadoA": 16,
+      "resultadoB": 6
+    },
+    {
+      "idTorneio": 203,
+      "id": 53,
+      "data": "2026-03-08T00:00:00",
+      "idEquipaA": 21,
+      "idEquipaB": 24,
+      "resultadoA": 6,
+      "resultadoB": 6
+    },
+    {
+      "idTorneio": 203,
+      "id": 54,
+      "data": "2026-03-08T00:00:00",
+      "idEquipaA": 22,
+      "idEquipaB": 23,
+      "resultadoA": 10,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 203,
+      "id": 55,
+      "data": "2026-03-15T00:00:00",
+      "idEquipaA": 22,
+      "idEquipaB": 24,
+      "resultadoA": 1,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 203,
+      "id": 56,
+      "data": "2026-03-15T00:00:00",
+      "idEquipaA": 23,
+      "idEquipaB": 24,
+      "resultadoA": 16,
+      "resultadoB": 13
+    },
+    {
+      "idTorneio": 203,
+      "id": 57,
+      "data": "2026-03-22T00:00:00",
+      "idEquipaA": 22,
+      "idEquipaB": 21,
+      "resultadoA": 5,
+      "resultadoB": 16
+    },
+    {
+      "idTorneio": 203,
+      "id": 58,
+      "data": "2026-03-22T00:00:00",
+      "idEquipaA": 24,
+      "idEquipaB": 23,
+      "resultadoA": 16,
+      "resultadoB": 1
+    },
+    {
+      "idTorneio": 203,
+      "id": 59,
+      "data": "2026-03-29T00:00:00",
+      "idEquipaA": 23,
+      "idEquipaB": 21,
+      "resultadoA": null,
+      "resultadoB": null
+    },
+    {
+      "idTorneio": 203,
+      "id": 60,
+      "data": "2026-03-29T00:00:00",
+      "idEquipaA": 24,
+      "idEquipaB": 22,
+      "resultadoA": null,
+      "resultadoB": null
+    }
+  ]
+}

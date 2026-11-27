@@ -1,0 +1,59 @@
+{
+  "campeonatos": [
+    {
+      "id": 1,
+      "nome": "Liga Nacional eSports",
+      "ano": 2026,
+      "torneios": [
+        {
+          "id": 101,
+          "nome": "CS2 Masters",
+          "jogo": "Counter-Strike 2",
+          "equipas": [
+            {
+              "id": 1,
+              "nome": "Dragons",
+              "pais": "Portugal",
+              "jogadores": [
+                {
+                  "id": 1,
+                  "nome": "Daniel Pinto",
+                  "nickname": "Viper_ez",
+                  "idade": 19,
+                  "pontuacoes": [
+                    96,
+                    54,
+                    97,
+                    78,
+                    79
+                  ]
+                },
+                {
+                  "id": 2,
+                  "nome": "Ivo Teixeira",
+                  "nickname": "ZenOne",
+                  "idade": 33,
+                  "pontuacoes": [
+                    93,
+                    86,
+                    89,
+                    89,
+                    71
+                  ]
+                },
+                {
+                  "id": 3,
+                  "nome": "Hugo Silva",
+                  "nickname": "RogueHD",
+                  "idade": 18,
+                  "pontuacoes": [
+                    47,
+                    58,
+                    92,
+                    46,
+                    68
+                  ]
+                },
+                {
+                  "id": 4,
+                  "nome": 

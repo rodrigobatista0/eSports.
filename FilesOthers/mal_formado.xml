@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Campeonatos>
+  <Campeonato>
+    <Id>1</Id>
+    <Nome>Liga Nacional eSports
+    <Ano>2026</Ano>
+    <Torneios>
+      <Torneio>
+        <Id>101</Id>
+        <Nome>CS2 Masters</Nome>
+        <Jogo>Counter-Strike 2</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>1</Id>
+            <Nome>Dragons</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>1</Id>
+                <Nome>Daniel Pinto</Nome>
+                <Nickname>Viper_ez</Nickname>
+                <Idade>19</Idade>
+                <Pontuacoes><Ponto>96</Ponto><Ponto>54</Ponto><Ponto>97</Ponto><Ponto>78</Ponto><Ponto>79</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>2</Id>
+                <Nome>Ivo Teixeira</Nome>
+                <Nickname>ZenOne</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>93</Ponto><Ponto>86</Ponto><Ponto>89</Ponto><Ponto>89</Ponto><Ponto>71</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>3</Id>
+                <Nome>Hugo Silva</Nome>
+                <Nickname>RogueHD</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>47</Ponto><Ponto>58</Ponto><Ponto>92</Ponto><Ponto>46</Ponto><Ponto>68</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>4</Id>
+                <Nome>Fábio Gomes</Nome>
+                <Nickname>FireHD</Nickname>
+                <Idade>22</Idade>
+                <Pontuacoes><Ponto>65</Ponto><Ponto>56</Ponto><Ponto>62</Ponto><Ponto>99</Ponto><Ponto>62</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>5</Id>
+                <Nome>Duarte Gomes</Nome>
+                <Nickname>FenixX</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>75</Ponto><Ponto>74</Ponto><Ponto>58</Ponto><Ponto>58</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>2</Id>
+            <Nome>Wolves</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>6</Id>
+                <Nome>João Lopes</Nome>
+                <Nickname>StormPro</Nickname>
+                <Idade>27</Idade>
+                <Pontuacoes><Ponto>69</Ponto><Ponto>67</Ponto><Ponto>45</Ponto><Ponto>65</Ponto><Ponto>97</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>7</Id>
+                <Nome>Leandro Pereira</Nome>
+                <Nickname>PixelHD</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>72</Ponto><Ponto>91</Ponto><Ponto>88</Ponto><Ponto>95</Ponto><Ponto>78</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>8</Id>
+                <Nome>Nelson Pinto</Nome>
+                <Nickname>ToroOne</Nickname>
+                <Idade>24</Idade>
+                <Pontuacoes><Ponto>94</Ponto><Ponto>66</Ponto><Ponto>76</Ponto><Ponto>99</Ponto><Ponto>70</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>9</Id>
+                <Nome>Sérgio Sousa</Nome>
+                <Nickname>Rex</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>92</Ponto><Ponto>43</Ponto><Ponto>85</Ponto><Ponto>73</Ponto><Ponto>96</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>10</Id>
+                <Nome>Vasco Moreira</Nome>
+                <Nickname>CobraX</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>70</Ponto><Ponto>49</Ponto><Ponto>70</Ponto><Ponto>96</Ponto><Ponto>54</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>3</Id>
+            <Nome>Kings</Nome>
+            <Pais>Espanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>11</Id>
+                <Nome>Fábio Ribeiro</Nome>
+                <Nickname>ViperHD</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>56</Ponto><Ponto>75</Ponto><Ponto>65</Ponto><Ponto>82</Ponto><Ponto>59</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>12</Id>
+                <Nome>Ivo Marques</Nome>
+                <Nickname>ZenHD</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>52</Ponto><Ponto>58</Ponto><Ponto>93</Ponto><Ponto>57</Ponto><Ponto>40</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>13</Id>
+                <Nome>Paulo Moreira</Nome>
+                <Nickname>Blaze77</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>91</Ponto><Ponto>73</Ponto><Ponto>99</Ponto><Ponto>71</Ponto><Ponto>63</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>14</Id>
+                <Nome>Vasco Ribeiro</Nome>
+                <Nickname>ShadowPro</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>72</Ponto><Ponto>89</Ponto><Ponto>92</Ponto><Ponto>71</Ponto><Ponto>91</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>15</Id>
+                <Nome>Jorge Gonçalves</Nome>
+                <Nickname>Spark</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>69</Ponto><Ponto>98</Ponto><Ponto>91</Ponto><Ponto>46</Ponto><Ponto>68</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>4</Id>
+            <Nome>Phoenix</Nome>
+            <Pais>França</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>16</Id>
+                <Nome>Filipe Rodrigues</Nome>
+                <Nickname>FrostPro</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>93</Ponto><Ponto>86</Ponto><Ponto>70</Ponto><Ponto>44</Ponto><Ponto>81</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>17</Id>
+                <Nome>Rafael Pereira</Nome>
+                <Nickname>NovaHD</Nickname>
+                <Idade>22</Idade>
+                <Pontuacoes><Ponto>87</Ponto><Ponto>94</Ponto><Ponto>66</Ponto><Ponto>49</Ponto><Ponto>68</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>18</Id>
+                <Nome>João Almeida</Nome>
+                <Nickname>FireX</Nickname>
+                <Idade>34</Idade>
+                <Pontuacoes><Ponto>74</Ponto><Ponto>99</Ponto><Ponto>93</Ponto><Ponto>45</Ponto><Ponto>79</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>19</Id>
+                <Nome>Tiago Moreira</Nome>
+                <Nickname>ShadowPT</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>88</Ponto><Ponto>74</Ponto><Ponto>57</Ponto><Ponto>82</Ponto><Ponto>88</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>20</Id>
+                <Nome>Pedro Silva</Nome>
+                <Nickname>Bolt_ez</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>82</Ponto><Ponto>77</Ponto><Ponto>76</Ponto><Ponto>89</Ponto><Ponto>99</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+      <Torneio>
+        <Id>102</Id>
+        <Nome>Valorant Open</Nome>
+        <Jogo>Valorant</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>5</Id>
+            <Nome>Titans</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>21</Id>
+                <Nome>Paulo Lopes</Nome>
+                <Nickname>Blaze_ez</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>41</Ponto><Ponto>72</Ponto><Ponto>70</Ponto><Ponto>60</Ponto><Ponto>83</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>22</Id>
+                <Nome>Carlos Pereira</Nome>
+                <Nickname>HawkHD</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>69</Ponto><Ponto>76</Ponto><Ponto>79</Ponto><Ponto>91</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>23</Id>
+                <Nome>Gonçalo Moreira</Nome>
+                <Nickname>StormPT</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>69</Ponto><Ponto>78</Ponto><Ponto>54</Ponto><Ponto>83</Ponto><Ponto>85</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>24</Id>
+                <Nome>Rui Martins</Nome>
+                <Nickname>GhostOne</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>42</Ponto><Ponto>81</Ponto><Ponto>74</Ponto><Ponto>99</Ponto><Ponto>93</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>25</Id>
+                <Nome>Leandro Martins</Nome>
+                <Nickname>BlazeHD</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>85</Ponto><Ponto>83</Ponto><Ponto>96</Ponto><Ponto>41</Ponto><Ponto>48</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>6</Id>
+            <Nome>Falcons</Nome>
+            <Pais>Espanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>26</Id>
+                <Nome>Ivo Pinto</Nome>
+                <Nickname>BoltPT</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>50</Ponto><Ponto>82</Ponto><Ponto>94</Ponto><Ponto>51</Ponto><Ponto>64</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>27</Id>
+                <Nome>Marco Alves</Nome>
+                <Nickname>NovaOne</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>64</Ponto><Ponto>59</Ponto><Ponto>51</Ponto><Ponto>62</Ponto><Ponto>51</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>28</Id>
+                <Nome>Daniel Ribeiro</Nome>
+                <Nickname>Raven_ez</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>47</Ponto><Ponto>73</Ponto><Ponto>90</Ponto><Ponto>73</Ponto><Ponto>90</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>29</Id>
+                <Nome>Leandro Martins</Nome>
+                <Nickname>NovaX</Nickname>
+                <Idade>23</Idade>
+                <Pontuacoes><Ponto>40</Ponto><Ponto>45</Ponto><Ponto>96</Ponto><Ponto>69</Ponto><Ponto>81</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>30</Id>
+                <Nome>Marco Rodrigues</Nome>
+                <Nickname>WolfOne</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>62</Ponto><Ponto>94</Ponto><Ponto>50</Ponto><Ponto>62</Ponto><Ponto>75</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>7</Id>
+            <Nome>Vipers</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>31</Id>
+                <Nome>Tiago Moreira</Nome>
+                <Nickname>CobraPT</Nickname>
+                <Idade>24</Idade>
+                <Pontuacoes><Ponto>75</Ponto><Ponto>88</Ponto><Ponto>76</Ponto><Ponto>86</Ponto><Ponto>53</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>32</Id>
+                <Nome>Sérgio Fernandes</Nome>
+                <Nickname>PixelPro</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>48</Ponto><Ponto>46</Ponto><Ponto>90</Ponto><Ponto>56</Ponto><Ponto>46</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>33</Id>
+                <Nome>Tiago Santos</Nome>
+                <Nickname>Spark77</Nickname>
+                <Idade>27</Idade>
+                <Pontuacoes><Ponto>86</Ponto><Ponto>91</Ponto><Ponto>51</Ponto><Ponto>81</Ponto><Ponto>80</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>34</Id>
+                <Nome>André Fernandes</Nome>
+                <Nickname>Hawk_ez</Nickname>
+                <Idade>24</Idade>
+                <Pontuacoes><Ponto>44</Ponto><Ponto>40</Ponto><Ponto>66</Ponto><Ponto>95</Ponto><Ponto>97</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>35</Id>
+                <Nome>Gonçalo Silva</Nome>
+                <Nickname>RoguePro</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>46</Ponto><Ponto>55</Ponto><Ponto>41</Ponto><Ponto>59</Ponto><Ponto>47</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>8</Id>
+            <Nome>Knights</Nome>
+            <Pais>Alemanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>36</Id>
+                <Nome>Luís Moreira</Nome>
+                <Nickname>WolfHD</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>99</Ponto><Ponto>65</Ponto><Ponto>60</Ponto><Ponto>78</Ponto><Ponto>53</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>37</Id>
+                <Nome>Gonçalo Pereira</Nome>
+                <Nickname>EchoHD</Nickname>
+                <Idade>27</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>72</Ponto><Ponto>83</Ponto><Ponto>99</Ponto><Ponto>56</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>38</Id>
+                <Nome>Jorge Lopes</Nome>
+                <Nickname>FenixPro</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>87</Ponto><Ponto>85</Ponto><Ponto>67</Ponto><Ponto>96</Ponto><Ponto>41</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>39</Id>
+                <Nome>Bruno Alves</Nome>
+                <Nickname>HawkX</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>77</Ponto><Ponto>97</Ponto><Ponto>41</Ponto><Ponto>74</Ponto><Ponto>61</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>40</Id>
+                <Nome>Duarte Pereira</Nome>
+                <Nickname>Shadow</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>79</Ponto><Ponto>47</Ponto><Ponto>47</Ponto><Ponto>42</Ponto><Ponto>48</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+      <Torneio>
+        <Id>103</Id>
+        <Nome>LoL Cup</Nome>
+        <Jogo>League of Legends</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>9</Id>
+            <Nome>Storm</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>41</Id>
+                <Nome>Carlos Ferreira</Nome>
+                <Nickname>SparkPro</Nickname>
+                <Idade>34</Idade>
+                <Pontuacoes><Ponto>45</Ponto><Ponto>93</Ponto><Ponto>51</Ponto><Ponto>75</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>42</Id>
+                <Nome>Carlos Pinto</Nome>
+                <Nickname>BoltPro</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>43</Ponto><Ponto>82</Ponto><Ponto>93</Ponto><Ponto>40</Ponto><Ponto>80</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>43</Id>
+                <Nome>Rui Sousa</Nome>
+                <Nickname>TitanHD</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>49</Ponto><Ponto>99</Ponto><Ponto>87</Ponto><Ponto>97</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>44</Id>
+                <Nome>Ivo Sousa</Nome>
+                <Nickname>Fenix_ez</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>93</Ponto><Ponto>57</Ponto><Ponto>61</Ponto><Ponto>95</Ponto><Ponto>52</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>45</Id>
+                <Nome>Filipe Almeida</Nome>
+                <Nickname>Drako_ez</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>91</Ponto><Ponto>70</Ponto><Ponto>97</Ponto><Ponto>90</Ponto><Ponto>83</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>10</Id>
+            <Nome>Sharks</Nome>
+            <Pais>Brasil</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>46</Id>
+                <Nome>Paulo Alves</Nome>
+                <Nickname>Shadow77</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>71</Ponto><Ponto>97</Ponto><Ponto>40</Ponto><Ponto>62</Ponto><Ponto>92</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>47</Id>
+                <Nome>Ivo Santos</Nome>
+                <Nickname>RexOne</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>45</Ponto><Ponto>59</Ponto><Ponto>63</Ponto><Ponto>74</Ponto><Ponto>86</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>48</Id>
+                <Nome>Vasco Pereira</Nome>
+                <Nickname>Nova77</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>74</Ponto><Ponto>53</Ponto><Ponto>94</Ponto><Ponto>94</Ponto><Ponto>84</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>49</Id>
+                <Nome>Tomás Marques</Nome>
+                <Nickname>Pixel</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>73</Ponto><Ponto>91</Ponto><Ponto>81</Ponto><Ponto>82</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>50</Id>
+                <Nome>Miguel Ferreira</Nome>
+                <Nickname>RexX</Nickname>
+                <Idade>28</Idade>
+                <Pontuacoes><Ponto>61</Ponto><Ponto>75</Ponto><Ponto>56</Ponto><Ponto>59</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>11</Id>
+            <Nome>Eagles</Nome>
+            <Pais>Espanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>51</Id>
+                <Nome>André Gonçalves</Nome>
+                <Nickname>OrbitPT</Nickname>
+                <Idade>25</Idade>
+                <Pontuacoes><Ponto>74</Ponto><Ponto>58</Ponto><Ponto>62</Ponto><Ponto>48</Ponto><Ponto>64</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>52</Id>
+                <Nome>Ivo Carvalho</Nome>
+                <Nickname>Spark_ez</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>86</Ponto><Ponto>73</Ponto><Ponto>41</Ponto><Ponto>51</Ponto><Ponto>60</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>53</Id>
+                <Nome>André Silva</Nome>
+                <Nickname>Zen77</Nickname>
+                <Idade>19</Idade>
+                <Pontuacoes><Ponto>72</Ponto><Ponto>82</Ponto><Ponto>96</Ponto><Ponto>85</Ponto><Ponto>81</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>54</Id>
+                <Nome>Jorge Lopes</Nome>
+                <Nickname>Rogue</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>63</Ponto><Ponto>59</Ponto><Ponto>53</Ponto><Ponto>74</Ponto><Ponto>49</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>55</Id>
+                <Nome>Pedro Pereira</Nome>
+                <Nickname>EchoPT</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>71</Ponto><Ponto>46</Ponto><Ponto>95</Ponto><Ponto>93</Ponto><Ponto>86</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>12</Id>
+            <Nome>Rebels</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>56</Id>
+                <Nome>Paulo Pereira</Nome>
+                <Nickname>NovaPro</Nickname>
+                <Idade>27</Idade>
+                <Pontuacoes><Ponto>70</Ponto><Ponto>98</Ponto><Ponto>71</Ponto><Ponto>47</Ponto><Ponto>75</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>57</Id>
+                <Nome>Jorge Lopes</Nome>
+                <Nickname>RexPT</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>98</Ponto><Ponto>77</Ponto><Ponto>62</Ponto><Ponto>45</Ponto><Ponto>44</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>58</Id>
+                <Nome>Ivo Ribeiro</Nome>
+                <Nickname>RogueX</Nickname>
+                <Idade>25</Idade>
+                <Pontuacoes><Ponto>56</Ponto><Ponto>88</Ponto><Ponto>82</Ponto><Ponto>54</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>59</Id>
+                <Nome>Carlos Ribeiro</Nome>
+                <Nickname>Rex_ez</Nickname>
+                <Idade>28</Idade>
+                <Pontuacoes><Ponto>60</Ponto><Ponto>51</Ponto><Ponto>52</Ponto><Ponto>91</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>60</Id>
+                <Nome>Henrique Lopes</Nome>
+                <Nickname>Titan_ez</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>93</Ponto><Ponto>91</Ponto><Ponto>77</Ponto><Ponto>64</Ponto><Ponto>53</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+    </Torneios>
+  </Campeonato>
+  <Campeonato>
+    <Id>2</Id>
+    <Nome>Taça Ibérica eSports</Nome>
+    <Ano>2026</Ano>
+    <Torneios>
+      <Torneio>
+        <Id>201</Id>
+        <Nome>Dota Clash</Nome>
+        <Jogo>Dota 2</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>13</Id>
+            <Nome>Hornets</Nome>
+            <Pais>Itália</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>61</Id>
+                <Nome>Carlos Pereira</Nome>
+                <Nickname>CobraOne</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>98</Ponto><Ponto>83</Ponto><Ponto>94</Ponto><Ponto>80</Ponto><Ponto>93</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>62</Id>
+                <Nome>Duarte Rodrigues</Nome>
+                <Nickname>BlazeOne</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>57</Ponto><Ponto>75</Ponto><Ponto>84</Ponto><Ponto>56</Ponto><Ponto>48</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>63</Id>
+                <Nome>João Santos</Nome>
+                <Nickname>Toro_ez</Nickname>
+                <Idade>23</Idade>
+                <Pontuacoes><Ponto>80</Ponto><Ponto>47</Ponto><Ponto>82</Ponto><Ponto>94</Ponto><Ponto>57</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>64</Id>
+                <Nome>Henrique Martins</Nome>
+                <Nickname>Wolf</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>72</Ponto><Ponto>57</Ponto><Ponto>79</Ponto><Ponto>80</Ponto><Ponto>63</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>65</Id>
+                <Nome>Marco Silva</Nome>
+                <Nickname>GhostPT</Nickname>
+                <Idade>19</Idade>
+                <Pontuacoes><Ponto>49</Ponto><Ponto>61</Ponto><Ponto>54</Ponto><Ponto>69</Ponto><Ponto>53</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>14</Id>
+            <Nome>Samurais</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>66</Id>
+                <Nome>Vasco Gonçalves</Nome>
+                <Nickname>Echo77</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>76</Ponto><Ponto>66</Ponto><Ponto>85</Ponto><Ponto>73</Ponto><Ponto>83</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>67</Id>
+                <Nome>Tiago Silva</Nome>
+                <Nickname>Pixel77</Nickname>
+                <Idade>24</Idade>
+                <Pontuacoes><Ponto>66</Ponto><Ponto>42</Ponto><Ponto>51</Ponto><Ponto>75</Ponto><Ponto>86</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>68</Id>
+                <Nome>Carlos Moreira</Nome>
+                <Nickname>Wolf_ez</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>56</Ponto><Ponto>71</Ponto><Ponto>96</Ponto><Ponto>60</Ponto><Ponto>93</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>69</Id>
+                <Nome>Paulo Ribeiro</Nome>
+                <Nickname>Nova</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>41</Ponto><Ponto>70</Ponto><Ponto>91</Ponto><Ponto>63</Ponto><Ponto>56</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>70</Id>
+                <Nome>Diogo Pinto</Nome>
+                <Nickname>Shadow_ez</Nickname>
+                <Idade>28</Idade>
+                <Pontuacoes><Ponto>59</Ponto><Ponto>53</Ponto><Ponto>77</Ponto><Ponto>43</Ponto><Ponto>92</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>15</Id>
+            <Nome>Lions</Nome>
+            <Pais>Espanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>71</Id>
+                <Nome>Duarte Pinto</Nome>
+                <Nickname>SparkX</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>89</Ponto><Ponto>94</Ponto><Ponto>59</Ponto><Ponto>70</Ponto><Ponto>79</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>72</Id>
+                <Nome>Ricardo Gomes</Nome>
+                <Nickname>Ghost_ez</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>63</Ponto><Ponto>51</Ponto><Ponto>44</Ponto><Ponto>75</Ponto><Ponto>95</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>73</Id>
+                <Nome>Leandro Pinto</Nome>
+                <Nickname>RavenPro</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>64</Ponto><Ponto>80</Ponto><Ponto>46</Ponto><Ponto>99</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>74</Id>
+                <Nome>Gonçalo Pinto</Nome>
+                <Nickname>TitanPT</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>48</Ponto><Ponto>72</Ponto><Ponto>53</Ponto><Ponto>90</Ponto><Ponto>95</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>75</Id>
+                <Nome>Rafael Marques</Nome>
+                <Nickname>Storm_ez</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>79</Ponto><Ponto>86</Ponto><Ponto>74</Ponto><Ponto>52</Ponto><Ponto>49</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>16</Id>
+            <Nome>Ninjas</Nome>
+            <Pais>França</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>76</Id>
+                <Nome>Pedro Teixeira</Nome>
+                <Nickname>Orbit77</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>91</Ponto><Ponto>82</Ponto><Ponto>95</Ponto><Ponto>42</Ponto><Ponto>57</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>77</Id>
+                <Nome>Pedro Fernandes</Nome>
+                <Nickname>Hawk77</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>84</Ponto><Ponto>62</Ponto><Ponto>48</Ponto><Ponto>69</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>78</Id>
+                <Nome>Henrique Rodrigues</Nome>
+                <Nickname>Raven</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>66</Ponto><Ponto>81</Ponto><Ponto>79</Ponto><Ponto>71</Ponto><Ponto>98</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>79</Id>
+                <Nome>Bruno Sousa</Nome>
+                <Nickname>Zen</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>63</Ponto><Ponto>96</Ponto><Ponto>74</Ponto><Ponto>45</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>80</Id>
+                <Nome>Ricardo Silva</Nome>
+                <Nickname>Storm</Nickname>
+                <Idade>17</Idade>
+                <Pontuacoes><Ponto>46</Ponto><Ponto>62</Ponto><Ponto>77</Ponto><Ponto>94</Ponto><Ponto>85</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+      <Torneio>
+        <Id>202</Id>
+        <Nome>Rocket Series</Nome>
+        <Jogo>Rocket League</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>17</Id>
+            <Nome>Raptors</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>81</Id>
+                <Nome>Rafael Moreira</Nome>
+                <Nickname>ViperX</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>47</Ponto><Ponto>51</Ponto><Ponto>53</Ponto><Ponto>81</Ponto><Ponto>67</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>82</Id>
+                <Nome>João Carvalho</Nome>
+                <Nickname>ShadowOne</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>81</Ponto><Ponto>97</Ponto><Ponto>98</Ponto><Ponto>80</Ponto><Ponto>90</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>83</Id>
+                <Nome>Tomás Silva</Nome>
+                <Nickname>Orbit_ez</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>73</Ponto><Ponto>69</Ponto><Ponto>96</Ponto><Ponto>57</Ponto><Ponto>93</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>84</Id>
+                <Nome>Pedro Pereira</Nome>
+                <Nickname>DrakoHD</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>75</Ponto><Ponto>54</Ponto><Ponto>62</Ponto><Ponto>69</Ponto><Ponto>64</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>85</Id>
+                <Nome>Nelson Carvalho</Nome>
+                <Nickname>Echo</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>88</Ponto><Ponto>56</Ponto><Ponto>83</Ponto><Ponto>45</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>18</Id>
+            <Nome>Spartans</Nome>
+            <Pais>Grécia</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>86</Id>
+                <Nome>Marco Pinto</Nome>
+                <Nickname>Ashes_ez</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>46</Ponto><Ponto>92</Ponto><Ponto>57</Ponto><Ponto>58</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>87</Id>
+                <Nome>Miguel Pinto</Nome>
+                <Nickname>Ghost</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>76</Ponto><Ponto>46</Ponto><Ponto>64</Ponto><Ponto>91</Ponto><Ponto>81</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>88</Id>
+                <Nome>Miguel Rodrigues</Nome>
+                <Nickname>ViperOne</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>56</Ponto><Ponto>41</Ponto><Ponto>42</Ponto><Ponto>87</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>89</Id>
+                <Nome>Duarte Gomes</Nome>
+                <Nickname>GhostX</Nickname>
+                <Idade>20</Idade>
+                <Pontuacoes><Ponto>59</Ponto><Ponto>70</Ponto><Ponto>55</Ponto><Ponto>60</Ponto><Ponto>85</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>90</Id>
+                <Nome>Tomás Sousa</Nome>
+                <Nickname>AshesPT</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>94</Ponto><Ponto>60</Ponto><Ponto>66</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>19</Id>
+            <Nome>Comets</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>91</Id>
+                <Nome>Luís Rodrigues</Nome>
+                <Nickname>ToroPT</Nickname>
+                <Idade>30</Idade>
+                <Pontuacoes><Ponto>52</Ponto><Ponto>89</Ponto><Ponto>47</Ponto><Ponto>77</Ponto><Ponto>70</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>92</Id>
+                <Nome>Ricardo Pinto</Nome>
+                <Nickname>PixelOne</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>71</Ponto><Ponto>53</Ponto><Ponto>64</Ponto><Ponto>86</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>93</Id>
+                <Nome>Ivo Ferreira</Nome>
+                <Nickname>RexHD</Nickname>
+                <Idade>25</Idade>
+                <Pontuacoes><Ponto>55</Ponto><Ponto>95</Ponto><Ponto>73</Ponto><Ponto>60</Ponto><Ponto>57</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>94</Id>
+                <Nome>Leandro Teixeira</Nome>
+                <Nickname>RogueOne</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>62</Ponto><Ponto>78</Ponto><Ponto>95</Ponto><Ponto>73</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>95</Id>
+                <Nome>Ivo Martins</Nome>
+                <Nickname>Pixel_ez</Nickname>
+                <Idade>34</Idade>
+                <Pontuacoes><Ponto>44</Ponto><Ponto>75</Ponto><Ponto>50</Ponto><Ponto>69</Ponto><Ponto>65</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>20</Id>
+            <Nome>Bulls</Nome>
+            <Pais>Espanha</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>96</Id>
+                <Nome>João Sousa</Nome>
+                <Nickname>SparkOne</Nickname>
+                <Idade>22</Idade>
+                <Pontuacoes><Ponto>43</Ponto><Ponto>56</Ponto><Ponto>88</Ponto><Ponto>91</Ponto><Ponto>50</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>97</Id>
+                <Nome>Nelson Lopes</Nome>
+                <Nickname>RexPro</Nickname>
+                <Idade>18</Idade>
+                <Pontuacoes><Ponto>56</Ponto><Ponto>50</Ponto><Ponto>99</Ponto><Ponto>98</Ponto><Ponto>42</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>98</Id>
+                <Nome>Mário Almeida</Nome>
+                <Nickname>ShadowX</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>82</Ponto><Ponto>42</Ponto><Ponto>62</Ponto><Ponto>96</Ponto><Ponto>84</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>99</Id>
+                <Nome>Nelson Martins</Nome>
+                <Nickname>Ashes</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>43</Ponto><Ponto>58</Ponto><Ponto>45</Ponto><Ponto>50</Ponto><Ponto>81</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>100</Id>
+                <Nome>Nuno Silva</Nome>
+                <Nickname>GhostPro</Nickname>
+                <Idade>25</Idade>
+                <Pontuacoes><Ponto>79</Ponto><Ponto>81</Ponto><Ponto>42</Ponto><Ponto>70</Ponto><Ponto>99</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+      <Torneio>
+        <Id>203</Id>
+        <Nome>CS2 Iberia</Nome>
+        <Jogo>Counter-Strike 2</Jogo>
+        <Equipas>
+          <Equipa>
+            <Id>21</Id>
+            <Nome>Cyclones</Nome>
+            <Pais>Brasil</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>101</Id>
+                <Nome>Daniel Gomes</Nome>
+                <Nickname>ZenPT</Nickname>
+                <Idade>28</Idade>
+                <Pontuacoes><Ponto>57</Ponto><Ponto>81</Ponto><Ponto>81</Ponto><Ponto>50</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>102</Id>
+                <Nome>Duarte Ferreira</Nome>
+                <Nickname>DrakoX</Nickname>
+                <Idade>34</Idade>
+                <Pontuacoes><Ponto>95</Ponto><Ponto>73</Ponto><Ponto>89</Ponto><Ponto>55</Ponto><Ponto>92</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>103</Id>
+                <Nome>Fábio Gomes</Nome>
+                <Nickname>Toro77</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>71</Ponto><Ponto>75</Ponto><Ponto>47</Ponto><Ponto>48</Ponto><Ponto>40</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>104</Id>
+                <Nome>Paulo Alves</Nome>
+                <Nickname>FrostHD</Nickname>
+                <Idade>34</Idade>
+                <Pontuacoes><Ponto>61</Ponto><Ponto>72</Ponto><Ponto>62</Ponto><Ponto>45</Ponto><Ponto>87</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>105</Id>
+                <Nome>Paulo Fernandes</Nome>
+                <Nickname>Cobra</Nickname>
+                <Idade>23</Idade>
+                <Pontuacoes><Ponto>47</Ponto><Ponto>64</Ponto><Ponto>96</Ponto><Ponto>55</Ponto><Ponto>59</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>22</Id>
+            <Nome>Pirates</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>106</Id>
+                <Nome>João Gomes</Nome>
+                <Nickname>Hawk</Nickname>
+                <Idade>21</Idade>
+                <Pontuacoes><Ponto>85</Ponto><Ponto>69</Ponto><Ponto>77</Ponto><Ponto>46</Ponto><Ponto>55</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>107</Id>
+                <Nome>Henrique Rodrigues</Nome>
+                <Nickname>CobraHD</Nickname>
+                <Idade>32</Idade>
+                <Pontuacoes><Ponto>99</Ponto><Ponto>82</Ponto><Ponto>70</Ponto><Ponto>47</Ponto><Ponto>44</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>108</Id>
+                <Nome>Pedro Alves</Nome>
+                <Nickname>EchoPro</Nickname>
+                <Idade>24</Idade>
+                <Pontuacoes><Ponto>41</Ponto><Ponto>68</Ponto><Ponto>78</Ponto><Ponto>58</Ponto><Ponto>49</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>109</Id>
+                <Nome>Filipe Teixeira</Nome>
+                <Nickname>Fenix</Nickname>
+                <Idade>19</Idade>
+                <Pontuacoes><Ponto>46</Ponto><Ponto>54</Ponto><Ponto>93</Ponto><Ponto>60</Ponto><Ponto>68</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>110</Id>
+                <Nome>Diogo Almeida</Nome>
+                <Nickname>OrbitPro</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>70</Ponto><Ponto>58</Ponto><Ponto>95</Ponto><Ponto>60</Ponto><Ponto>92</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>23</Id>
+            <Nome>Legends</Nome>
+            <Pais>Inglaterra</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>111</Id>
+                <Nome>Luís Carvalho</Nome>
+                <Nickname>RavenX</Nickname>
+                <Idade>16</Idade>
+                <Pontuacoes><Ponto>53</Ponto><Ponto>53</Ponto><Ponto>84</Ponto><Ponto>58</Ponto><Ponto>85</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>112</Id>
+                <Nome>Pedro Moreira</Nome>
+                <Nickname>TitanOne</Nickname>
+                <Idade>26</Idade>
+                <Pontuacoes><Ponto>81</Ponto><Ponto>74</Ponto><Ponto>65</Ponto><Ponto>53</Ponto><Ponto>79</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>113</Id>
+                <Nome>Nelson Carvalho</Nome>
+                <Nickname>ZenPro</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>64</Ponto><Ponto>84</Ponto><Ponto>56</Ponto><Ponto>62</Ponto><Ponto>95</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>114</Id>
+                <Nome>Bruno Rodrigues</Nome>
+                <Nickname>BlazePT</Nickname>
+                <Idade>29</Idade>
+                <Pontuacoes><Ponto>82</Ponto><Ponto>77</Ponto><Ponto>48</Ponto><Ponto>68</Ponto><Ponto>64</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>115</Id>
+                <Nome>Fábio Santos</Nome>
+                <Nickname>BoltHD</Nickname>
+                <Idade>25</Idade>
+                <Pontuacoes><Ponto>87</Ponto><Ponto>42</Ponto><Ponto>91</Ponto><Ponto>78</Ponto><Ponto>72</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+          <Equipa>
+            <Id>24</Id>
+            <Nome>Guardians</Nome>
+            <Pais>Portugal</Pais>
+            <Jogadores>
+              <Jogador>
+                <Id>116</Id>
+                <Nome>Jorge Alves</Nome>
+                <Nickname>WolfPro</Nickname>
+                <Idade>23</Idade>
+                <Pontuacoes><Ponto>84</Ponto><Ponto>80</Ponto><Ponto>96</Ponto><Ponto>74</Ponto><Ponto>96</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>117</Id>
+                <Nome>Jorge Lopes</Nome>
+                <Nickname>Cobra_ez</Nickname>
+                <Idade>28</Idade>
+                <Pontuacoes><Ponto>73</Ponto><Ponto>54</Ponto><Ponto>40</Ponto><Ponto>66</Ponto><Ponto>73</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>118</Id>
+                <Nome>Leandro Sousa</Nome>
+                <Nickname>Echo_ez</Nickname>
+                <Idade>33</Idade>
+                <Pontuacoes><Ponto>77</Ponto><Ponto>64</Ponto><Ponto>62</Ponto><Ponto>95</Ponto><Ponto>87</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>119</Id>
+                <Nome>Luís Marques</Nome>
+                <Nickname>RavenHD</Nickname>
+                <Idade>31</Idade>
+                <Pontuacoes><Ponto>92</Ponto><Ponto>50</Ponto><Ponto>67</Ponto><Ponto>72</Ponto><Ponto>52</Ponto></Pontuacoes>
+              </Jogador>
+              <Jogador>
+                <Id>120</Id>
+                <Nome>Marco Costa</Nome>
+                <Nickname>Drako</Nickname>
+                <Idade>19</Idade>
+                <Pontuacoes><Ponto>47</Ponto><Ponto>53</Ponto><Ponto>65</Ponto><Ponto>47</Ponto><Ponto>69</Ponto></Pontuacoes>
+              </Jogador>
+            </Jogadores>
+          </Equipa>
+        </Equipas>
+      </Torneio>
+    </Torneios>
+  </Campeonato>
+</Campeonatos>

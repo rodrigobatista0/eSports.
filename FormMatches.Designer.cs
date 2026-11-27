@@ -161,6 +161,7 @@
             // 
             // cmbchampionship
             // 
+            this.cmbchampionship.DisplayMember = "Nome";
             this.cmbchampionship.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbchampionship.FormattingEnabled = true;
             this.cmbchampionship.Location = new System.Drawing.Point(123, 12);
@@ -172,6 +173,7 @@
             // 
             // cmbTournament
             // 
+            this.cmbTournament.DisplayMember = "Nome";
             this.cmbTournament.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTournament.FormattingEnabled = true;
             this.cmbTournament.Location = new System.Drawing.Point(444, 12);

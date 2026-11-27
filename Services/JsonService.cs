@@ -35,9 +35,24 @@ namespace eSports.Services
             return data;
         }
 
-        // Le o resultados.json. Aceita uma lista de partidas, ou um objeto com "partidas",
-        // ou um objeto com "torneios" onde cada torneio tem as suas "partidas".
-        // Devolve pares (Id do torneio, partida). Id do torneio 0 = o ficheiro nao diz.
+        // true se o ficheiro for de resultados (lista de partidas) e nao de campeonatos
+        public static bool IsResultsFile(string path)
+        {
+            using (JsonDocument document = JsonDocument.Parse(File.ReadAllText(path)))
+            {
+                JsonElement root = document.RootElement;
+                JsonElement value;
+
+                if (root.ValueKind == JsonValueKind.Array)
+                    return true;
+
+                if (root.ValueKind != JsonValueKind.Object || FindProperty(root, out value, "campeonatos"))
+                    return false;
+
+                return FindProperty(root, out value, "partidas", "resultados", "torneios");
+            }
+        }
+
         public static List<KeyValuePair<int, Partida>> LoadResults(string path)
         {
             string text = File.ReadAllText(path);

@@ -31,6 +31,7 @@ namespace eSports
             if (m_service == null)
                 return;
 
+            AddPointsColumn();
             FillTournaments();
         }
 
@@ -60,6 +61,20 @@ namespace eSports
         #endregion
 
         #region Métodos auxiliares
+
+        // O Designer so tem 6 colunas na classificacao, falta a dos Pontos (fica antes da Media)
+        private void AddPointsColumn()
+        {
+            if (dgvStandings.Columns["colPoints"] != null)
+                return;
+
+            DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
+            column.Name = "colPoints";
+            column.HeaderText = "Pontos";
+            column.Width = 70;
+            column.ReadOnly = true;
+            dgvStandings.Columns.Insert(dgvStandings.Columns.Count - 1, column);
+        }
 
         private void FillTournaments()
         {

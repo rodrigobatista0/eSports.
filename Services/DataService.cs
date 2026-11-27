@@ -12,10 +12,13 @@ namespace eSports.Services
     {
         private Dados m_data = new Dados();
         private string m_path;
+        private LogService m_log = new LogService();
 
         public Dados Data { get { return m_data; } }
 
         public string FilePath { get { return m_path; } }
+
+        public LogService Log { get { return m_log; } }
 
         public DataService()
         {
@@ -48,22 +51,35 @@ namespace eSports.Services
                 throw;
             }
 
+            m_log.Write("Carregar dados", "dados.json carregado");
+
             return true;
         }
 
         public void Save()
         {
             JsonService.Save(m_data, m_path);
+            m_log.Write("Guardar dados", "dados.json guardado");
         }
 
         public void ImportXml(string path)
         {
             Replace(XmlService.Load(path));
+            m_log.Write("Importar XML", path);
         }
 
+        // Se o ficheiro for de resultados (partidas) junta as partidas aos torneios, senao substitui os dados
         public void ImportJson(string path)
         {
+            if (JsonService.IsResultsFile(path))
+            {
+                int total = ImportResults(path);
+                m_log.Write("Importar resultados", total + " partidas de " + path);
+                return;
+            }
+
             Replace(JsonService.Load(path));
+            m_log.Write("Importar JSON", path);
         }
 
         // Junta as partidas de um ficheiro de resultados (resultados.json) aos torneios que ja estao carregados
@@ -138,11 +154,13 @@ namespace eSports.Services
         public void ExportXml(string path)
         {
             XmlService.Save(m_data, path);
+            m_log.Write("Exportar XML", path);
         }
 
         public void ExportJson(string path)
         {
             JsonService.Save(m_data, path);
+            m_log.Write("Exportar JSON", path);
         }
 
         public void ConvertXmlToJson(string xmlPath, string jsonPath)
@@ -150,6 +168,7 @@ namespace eSports.Services
             Dados data = XmlService.Load(xmlPath);
             Validations.CheckData(data);
             JsonService.Save(data, jsonPath);
+            m_log.Write("Converter XML para JSON", xmlPath + " -> " + jsonPath);
         }
 
         public void ConvertJsonToXml(string jsonPath, string xmlPath)
@@ -157,6 +176,7 @@ namespace eSports.Services
             Dados data = JsonService.Load(jsonPath);
             Validations.CheckData(data);
             XmlService.Save(data, xmlPath);
+            m_log.Write("Converter JSON para XML", jsonPath + " -> " + xmlPath);
         }
 
         private void Replace(Dados data)
@@ -294,6 +314,7 @@ namespace eSports.Services
             championship.Nome = name.Trim();
             championship.Ano = year;
             m_data.Campeonatos.Add(championship);
+            m_log.Write("Adicionar campeonato", championship.Nome);
         }
 
         public void EditChampionship(Campeonato championship, int id, string name, int year)
@@ -306,6 +327,7 @@ namespace eSports.Services
             championship.Id = id;
             championship.Nome = name.Trim();
             championship.Ano = year;
+            m_log.Write("Editar campeonato", championship.Nome);
         }
 
         public void RemoveChampionship(Campeonato championship)
@@ -314,6 +336,7 @@ namespace eSports.Services
                 throw new ArgumentException("Escolha um campeonato na grelha.");
 
             m_data.Campeonatos.Remove(championship);
+            m_log.Write("Remover campeonato", championship.Nome);
         }
 
         private void CheckChampionship(Campeonato current, int id, string name, int year)
@@ -342,6 +365,7 @@ namespace eSports.Services
             tournament.Nome = name.Trim();
             tournament.Jogo = game.Trim();
             championship.Torneios.Add(tournament);
+            m_log.Write("Adicionar torneio", tournament.Nome + " (" + championship.Nome + ")");
         }
 
         public void EditTournament(Campeonato championship, Torneio tournament, int id, string name, string game)
@@ -357,6 +381,7 @@ namespace eSports.Services
             tournament.Id = id;
             tournament.Nome = name.Trim();
             tournament.Jogo = game.Trim();
+            m_log.Write("Editar torneio", tournament.Nome);
         }
 
         public void RemoveTournament(Campeonato championship, Torneio tournament)
@@ -368,6 +393,7 @@ namespace eSports.Services
                 throw new ArgumentException("Escolha um torneio na grelha.");
 
             championship.Torneios.Remove(tournament);
+            m_log.Write("Remover torneio", tournament.Nome);
         }
 
         private void CheckTournament(Campeonato championship, Torneio current, int id, string name, string game)
@@ -397,6 +423,7 @@ namespace eSports.Services
             team.Nome = name.Trim();
             team.Pais = (country == null) ? "" : country.Trim();
             tournament.Equipas.Add(team);
+            m_log.Write("Adicionar equipa", team.Nome + " (" + tournament.Nome + ")");
         }
 
         public void EditTeam(Torneio tournament, Equipa team, int id, string name, string country)
@@ -423,6 +450,8 @@ namespace eSports.Services
                 if (match.IdEquipaB == oldId)
                     match.IdEquipaB = id;
             }
+
+            m_log.Write("Editar equipa", team.Nome);
         }
 
         public void RemoveTeam(Torneio tournament, Equipa team)
@@ -437,6 +466,7 @@ namespace eSports.Services
                 throw new InvalidOperationException("A equipa " + team.Nome + " tem partidas registadas e não pode ser removida.");
 
             tournament.Equipas.Remove(team);
+            m_log.Write("Remover equipa", team.Nome);
         }
 
         private void CheckTeam(Torneio tournament, Equipa current, int id, string name)
@@ -466,6 +496,7 @@ namespace eSports.Services
             player.Idade = age;
             player.Pontuacoes = new List<int>(scores);
             team.Jogadores.Add(player);
+            m_log.Write("Adicionar jogador", player.Nickname + " (" + team.Nome + ")");
         }
 
         public void EditPlayer(Equipa team, Jogador player, int id, string name, string nickname, int age, List<int> scores)
@@ -483,6 +514,7 @@ namespace eSports.Services
             player.Nickname = nickname.Trim();
             player.Idade = age;
             player.Pontuacoes = new List<int>(scores);
+            m_log.Write("Editar jogador", player.Nickname);
         }
 
         public void RemovePlayer(Equipa team, Jogador player)
@@ -494,6 +526,7 @@ namespace eSports.Services
                 throw new ArgumentException("Escolha um jogador na grelha.");
 
             team.Jogadores.Remove(player);
+            m_log.Write("Remover jogador", player.Nickname);
         }
 
         private void CheckPlayer(Equipa team, Jogador current, int id, string name, string nickname, int age, List<int> scores)
@@ -542,6 +575,7 @@ namespace eSports.Services
             match.IdEquipaA = teamA.Id;
             match.IdEquipaB = teamB.Id;
             tournament.Partidas.Add(match);
+            m_log.Write("Agendar partida", teamA.Nome + " vs " + teamB.Nome + " (" + tournament.Nome + ")");
         }
 
         public void RemoveMatch(Torneio tournament, Partida match)
@@ -553,6 +587,7 @@ namespace eSports.Services
                 throw new ArgumentException("Escolha uma partida na grelha.");
 
             tournament.Partidas.Remove(match);
+            m_log.Write("Remover partida", "Partida " + match.Id + " (" + tournament.Nome + ")");
         }
 
         public void SaveResult(Partida match, int scoreA, int scoreB)
@@ -565,6 +600,7 @@ namespace eSports.Services
 
             match.ResultadoA = scoreA;
             match.ResultadoB = scoreB;
+            m_log.Write("Guardar resultado", "Partida " + match.Id + ": " + scoreA + " - " + scoreB);
         }
 
         #endregion

@@ -21,6 +21,9 @@ namespace eSports
             InitializeComponent();
             m_service = service;
 
+            LoadChampionships();
+            ClearTeamFields();
+            ClearPlayerFields();
         }
         #region  Loads
         private Torneio CurrentTournament()

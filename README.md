@@ -1,538 +1,296 @@
-## PARA ATUALIZAR E MANDAR USEM ESTE CODIGO
-git add .; git commit -m "Atualizacao"; git pull --no-edit origin main; git push origin HEAD
-
-## PRIMEIRO ESTE PA RECONHECER O GIT (SO 1 VEZ)
-$env:Path += ";C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\cmd"
-
-# Gestão de Campeonato de eSports
-
-Aplicação Windows Forms em C# para gerir campeonatos, torneios, equipas, jogadores, partidas e classificações. Sem base de dados: tudo é lido e guardado em XML e JSON.
-
-## Ecrãs (protótipos)
-
-Protótipos dos forms da aplicação. Os dados das imagens são de exemplo. **Nomes de controlos e variáveis em inglês; textos visíveis ao utilizador em português.** As classes de dados (`Campeonato`, `Equipa`...) ficam em português para coincidirem com os nomes do XML e do JSON do professor.
-
-### Como montar um form (para quem vai fazer o design)
-
-1. **Add → Form (Windows Forms)** com o nome indicado (por exemplo `FormTeams`).
-2. Na janela *Properties* do form, preencher `Text`, `ClientSize` e as outras propriedades da tabela *Propriedades do form*.
-3. Arrastar os controlos da *Toolbox* pela ordem da tabela (primeiro os de *Dentro de* = `Form`, depois os que ficam dentro de `GroupBox` ou `TabPage`). Para pôr um controlo dentro de um `GroupBox`, arrasta-o para cima do `GroupBox`.
-4. Para cada controlo preencher `(Name)`, `Text`, `Location` e `Size`. Em `Location` e `Size` escreve-se `x, y` e `largura, altura`.
-5. Nas grelhas: clicar na seta no canto superior direito do `DataGridView` → *Edit Columns...* → *Add...* → *Unbound column*, e preencher `Name`, `HeaderText` e `Width` de cada coluna.
-6. Definir o `TabIndex` pela ordem em que o utilizador deve percorrer os controlos.
-7. Correr (F5) só para ver o aspeto. A lógica fica para quem tem o form atribuído.
-
-As coordenadas são pontos de partida: se um texto ficar cortado, aumenta a largura do controlo. O que não pode mudar são os **Names**, porque o código dos outros depende deles.
-
-### Convenção de nomes dos controlos
-
-Prefixo do tipo de controlo mais o nome em inglês (por exemplo `txtNickname`, `btnAddTeam`).
-
-| Prefixo | Controlo | Exemplo |
-|---|---|---|
-| `lbl` | Label | `lblTeamName` |
-| `txt` | TextBox | `txtTeamName` |
-| `btn` | Button | `btnAddTeam` |
-| `cmb` | ComboBox | `cmbTournament` |
-| `dgv` | DataGridView | `dgvPlayers` |
-| `dtp` | DateTimePicker | `dtpDate` |
-| `nud` | NumericUpDown | `nudAge` |
-| `lst` | ListBox | `lstScores` |
-| `grp` | GroupBox | `grpTeamData` |
-| `mnu` | item de menu | `mnuImportXml` |
-| `tabMain` / `tp...` | TabControl / cada TabPage | `tpPlayers` |
-| `col...` | coluna de DataGridView | `colNickname` |
-
-Regras gerais:
-- Todos os `DataGridView` são `ReadOnly = True`, `SelectionMode = FullRowSelect`, `MultiSelect = False`. Ao clicar numa linha, os dados aparecem nas caixas ao lado para editar. Depois de cada operação a grelha é atualizada.
-- `ComboBox` que escolhe uma opção da lista (campeonato, torneio, equipa): `DropDownStyle = DropDownList`.
-- `Anchor` por defeito (`Top, Left`). Os forms têm tamanho fixo.
-
-### FormMain
-
-Gestão dos campeonatos, menu de ficheiros (importar, exportar, converter) e botões para abrir os outros forms. Ao abrir carrega `dados.json`; ao fechar (`FormClosing`) guarda automaticamente.
-
-![FormMain](form-principal.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
-|---|---|
-| `Name` | `FormMain` |
-| `Text` | Gestão de Campeonatos de eSports |
-| `ClientSize` | 884, 470 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-Form de arranque (`Application.Run(new FormMain())`). `MaximizeBox = False`.
-
-**Itens do `menuMain` (MenuStrip)**
-
-| Menu | Name | Texto |
-|---|---|---|
-| **Ficheiro** | `mnuFile` | Ficheiro |
-| &nbsp;&nbsp;↳ | `mnuImportXml` | Importar XML... |
-| &nbsp;&nbsp;↳ | `mnuImportJson` | Importar JSON... |
-| &nbsp;&nbsp;— | `ToolStripSeparator` | separador |
-| &nbsp;&nbsp;↳ | `mnuExportXml` | Exportar XML... |
-| &nbsp;&nbsp;↳ | `mnuExportJson` | Exportar JSON... |
-| &nbsp;&nbsp;— | `ToolStripSeparator` | separador |
-| &nbsp;&nbsp;↳ | `mnuConvertXmlToJson` | Converter XML → JSON... |
-| &nbsp;&nbsp;↳ | `mnuConvertJsonToXml` | Converter JSON → XML... |
-| &nbsp;&nbsp;— | `ToolStripSeparator` | separador |
-| &nbsp;&nbsp;↳ | `mnuExit` | Sair |
-| **Gestão** | `mnuManage` | Gestão |
-| &nbsp;&nbsp;↳ | `mnuTeams` | Equipas e Jogadores |
-| &nbsp;&nbsp;↳ | `mnuTournaments` | Torneios |
-| &nbsp;&nbsp;↳ | `mnuMatches` | Partidas |
-| &nbsp;&nbsp;↳ | `mnuStatistics` | Estatísticas |
-| **Ajuda** | `mnuHelp` | Ajuda |
-| &nbsp;&nbsp;↳ | `mnuLogs` | Registos / Logs |
-| &nbsp;&nbsp;↳ | `mnuAbout` | Acerca de... |
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| MenuStrip | `menuMain` | `Form` |  | 0, 0 | 884 x 24 | Dock = Top |
-| GroupBox | `grpChampionships` | `Form` | Campeonatos | 12, 36 | 640 x 300 |  |
-| DataGridView | `dgvChampionships` | `grpChampionships` |  | 12, 22 | 616 x 160 | ReadOnly, ver colunas abaixo |
-| Label | `lblChampionshipId` | `grpChampionships` | Id | 12, 200 | auto |  |
-| NumericUpDown | `nudChampionshipId` | `grpChampionships` |  | 40, 196 | 70 x 23 | Minimum = 1, Maximum = 9999 |
-| Label | `lblChampionshipName` | `grpChampionships` | Nome | 124, 200 | auto |  |
-| TextBox | `txtChampionshipName` | `grpChampionships` |  | 168, 196 | 240 x 23 | MaxLength = 60 |
-| Label | `lblChampionshipYear` | `grpChampionships` | Ano | 424, 200 | auto |  |
-| NumericUpDown | `nudChampionshipYear` | `grpChampionships` |  | 456, 196 | 80 x 23 | Minimum = 2000, Maximum = 2100, Value = 2026 |
-| Button | `btnAddChampionship` | `grpChampionships` | Adicionar | 12, 240 | 100 x 27 |  |
-| Button | `btnEditChampionship` | `grpChampionships` | Editar | 118, 240 | 100 x 27 |  |
-| Button | `btnRemoveChampionship` | `grpChampionships` | Remover | 224, 240 | 100 x 27 |  |
-| GroupBox | `grpOpen` | `Form` | Abrir | 664, 36 | 208 x 180 |  |
-| Button | `btnTeams` | `grpOpen` | Equipas e Jogadores | 12, 24 | 184 x 30 |  |
-| Button | `btnTournaments` | `grpOpen` | Torneios | 12, 62 | 184 x 30 |  |
-| Button | `btnMatches` | `grpOpen` | Partidas | 12, 100 | 184 x 30 |  |
-| Button | `btnStatistics` | `grpOpen` | Estatísticas | 12, 138 | 184 x 30 |  |
-| GroupBox | `grpSummary` | `Form` | Resumo | 664, 228 | 208 x 190 |  |
-| Label | `lblChampionshipsText` | `grpSummary` | Campeonatos: | 12, 26 | auto |  |
-| Label | `lblTotalChampionships` | `grpSummary` | 0 | 120, 26 | auto | Font = Bold |
-| Label | `lblTournamentsText` | `grpSummary` | Torneios: | 12, 54 | auto |  |
-| Label | `lblTotalTournaments` | `grpSummary` | 0 | 120, 54 | auto | Font = Bold |
-| Label | `lblTeamsText` | `grpSummary` | Equipas: | 12, 82 | auto |  |
-| Label | `lblTotalTeams` | `grpSummary` | 0 | 120, 82 | auto | Font = Bold |
-| Label | `lblPlayersText` | `grpSummary` | Jogadores: | 12, 110 | auto |  |
-| Label | `lblTotalPlayers` | `grpSummary` | 0 | 120, 110 | auto | Font = Bold |
-| Label | `lblMatchesText` | `grpSummary` | Partidas: | 12, 138 | auto |  |
-| Label | `lblTotalMatches` | `grpSummary` | 0 | 120, 138 | auto | Font = Bold |
-| Label | `lblScoresText` | `grpSummary` | Pontuações: | 12, 166 | auto |  |
-| Label | `lblTotalScores` | `grpSummary` | 0 | 120, 166 | auto | Font = Bold |
-| StatusStrip | `statusMain` | `Form` |  | 0, 448 | 884 x 22 | Dock = Bottom |
-| ToolStripStatusLabel | `lblStatus` | `statusMain` | Pronto |  |  | Spring = False |
-| ToolStripStatusLabel | `lblAutoSave` | `statusMain` | Guardado automaticamente ao fechar |  |  | ForeColor = DimGray |
-| OpenFileDialog | `openFileDialog` | Form (componente) |  |  |  | Filter = "XML (*.xml)\|*.xml\|JSON (*.json)\|*.json" |
-| SaveFileDialog | `saveFileDialog` | Form (componente) |  |  |  | Filter igual ao anterior |
-
-**Colunas do `dgvChampionships`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colId` | Id | 50 |
-| `colName` | Nome | 260 |
-| `colYear` | Ano | 70 |
-| `colTournaments` | Torneios | 100 |
-| `colTeams` | Equipas | AutoSizeMode = Fill |
-
-Ordem de tabulação: `dgvChampionships`, `nudChampionshipId`, `txtChampionshipName`, `nudChampionshipYear`, `btnAddChampionship`, `btnEditChampionship`, `btnRemoveChampionship`, `btnTeams`, `btnTournaments`, `btnMatches`, `btnStatistics`.
-
-
+# Gestão de Campeonatos de eSports
+ 
+Aplicação Windows Forms em C# para gerir campeonatos, torneios, equipas, jogadores, partidas, resultados e classificações. **Não usa base de dados**: todos os dados são lidos e guardados em ficheiros **XML** e **JSON**.
+ 
+Projeto de grupo de XML e JSON, INETE, 12.º ano, Curso Profissional de Gestão e Programação de Sistemas Informáticos.
+ 
+## Índice
+ 
+1. [Funcionalidades](#funcionalidades)
+2. [Requisitos](#requisitos)
+3. [Como abrir e executar](#como-abrir-e-executar)
+4. [Guia de utilização](#guia-de-utilização)
+5. [Ficheiros de dados](#ficheiros-de-dados)
+6. [Regras de validação](#regras-de-validação)
+7. [Estrutura do projeto](#estrutura-do-projeto)
+8. [Modelo de dados](#modelo-de-dados)
+9. [Formatos XML e JSON](#formatos-xml-e-json)
+10. [LINQ usado](#linq-usado)
+11. [Testes realizados](#testes-realizados)
+12. [Decisões técnicas](#decisões-técnicas)
+13. [Divisão de tarefas](#divisão-de-tarefas)
+14. [Problemas conhecidos](#problemas-conhecidos)
 ---
-
-### FormTeams
-
-Gestão das equipas e dos jogadores de um torneio. Adicionar uma equipa a um torneio é inscrevê-la nesse torneio.
-
-![FormTeams](form-equipas-equipas.png)
-![FormTeams](form-equipas-jogadores.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
+ 
+## Funcionalidades
+ 
+- **Campeonatos, torneios, equipas e jogadores:** adicionar, editar, remover e consultar.
+- **Partidas:** agendar entre duas equipas inscritas no torneio e registar o resultado.
+- **Estatísticas:** classificação por equipa, Top 3 de jogadores, média geral de pontuações e pesquisa por nickname, com filtro por torneio.
+- **XML e JSON:** importar, exportar e converter entre os dois formatos.
+- **Importação de resultados:** o ficheiro `resultados.json` junta as partidas aos torneios já carregados.
+- **Persistência automática:** os dados são carregados ao abrir e guardados ao fechar, sem perda de informação.
+- **Validação e erros:** ficheiros malformados ou com dados inválidos mostram uma mensagem de erro e a aplicação não fecha.
+- **Registo de logs:** cada ação fica em `logs.txt` e pode ser consultada entre duas datas.
+## Requisitos
+ 
+| Item | Versão |
 |---|---|
-| `Name` | `FormTeams` |
-| `Text` | Equipas e Jogadores |
-| `ClientSize` | 884, 450 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()` a partir do `FormMain`.
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| Label | `lblChampionship` | `Form` | Campeonato | 12, 16 | auto |  |
-| ComboBox | `cmbChampionship` | `Form` |  | 84, 12 | 210 x 23 | DropDownStyle = DropDownList |
-| Label | `lblTournament` | `Form` | Torneio | 312, 16 | auto |  |
-| ComboBox | `cmbTournament` | `Form` |  | 364, 12 | 200 x 23 | DropDownStyle = DropDownList |
-| TabControl | `tabMain` | `Form` |  | 12, 44 | 860 x 394 |  |
-| TabPage | `tpTeams` | `tabMain` | Equipas |  |  |  |
-| DataGridView | `dgvTeams` | `tpTeams` |  | 10, 10 | 500 x 300 | ReadOnly, ver colunas abaixo |
-| GroupBox | `grpTeamData` | `tpTeams` | Dados da equipa | 524, 10 | 318 x 212 |  |
-| Label | `lblTeamId` | `grpTeamData` | Id | 14, 32 | auto |  |
-| NumericUpDown | `nudTeamId` | `grpTeamData` |  | 90, 28 | 80 x 23 | Minimum = 1, Maximum = 9999 |
-| Label | `lblTeamName` | `grpTeamData` | Nome | 14, 68 | auto |  |
-| TextBox | `txtTeamName` | `grpTeamData` |  | 90, 64 | 210 x 23 | MaxLength = 40 |
-| Label | `lblTeamCountry` | `grpTeamData` | País | 14, 104 | auto |  |
-| TextBox | `txtTeamCountry` | `grpTeamData` |  | 90, 100 | 210 x 23 | MaxLength = 40 |
-| Button | `btnAddTeam` | `grpTeamData` | Adicionar | 14, 138 | 140 x 27 |  |
-| Button | `btnEditTeam` | `grpTeamData` | Editar | 160, 138 | 140 x 27 |  |
-| Button | `btnRemoveTeam` | `grpTeamData` | Remover | 14, 172 | 140 x 27 |  |
-| Button | `btnClearTeam` | `grpTeamData` | Limpar | 160, 172 | 140 x 27 |  |
-| Label | `lblTeamsHint` | `tpTeams` | Uma equipa com partidas registadas não pode ser removida. | 10, 322 | auto | ForeColor = DimGray |
-| TabPage | `tpPlayers` | `tabMain` | Jogadores |  |  |  |
-| Label | `lblTeam` | `tpPlayers` | Equipa | 10, 16 | auto |  |
-| ComboBox | `cmbTeam` | `tpPlayers` |  | 60, 12 | 180 x 23 | DropDownStyle = DropDownList |
-| Label | `lblSearchNickname` | `tpPlayers` | Pesquisar nickname | 262, 16 | auto |  |
-| TextBox | `txtSearchNickname` | `tpPlayers` |  | 380, 12 | 160 x 23 | filtra a grelha enquanto escreve (TextChanged) |
-| DataGridView | `dgvPlayers` | `tpPlayers` |  | 10, 44 | 500 x 290 | ReadOnly, ver colunas abaixo |
-| GroupBox | `grpPlayerData` | `tpPlayers` | Dados do jogador | 524, 44 | 318 x 290 |  |
-| Label | `lblPlayerId` | `grpPlayerData` | Id | 14, 32 | auto |  |
-| NumericUpDown | `nudPlayerId` | `grpPlayerData` |  | 100, 28 | 80 x 23 | Minimum = 1, Maximum = 99999 |
-| Label | `lblPlayerName` | `grpPlayerData` | Nome | 14, 68 | auto |  |
-| TextBox | `txtPlayerName` | `grpPlayerData` |  | 100, 64 | 200 x 23 | MaxLength = 60 |
-| Label | `lblNickname` | `grpPlayerData` | Nickname | 14, 104 | auto |  |
-| TextBox | `txtNickname` | `grpPlayerData` |  | 100, 100 | 200 x 23 | MaxLength = 30 |
-| Label | `lblAge` | `grpPlayerData` | Idade | 14, 140 | auto |  |
-| NumericUpDown | `nudAge` | `grpPlayerData` |  | 100, 136 | 80 x 23 | Minimum = 15, Maximum = 45, Value = 18 |
-| Label | `lblAgeHint` | `grpPlayerData` | (15 a 45) | 190, 140 | auto | ForeColor = DimGray |
-| Label | `lblScores` | `grpPlayerData` | Pontuações | 14, 176 | auto |  |
-| ListBox | `lstScores` | `grpPlayerData` |  | 100, 172 | 80 x 66 |  |
-| NumericUpDown | `nudScore` | `grpPlayerData` |  | 190, 172 | 80 x 23 | Minimum = 0, Maximum = 100 |
-| Button | `btnAddScore` | `grpPlayerData` | + | 190, 202 | 38 x 27 |  |
-| Button | `btnRemoveScore` | `grpPlayerData` | − | 234, 202 | 38 x 27 |  |
-| Button | `btnAddPlayer` | `grpPlayerData` | Adicionar | 14, 252 | 92 x 27 |  |
-| Button | `btnEditPlayer` | `grpPlayerData` | Editar | 112, 252 | 92 x 27 |  |
-| Button | `btnRemovePlayer` | `grpPlayerData` | Remover | 210, 252 | 92 x 27 |  |
-
-**Colunas do `dgvTeams`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colId` | Id | 50 |
-| `colName` | Nome | 200 |
-| `colCountry` | País | 140 |
-| `colPlayers` | Nº Jogadores | AutoSizeMode = Fill |
-
-**Colunas do `dgvPlayers`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colId` | Id | 50 |
-| `colName` | Nome | 150 |
-| `colNickname` | Nickname | 110 |
-| `colAge` | Idade | 60 |
-| `colAverage` | Média | AutoSizeMode = Fill |
-
-Ordem de tabulação em `tpTeams`: `dgvTeams`, `nudTeamId`, `txtTeamName`, `txtTeamCountry`, `btnAddTeam`, `btnEditTeam`, `btnRemoveTeam`, `btnClearTeam`.
-
-
----
-
-### FormTournaments
-
-Criar, editar e remover torneios de um campeonato. Mostra quantas equipas estão inscritas (mínimo 4).
-
-![FormTournaments](form-torneios.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
+| Sistema operativo | Windows 10 ou superior |
+| Visual Studio | 2022 (Community serve) com a carga de trabalho **Desenvolvimento para desktop com .NET** |
+| .NET Framework | 4.7.2 |
+| Pacotes NuGet | Restaurados automaticamente (ver `packages.config`), incluindo `System.Text.Json` |
+ 
+## Como abrir e executar
+ 
+1. Descompactar o projeto (ou clonar o repositório).
+2. Abrir o ficheiro `eSports.sln` no Visual Studio.
+3. Se o Visual Studio não restaurar os pacotes sozinho: **Ferramentas → Gestor de Pacotes NuGet → Restaurar Pacotes NuGet**.
+4. Compilar com **Ctrl + Shift + B**.
+5. Executar com **F5**. O formulário de arranque é o `FormMain`.
+Os ficheiros `dados.json` e `logs.txt` ficam ao lado do executável (normalmente `bin\Debug`). Na primeira execução não existe `dados.json`, por isso a aplicação abre vazia e mostra "Sem dados. Importe um ficheiro XML ou JSON.".
+ 
+### Primeiros passos rápidos
+ 
+1. Menu **Ficheiro → Importar XML...** e escolher `FilesOthers\campeonatos.xml` (ou o `.json` equivalente).
+2. Menu **Ficheiro → Importar JSON...** e escolher `FilesOthers\resultados.json` para juntar as partidas.
+3. Abrir **Estatísticas** para ver a classificação e o Top 3.
+4. Fechar a aplicação. Ao voltar a abrir, os dados continuam lá.
+## Guia de utilização
+ 
+### Janela principal (FormMain)
+ 
+**Campeonatos.** A grelha lista os campeonatos com o número de torneios e de equipas. Ao clicar numa linha, os dados aparecem nas caixas por baixo. Os botões **Adicionar**, **Editar** e **Remover** atuam sobre o campeonato escolhido. Remover um campeonato apaga também os seus torneios, por isso pede confirmação.
+ 
+**Abrir.** Os botões levam aos outros formulários: Equipas e Jogadores, Torneios, Partidas e Estatísticas. Também estão no menu **Gestão**.
+ 
+**Resumo.** Mostra os totais de campeonatos, torneios, equipas, jogadores, partidas e pontuações.
+ 
+**Menu Ficheiro**
+ 
+| Opção | O que faz |
 |---|---|
-| `Name` | `FormTournaments` |
-| `Text` | Torneios |
-| `ClientSize` | 860, 330 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()`.
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| Label | `lblChampionship` | `Form` | Campeonato | 12, 16 | auto |  |
-| ComboBox | `cmbChampionship` | `Form` |  | 84, 12 | 220 x 23 | DropDownStyle = DropDownList |
-| DataGridView | `dgvTournaments` | `Form` |  | 12, 44 | 500 x 240 | ReadOnly, ver colunas abaixo |
-| GroupBox | `grpTournamentData` | `Form` | Dados do torneio | 526, 44 | 320 x 250 |  |
-| Label | `lblTournamentId` | `grpTournamentData` | Id | 14, 32 | auto |  |
-| NumericUpDown | `nudTournamentId` | `grpTournamentData` |  | 90, 28 | 80 x 23 | Minimum = 1, Maximum = 9999 |
-| Label | `lblTournamentName` | `grpTournamentData` | Nome | 14, 68 | auto |  |
-| TextBox | `txtTournamentName` | `grpTournamentData` |  | 90, 64 | 210 x 23 | MaxLength = 60 |
-| Label | `lblGame` | `grpTournamentData` | Jogo | 14, 104 | auto |  |
-| ComboBox | `cmbGame` | `grpTournamentData` |  | 90, 100 | 210 x 23 | DropDownStyle = DropDown (editável); Items: Counter-Strike 2, Valorant, League of Legends, Dota 2, Rocket League |
-| Label | `lblEnrolledText` | `grpTournamentData` | Equipas inscritas: | 14, 140 | auto |  |
-| Label | `lblEnrolledTeams` | `grpTournamentData` | 0 | 122, 140 | auto | Font = Bold; verde se ≥ 4, vermelho se < 4 |
-| Label | `lblMinTeams` | `grpTournamentData` | (mínimo 4) | 148, 140 | auto | ForeColor = DimGray |
-| Button | `btnAddTournament` | `grpTournamentData` | Adicionar | 14, 174 | 140 x 27 |  |
-| Button | `btnEditTournament` | `grpTournamentData` | Editar | 160, 174 | 140 x 27 |  |
-| Button | `btnRemoveTournament` | `grpTournamentData` | Remover | 14, 208 | 140 x 27 |  |
-| Button | `btnClearTournament` | `grpTournamentData` | Limpar | 160, 208 | 140 x 27 |  |
-| Label | `lblEnrollHint` | `Form` | As equipas são inscritas no form Equipas e Jogadores. | 12, 296 | auto | ForeColor = DimGray |
-
-**Colunas do `dgvTournaments`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
+| Importar XML... | Substitui os dados atuais pelos do ficheiro XML (pede confirmação). |
+| Importar JSON... | Substitui os dados pelos do JSON. Se o ficheiro for de resultados (lista de partidas), junta as partidas aos torneios já carregados. |
+| Exportar XML... / Exportar JSON... | Guarda todos os dados atuais no formato escolhido. |
+| Converter XML → JSON... / JSON → XML... | Lê um ficheiro, valida-o e grava-o no outro formato, sem alterar os dados abertos. |
+| Sair | Fecha a aplicação (os dados são guardados). |
+ 
+**Menu Ajuda:** **Registos / Logs** abre o histórico de ações e **Acerca de...** mostra a informação do projeto.
+ 
+### Equipas e Jogadores (FormTeam)
+ 
+1. Escolher o **Campeonato** e o **Torneio** nas caixas de cima.
+2. Separador **Equipas:** preencher Id, Nome e País e usar **Adicionar**, **Editar**, **Remover** ou **Limpar**. Adicionar uma equipa ao torneio é inscrevê-la nele.
+3. Separador **Jogadores:** escolher a equipa e preencher Id, Nome, Nickname e Idade. As pontuações juntam-se com o botão **+** e retiram-se com **−**. A caixa **Pesquisar nickname** filtra a grelha enquanto se escreve.
+4. Uma equipa com partidas registadas **não pode ser removida**.
+### Torneios (FormTournaments)
+ 
+Escolher o campeonato e criar, editar ou remover torneios (Id, Nome e Jogo). O ecrã mostra quantas equipas estão inscritas: **verde com 4 ou mais, vermelho com menos de 4**. As equipas inscrevem-se no formulário Equipas e Jogadores.
+ 
+### Partidas (FormMatches)
+ 
+1. Escolher o campeonato e o torneio.
+2. Em **Agendar partida**, definir o Id, a data e as equipas A e B, e carregar em **Agendar**. Só aparecem as equipas inscritas no torneio e o torneio precisa de pelo menos 4.
+3. Para registar o resultado, selecionar a partida na grelha, indicar os valores de cada equipa e carregar em **Guardar resultado**.
+4. A coluna **Vencedor** mostra o nome da equipa vencedora ("Empate" se for igual e "-" se ainda não houver resultado).
+### Estatísticas (FormStatistics)
+ 
+Escolher "Todos os torneios" ou um torneio específico em **Filtrar por torneio**.
+ 
+- **Classificação:** posição, equipa, jogos, vitórias, derrotas, pontos e média de rondas. Ordena por pontos, depois vitórias, depois média.
+- **Top 3 jogadores:** os três melhores pela média de pontuações, com a média geral e o número de jogadores.
+- **Pesquisar nickname:** pesquisa parcial, sem distinguir maiúsculas de minúsculas.
+### Registo de logs (FormLogs)
+ 
+Escolher as datas **De** e **Até** (os dois dias contam inteiros) e carregar em **Pesquisar**. Os botões **Hoje** e **Últimos 7 dias** são atalhos. Os registos mais recentes aparecem primeiro.
+ 
+## Ficheiros de dados
+ 
+### Ficheiros usados pela aplicação
+ 
+| Ficheiro | Onde | Função |
 |---|---|---|
-| `colId` | Id | 50 |
-| `colName` | Nome | 160 |
-| `colGame` | Jogo | 150 |
-| `colTeams` | Equipas | 60 |
-| `colMatches` | Partidas | AutoSizeMode = Fill |
-
-
----
-
-### FormMatches
-
-Agendar partidas e registar resultados. Os combos das equipas só mostram as equipas inscritas no torneio escolhido.
-
-![FormMatches](form-partidas.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
-|---|---|
-| `Name` | `FormMatches` |
-| `Text` | Partidas |
-| `ClientSize` | 884, 436 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()`.
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| Label | `lblChampionship` | `Form` | Campeonato | 12, 16 | auto |  |
-| ComboBox | `cmbChampionship` | `Form` |  | 84, 12 | 210 x 23 | DropDownStyle = DropDownList |
-| Label | `lblTournament` | `Form` | Torneio | 312, 16 | auto |  |
-| ComboBox | `cmbTournament` | `Form` |  | 364, 12 | 200 x 23 | DropDownStyle = DropDownList |
-| DataGridView | `dgvMatches` | `Form` |  | 12, 44 | 860 x 190 | ReadOnly, ver colunas abaixo |
-| GroupBox | `grpSchedule` | `Form` | Agendar partida | 12, 246 | 420 x 150 |  |
-| Label | `lblMatchId` | `grpSchedule` | Id | 14, 30 | auto |  |
-| NumericUpDown | `nudMatchId` | `grpSchedule` |  | 80, 26 | 70 x 23 | Minimum = 1, Maximum = 9999 |
-| Label | `lblDate` | `grpSchedule` | Data | 170, 30 | auto |  |
-| DateTimePicker | `dtpDate` | `grpSchedule` |  | 212, 26 | 130 x 23 | Format = Short |
-| Label | `lblTeamA` | `grpSchedule` | Equipa A | 14, 66 | auto |  |
-| ComboBox | `cmbTeamA` | `grpSchedule` |  | 80, 62 | 140 x 23 | DropDownStyle = DropDownList |
-| Label | `lblVs` | `grpSchedule` | vs | 230, 66 | auto |  |
-| ComboBox | `cmbTeamB` | `grpSchedule` |  | 256, 62 | 140 x 23 | DropDownStyle = DropDownList |
-| Button | `btnSchedule` | `grpSchedule` | Agendar | 14, 106 | 110 x 27 |  |
-| Button | `btnRemoveMatch` | `grpSchedule` | Remover partida | 130, 106 | 130 x 27 |  |
-| GroupBox | `grpResult` | `Form` | Registar resultado | 446, 246 | 426 x 150 |  |
-| Label | `lblSelectedMatch` | `grpResult` | Partida: (nenhuma selecionada) | 14, 30 | auto | Font = Bold |
-| Label | `lblScoreTeamA` | `grpResult` | Equipa A | 14, 70 | auto | texto muda para o nome da equipa A |
-| NumericUpDown | `nudScoreA` | `grpResult` |  | 100, 66 | 70 x 23 | Minimum = 0, Maximum = 99 |
-| Label | `lblScoreTeamB` | `grpResult` | Equipa B | 200, 70 | auto | texto muda para o nome da equipa B |
-| NumericUpDown | `nudScoreB` | `grpResult` |  | 286, 66 | 70 x 23 | Minimum = 0, Maximum = 99 |
-| Button | `btnSaveResult` | `grpResult` | Guardar resultado | 14, 106 | 150 x 27 |  |
-| Label | `lblWarning` | `Form` | Só aparecem equipas inscritas no torneio. A equipa A não pode ser igual à equipa B. | 12, 406 | auto | ForeColor = Firebrick |
-
-**Colunas do `dgvMatches`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
+| `dados.json` | Ao lado do `.exe` | Dados da aplicação. Carregado ao abrir e guardado ao fechar. |
+| `dados.json.erro` | Ao lado do `.exe` | Cópia de segurança criada se o `dados.json` estiver inválido ao abrir. |
+| `logs.txt` | Ao lado do `.exe` | Registo de ações, uma linha por ação: `data hora|Ação|Detalhes`. |
+ 
+### Ficheiros de exemplo e de teste
+ 
+| Ficheiro | Conteúdo | Resultado esperado |
 |---|---|---|
-| `colId` | Id | 40 |
-| `colDate` | Data | 90 |
-| `colTeamA` | Equipa A | 150 |
-| `colResult` | Resultado | 80 |
-| `colTeamB` | Equipa B | 150 |
-| `colWinner` | Vencedor | AutoSizeMode = Fill |
-
-
----
-
-### FormStatistics
-
-Classificações, melhores jogadores e pesquisa, tudo feito com LINQ e expressões lambda.
-
-![FormStatistics](form-estatisticas-classificacao.png)
-![FormStatistics](form-estatisticas-top3.png)
-![FormStatistics](form-estatisticas-pesquisa.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
-|---|---|
-| `Name` | `FormStatistics` |
-| `Text` | Estatísticas |
-| `ClientSize` | 860, 430 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()`.
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| Label | `lblTournamentFilter` | `Form` | Filtrar por torneio | 12, 16 | auto |  |
-| ComboBox | `cmbTournamentFilter` | `Form` |  | 130, 12 | 220 x 23 | DropDownStyle = DropDownList; primeiro item: Todos os torneios |
-| Button | `btnRefresh` | `Form` | Atualizar | 360, 10 | 90 x 27 |  |
-| TabControl | `tabMain` | `Form` |  | 12, 44 | 836 x 370 |  |
-| TabPage | `tpStandings` | `tabMain` | Classificação |  |  |  |
-| DataGridView | `dgvStandings` | `tpStandings` |  | 10, 10 | 814 x 280 | ReadOnly, ver colunas abaixo |
-| Label | `lblStandingsHint` | `tpStandings` | Vitória = 3 pontos, derrota = 0. | 10, 300 | auto | ForeColor = DimGray |
-| TabPage | `tpTop3` | `tabMain` | Top 3 jogadores |  |  |  |
-| DataGridView | `dgvTop3` | `tpTop3` |  | 10, 10 | 814 x 110 | ReadOnly, ver colunas abaixo |
-| Label | `lblOverallAverageText` | `tpTop3` | Média geral de pontuações: | 10, 136 | auto |  |
-| Label | `lblOverallAverage` | `tpTop3` | 0 | 170, 136 | auto | Font = Bold |
-| Label | `lblPlayersCountText` | `tpTop3` | Jogadores: | 240, 136 | auto |  |
-| Label | `lblPlayersCount` | `tpTop3` | 0 | 306, 136 | auto | Font = Bold |
-| TabPage | `tpSearch` | `tabMain` | Pesquisar nickname |  |  |  |
-| Label | `lblSearch` | `tpSearch` | Nickname | 10, 16 | auto |  |
-| TextBox | `txtSearch` | `tpSearch` |  | 78, 12 | 200 x 23 |  |
-| Button | `btnSearch` | `tpSearch` | Pesquisar | 288, 11 | 95 x 27 | AcceptButton do separador |
-| Label | `lblResultsCount` | `tpSearch` | 0 resultados | 400, 16 | auto | ForeColor = DimGray |
-| DataGridView | `dgvSearchResults` | `tpSearch` |  | 10, 44 | 814 x 260 | ReadOnly, ver colunas abaixo |
-
-**Colunas do `dgvStandings`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colPosition` | Pos. | 50 |
-| `colTeam` | Equipa | 200 |
-| `colPlayed` | Jogos | 70 |
-| `colWins` | Vitórias | 80 |
-| `colLosses` | Derrotas | 80 |
-| `colPoints` | Pontos | 70 |
-| `colAverage` | Média rondas | AutoSizeMode = Fill |
-
-**Colunas do `dgvTop3`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colPosition` | Pos. | 50 |
-| `colNickname` | Nickname | 110 |
-| `colName` | Nome | 160 |
-| `colTeam` | Equipa | 130 |
-| `colAverage` | Média | 70 |
-| `colTotal` | Total | AutoSizeMode = Fill |
-
-**Colunas do `dgvSearchResults`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colNickname` | Nickname | 100 |
-| `colName` | Nome | 140 |
-| `colAge` | Idade | 50 |
-| `colTeam` | Equipa | 110 |
-| `colTournament` | Torneio | 130 |
-| `colAverage` | Média | AutoSizeMode = Fill |
-
-
----
-
-### FormLogs
-
-Consultar os logs da aplicação entre duas datas. Cada ação (adicionar, editar, remover, guardar resultado, importar, exportar, converter, carregar e guardar dados) fica registada em `logs.txt`, ao lado do `.exe`. O utilizador escolhe a data inicial e a final e vê só os logs desse intervalo (os dois dias contam inteiros), do mais recente para o mais antigo.
-
-![FormLogs](FormLogs.png)
-
-**Propriedades do form**
-
-| Propriedade | Valor |
-|---|---|
-| `Name` | `FormLogs` |
-| `Text` | Registo de Logs |
-| `ClientSize` | 744, 430 |
-| `StartPosition` | CenterScreen |
-| `Font` | Segoe UI, 9pt (por defeito) |
-
-`FormBorderStyle = FixedDialog`, `MaximizeBox = False`, `MinimizeBox = False`, `ShowInTaskbar = False`. Abre com `ShowDialog()` a partir do `FormMain` (menu **Ajuda → Registos / Logs**, `mnuLogs`).
-
-**Controlos** (posições relativas ao controlo indicado em *Dentro de*; `auto` = `AutoSize = True`)
-
-| Tipo | Name | Dentro de | Text | Location | Size | Outras propriedades |
-|---|---|---|---|---|---|---|
-| Label | `lblFrom` | `Form` | De: | 12, 18 | auto |  |
-| DateTimePicker | `dtpFrom` | `Form` |  | 50, 14 | 110 x 20 | Format = Short, MinDate = 01/01/2000 |
-| Label | `lblTo` | `Form` | Até: | 176, 18 | auto |  |
-| DateTimePicker | `dtpTo` | `Form` |  | 214, 14 | 110 x 20 | Format = Short, MinDate = 01/01/2000 |
-| Button | `btnSearch` | `Form` | Pesquisar | 340, 12 | 90 x 27 |  |
-| Button | `btnToday` | `Form` | Hoje | 436, 12 | 80 x 27 |  |
-| Button | `btnLast7Days` | `Form` | Últimos 7 dias | 522, 12 | 110 x 27 |  |
-| DataGridView | `dgvLogs` | `Form` |  | 12, 52 | 720 x 340 | ReadOnly, ver colunas abaixo |
-| Label | `lblTotal` | `Form` | Registos encontrados: 0 | 12, 404 | auto |  |
-
-**Colunas do `dgvLogs`** (`AutoGenerateColumns = False`, `AllowUserToAddRows = False`, `AllowUserToDeleteRows = False`, `SelectionMode = FullRowSelect`, `MultiSelect = False`, `RowHeadersVisible = False`)
-
-| Name | HeaderText | Largura |
-|---|---|---|
-| `colDate` | Data/Hora | 140 |
-| `colAction` | Ação | 110 |
-| `colDetails` | Detalhes | AutoSizeMode = Fill |
-
-Ordem de tabulação: `dtpFrom`, `dtpTo`, `btnSearch`, `btnToday`, `btnLast7Days`, `dgvLogs`.
-
-# REGRAS (VALIDAÇÕES)
-
-- IDs únicos dentro do seu âmbito (equipa única no torneio, jogador único na equipa, etc.)
-- Nome e nickname obrigatórios
-- Idade entre 15 e 45 anos
-- Pontuações entre 0 e 100
-- Não deixar remover uma equipa com partidas registadas
-- Torneio com pelo menos 4 equipas inscritas para agendar partidas
-- Uma equipa não pode jogar contra si própria
-- Só podem jogar equipas inscritas no torneio
-- Ficheiro malformado ou dados inválidos: `try/catch` e `MessageBox` com o erro, sem fechar a aplicação
-
-Pontos na classificação: vitória = 3, derrota = 0.
-
-## LINQ usado nas estatísticas
-
-| O quê | LINQ usado |
-|---|---|
-| Classificação | `Where` (partidas com resultado), `Select` (vitórias, derrotas, pontos por equipa), `OrderByDescending` (pontos) |
-| Pontos e médias | `Sum`, `Average` |
-| Top 3 jogadores | `SelectMany`, `OrderByDescending(j => j.Pontuacoes.Average())`, `Take(3)` |
-| Pesquisa por nickname | `Where(j => j.Nickname.ToLower().Contains(text))` |
-| Equipa tem partidas? | `Any` (para impedir a remoção) |
-
+| `campeonatos.json` e `FilesOthers\campeonatos.xml` | 2 campeonatos, 6 torneios, 24 equipas, 120 jogadores, 600 pontuações e sem partidas | Importa sem erros. |
+| `FilesOthers\resultados.json` | Partidas e resultados ligados aos torneios por ID | Importar depois dos campeonatos. Juntam-se as partidas. |
+| `FilesOthers\dados_completos.xml` e `.json` | Dados completos com 60 partidas | Importam sem erros. |
+| `FilesOthers\dados_invalidos.xml` e `.json` | Vários erros nos dados | Mensagem de erro e dados atuais mantidos. |
+| `FilesOthers\invalido_so_idade.json` | Um jogador com idade 60 | Erro: a idade tem de estar entre 15 e 45. |
+| `FilesOthers\mal_formado.xml` e `.json` | Ficheiros truncados ou com a marcação partida | Mensagem de erro, sem fechar a aplicação. |
+ 
+## Regras de validação
+ 
+- Ids únicos no respetivo âmbito: campeonato nos dados, torneio no campeonato, equipa no torneio, jogador na equipa e partida no torneio.
+- Id maior que 0. O ano do campeonato entre 2000 e 2100.
+- Nome obrigatório em todas as entidades. Nickname obrigatório nos jogadores. Jogo obrigatório nos torneios.
+- Idade entre **15 e 45** anos.
+- Pontuações entre **0 e 100**. Resultados de partidas entre 0 e 99.
+- Torneio com pelo menos **4 equipas** para agendar partidas.
+- Uma equipa não joga contra si própria e só jogam equipas inscritas no torneio.
+- Uma equipa com partidas registadas não pode ser removida.
+- Uma partida tem os dois resultados ou nenhum.
+Um erro durante a importação mostra uma `MessageBox` com o sítio exato do problema, por exemplo `Campeonato 1 > Torneio 101 > Equipa 2 > Jogador 5: a idade tem de estar entre 15 e 45.`. Os dados em memória não são alterados.
+ 
 ## Estrutura do projeto
-
+ 
 ```
-App1-Esports/
-├── Models/        Dados, Campeonato, Torneio, Equipa, Jogador, Partida, StandingRow, LogEntry
-├── Services/      DataService, XmlService, JsonService, StatisticsService, Validations, LogService
-├── Forms/         FormMain, FormTeams, FormTournaments, FormMatches, FormStatistics, FormLogs
-└── Dados/         campeonatos.xml, campeonatos.json, resultados.json, dados_invalidos.*
+eSports/
+├── Models/        Dados, Campeonato, Torneio, Equipa, Jogador, Partida,
+│                  StandingRow, PlayerRow, LogEntry
+├── Services/      DataService, XmlService, JsonService, StatisticsService,
+│                  Validations, LogService, UiHelper
+├── FormMain, FormTeam, FormTournaments, FormMatches,
+│   FormStatistics, FormLogs        (interface, sem lógica de negócio)
+├── FilesOthers/   Ficheiros de exemplo e de teste
+├── campeonatos.json
+└── Program.cs     Arranca o FormMain
 ```
-
-Os forms não têm lógica: só chamam métodos dos `Services` e mostram o resultado.
-
-A raiz dos dados é a classe `Dados` (guardada em `dados.json`). Tem a lista de campeonatos; cada campeonato tem torneios; cada torneio tem equipas e partidas; cada equipa tem jogadores; cada jogador tem a lista de pontuações. As partidas guardam só os IDs das equipas.
-
-![Estrutura dos dados](estrutura-dados.svg)
-
-## Classes e variáveis
-
-| Classe | Variáveis |
+ 
+A interface só chama métodos dos `Services` e mostra o resultado. Toda a lógica de negócio, validação e persistência está em `Services/`.
+ 
+## Modelo de dados
+ 
+```
+Dados
+ └── Campeonato (Id, Nome, Ano)
+      └── Torneio (Id, Nome, Jogo)
+           ├── Equipa (Id, Nome, Pais)
+           │    └── Jogador (Id, Nome, Nickname, Idade)
+           │         └── Pontuacoes: List<int>
+           └── Partida (Id, Data, IdEquipaA, IdEquipaB, ResultadoA, ResultadoB)
+```
+ 
+As partidas guardam só os **identificadores** das equipas, sem duplicar objetos. `ResultadoA` e `ResultadoB` são `int?`: `null` significa partida ainda por jogar.
+ 
+## Formatos XML e JSON
+ 
+### XML
+ 
+```xml
+<Campeonatos>
+  <Campeonato>
+    <Id>1</Id><Nome>Liga Nacional eSports</Nome><Ano>2026</Ano>
+    <Torneios><Torneio>
+      <Id>101</Id><Nome>CS2 Masters</Nome><Jogo>Counter-Strike 2</Jogo>
+      <Equipas><Equipa>
+        <Id>1</Id><Nome>Dragons</Nome><Pais>Portugal</Pais>
+        <Jogadores><Jogador>
+          <Id>10</Id><Nome>Joao Silva</Nome><Nickname>Fire</Nickname><Idade>18</Idade>
+          <Pontuacoes><Ponto>90</Ponto><Ponto>85</Ponto></Pontuacoes>
+        </Jogador></Jogadores>
+      </Equipa></Equipas>
+    </Torneio></Torneios>
+  </Campeonato>
+</Campeonatos>
+```
+ 
+### JSON
+ 
+```json
+{
+  "campeonatos": [{
+    "id": 1, "nome": "Liga Nacional eSports", "ano": 2026,
+    "torneios": [{
+      "id": 101, "nome": "CS2 Masters", "jogo": "Counter-Strike 2",
+      "equipas": [{
+        "id": 1, "nome": "Dragons", "pais": "Portugal",
+        "jogadores": [{
+          "id": 10, "nome": "Joao Silva", "nickname": "Fire",
+          "idade": 18, "pontuacoes": [90, 85]
+        }]
+      }]
+    }]
+  }]
+}
+```
+ 
+### Ficheiro de resultados
+ 
+```json
+{
+  "partidas": [
+    { "idTorneio": 101, "id": 1, "data": "2026-03-04T00:00:00",
+      "idEquipaA": 1, "idEquipaB": 2, "resultadoA": 11, "resultadoB": 16 }
+  ]
+}
+```
+ 
+## LINQ usado
+ 
+| O quê | LINQ |
 |---|---|
-| `Dados` | `List<Campeonato> Campeonatos` |
-| `Campeonato` | `int Id`, `string Nome`, `int Ano`, `List<Torneio> Torneios` |
-| `Torneio` | `int Id`, `string Nome`, `string Jogo`, `List<Equipa> Equipas`, `List<Partida> Partidas` |
-| `Equipa` | `int Id`, `string Nome`, `string Pais`, `List<Jogador> Jogadores` |
-| `Jogador` | `int Id`, `string Nome`, `string Nickname`, `int Idade`, `List<int> Pontuacoes` |
-| `Partida` | `int Id`, `DateTime Data`, `int IdEquipaA`, `int IdEquipaB`, `int? ResultadoA`, `int? ResultadoB` |
-| `StandingRow` (não é guardada) | `int Position`, `string Team`, `int Played`, `int Wins`, `int Losses`, `int Points`, `double Average` |
-
-`ResultadoA` e `ResultadoB` são `int?` (null = partida ainda por jogar).
-
-### Atributos para o XML e o JSON ficarem iguais aos do professor
-
-| Onde | XML | JSON |
-|---|---|---|
-| `Dados` | `[XmlRoot("Campeonatos")]` | — |
-| `Dados.Campeonatos` | `[XmlElement("Campeonato")]` | `[JsonPropertyName("campeonatos")]` |
-| `Jogador.Pontuacoes` | `[XmlArray("Pontuacoes")]` + `[XmlArrayItem("Ponto")]` | — |
-| Todas as propriedades | nome igual à propriedade (`<Nome>`) | `PropertyNamingPolicy = JsonNamingPolicy.CamelCase` (`"nome"`) |
+| Classificação | `SelectMany`, `GroupBy`, `Where` (partidas com resultado), `Count`, `Sum`, `OrderByDescending`, `ThenByDescending` |
+| Pontos e médias | `Sum`, `Average` |
+| Top 3 jogadores | `Where`, `OrderByDescending(p => p.Average)` e escolha dos três primeiros |
+| Pesquisa por nickname | `Where(p => p.Nickname.ToLower().Contains(texto))` |
+| Equipa tem partidas? | `Any` |
+| Totais e próximos Ids | `SelectMany`, `Sum`, `Select`, `Max` |
+| Validação de Ids repetidos | `Count`, `Any` |
+ 
+## Testes realizados
+ 
+> Preencher a coluna **Resultado obtido** depois de executar cada teste na aplicação.
+ 
+| # | Teste | Resultado esperado | Resultado obtido |
+|---|---|---|---|
+| 1 | Importar `campeonatos.xml` | 2 campeonatos, 6 torneios, 24 equipas, 120 jogadores, 600 pontuações | |
+| 2 | Importar `campeonatos.json` | Mesmos totais do teste 1 | |
+| 3 | Importar `resultados.json` depois do teste 1 | Partidas juntas aos torneios, totais de partidas atualizados | |
+| 4 | Importar `resultados.json` sem dados carregados | Erro a pedir para importar primeiro os campeonatos | |
+| 5 | Importar `dados_completos.xml` | 60 partidas | |
+| 6 | Importar `dados_invalidos.json` | Erro com o local do problema, dados mantidos | |
+| 7 | Importar `dados_invalidos.xml` | Erro com o local do problema, dados mantidos | |
+| 8 | Importar `invalido_so_idade.json` | Erro de idade (60) | |
+| 9 | Importar `mal_formado.xml` | Mensagem de erro, aplicação não fecha | |
+| 10 | Importar `mal_formado.json` | Mensagem de erro, aplicação não fecha | |
+| 11 | Converter XML → JSON e voltar a JSON → XML | Ficheiros finais com os mesmos dados | |
+| 12 | Importar XML, exportar JSON, importar o JSON | Sem perda de informação | |
+| 13 | Fechar e reabrir a aplicação | Os dados continuam carregados | |
+| 14 | Remover uma equipa com partidas | Mensagem a recusar a remoção | |
+| 15 | Agendar partida com a mesma equipa nos dois lados | Erro | |
+| 16 | Agendar partida num torneio com menos de 4 equipas | Erro | |
+| 17 | Adicionar jogador com idade 14 ou 46 | Erro | |
+| 18 | Adicionar pontuação 101 | Erro | |
+| 19 | Adicionar jogador sem nickname | Erro | |
+| 20 | Pesquisar "fire" nas Estatísticas | Mostra os nicknames que contêm "fire" | |
+| 21 | Consultar logs de hoje | Aparecem as ações feitas | |
+ 
+## Decisões técnicas
+ 
+- **`dados.json` como ficheiro de persistência:** um só ficheiro com toda a estrutura aninhada, carregado ao abrir e guardado ao fechar.
+- **Validação depois de importar:** `Validations.CheckData` percorre a estrutura toda e diz exatamente onde está o erro. Só depois de passar é que os dados atuais são substituídos.
+- **Partidas por ID:** as partidas referenciam as equipas por Id, o que evita duplicar objetos. Ao mudar o Id de uma equipa, as partidas são atualizadas.
+- **`int?` nos resultados:** distingue "ainda não jogada" de "0 - 0".
+- **Cópia `dados.json.erro`:** se o `dados.json` estiver inválido, é guardada uma cópia antes de a aplicação o poder substituir ao fechar.
+- **Importação de resultados com reversão:** se uma partida do ficheiro falhar, todas as anteriores são desfeitas.
+- **Proteção no XML:** o leitor bloqueia DTDs (`DtdProcessing.Prohibit`).
+- **Separação interface/lógica:** os formulários não têm regras de negócio, só chamam os `Services`.
+- **Classificação por nome de equipa:** as linhas agrupam-se pelo nome, por isso equipas com o mesmo nome em vários torneios juntam-se no filtro "Todos os torneios".
+## Divisão de tarefas
+ 
+> Preencher com os nomes e números do grupo.
+ 
+| Elemento | Tarefas |
+|---|---|
+| Aluno 1 | |
+| Aluno 2 | |
+| Aluno 3 | |
+| Aluno 4 | |
+ 
+## Problemas conhecidos
+ 
+- A classificação dá 1 ponto por empate, além de vitória = 3 e derrota = 0.
+- Importar um XML ou JSON de campeonatos substitui todos os dados atuais, depois de pedir confirmação.
+- Os dados são guardados ao fechar a janela principal. Se a aplicação for terminada à força, perdem-se as alterações feitas desde a última vez que abriu.
+## Autores
+ 
+Grupo: _nomes dos elementos_ · Turma: _turma_ · Professor: _nome_ · Ano letivo: 2026/2027
+ 

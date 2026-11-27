@@ -13,47 +13,47 @@ namespace eSports.Services
 
         public static List<StandingRow> GetStandings(List<Torneio> tournaments)
         {
-            List<StandingRow> rows = new List<StandingRow>();
-            List<int> rounds = new List<int>();
-
-            foreach (Torneio tournament in tournaments)
-            {
-                foreach (Equipa team in tournament.Equipas)
-                {
-                    StandingRow row = rows.FirstOrDefault(r => r.Team == team.Nome);
-
-                    if (row == null)
-                    {
-                        row = new StandingRow();
-                        row.Team = team.Nome;
-                        rows.Add(row);
-                        rounds.Add(0);
-                    }
-
-                    List<Partida> played = tournament.Partidas.Where(p => p.ResultadoA != null && p.ResultadoB != null &&
-                        (p.IdEquipaA == team.Id || p.IdEquipaB == team.Id)).ToList();
-
-                    row.Played += played.Count;
-                    row.Wins += played.Count(p => Scored(p, team.Id) > Conceded(p, team.Id));
-                    row.Losses += played.Count(p => Scored(p, team.Id) < Conceded(p, team.Id));
-                    rounds[rows.IndexOf(row)] += played.Sum(p => Scored(p, team.Id));
-                }
-            }
-
-            for (int i = 0; i < rows.Count; i++)
-            {
-                rows[i].Points = rows[i].Wins * 3;
-
-                if (rows[i].Played > 0)
-                    rows[i].Average = (double)rounds[i] / rows[i].Played;
-            }
-
-            rows = rows.OrderByDescending(r => r.Points).ToList();
+            List<StandingRow> rows = tournaments
+                .SelectMany(t => t.Equipas.Select(e => new KeyValuePair<Torneio, Equipa>(t, e)))
+                .GroupBy(pair => pair.Value.Nome)
+                .Select(group => BuildRow(group.Key, group.ToList()))
+                .OrderByDescending(r => r.Points)
+                .ThenByDescending(r => r.Wins)
+                .ThenByDescending(r => r.Average)
+                .ToList();
 
             for (int i = 0; i < rows.Count; i++)
                 rows[i].Position = i + 1;
 
             return rows;
+        }
+
+        private static StandingRow BuildRow(string teamName, List<KeyValuePair<Torneio, Equipa>> teams)
+        {
+            StandingRow row = new StandingRow();
+            row.Team = teamName;
+            int rounds = 0;
+
+            foreach (KeyValuePair<Torneio, Equipa> pair in teams)
+            {
+                int id = pair.Value.Id;
+
+                List<Partida> played = pair.Key.Partidas.Where(p => p.ResultadoA != null && p.ResultadoB != null &&
+                    (p.IdEquipaA == id || p.IdEquipaB == id)).ToList();
+
+                row.Played += played.Count;
+                row.Wins += played.Count(p => Scored(p, id) > Conceded(p, id));
+                row.Draws += played.Count(p => Scored(p, id) == Conceded(p, id));
+                row.Losses += played.Count(p => Scored(p, id) < Conceded(p, id));
+                rounds += played.Sum(p => Scored(p, id));
+            }
+
+            row.Points = row.Wins * 3 + row.Draws;
+
+            if (row.Played > 0)
+                row.Average = (double)rounds / row.Played;
+
+            return row;
         }
 
         private static int Scored(Partida match, int teamId)

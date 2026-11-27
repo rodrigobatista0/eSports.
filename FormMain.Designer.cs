@@ -47,6 +47,8 @@
             this.mnuStatistics = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLogs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.grpChampionships = new System.Windows.Forms.GroupBox();
             this.btnRemoveChampionship = new System.Windows.Forms.Button();
             this.btnEditChampionship = new System.Windows.Forms.Button();
@@ -86,8 +88,6 @@
             this.lblChampionshipsText = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.grpChampionships.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudChampionshipYear)).BeginInit();
@@ -245,9 +245,21 @@
             // mnuLogs
             // 
             this.mnuLogs.Name = "mnuLogs";
-            this.mnuLogs.Size = new System.Drawing.Size(224, 26);
+            this.mnuLogs.Size = new System.Drawing.Size(199, 26);
             this.mnuLogs.Text = "Resgistos / Logs";
             this.mnuLogs.Click += new System.EventHandler(this.mnuLogs_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(196, 6);
+            // 
+            // mnuAbout
+            // 
+            this.mnuAbout.Name = "mnuAbout";
+            this.mnuAbout.Size = new System.Drawing.Size(199, 26);
+            this.mnuAbout.Text = "Acerca de...";
+            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
             // grpChampionships
             // 
@@ -674,18 +686,6 @@
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "\"XML (.xml)|.xml|JSON (.json)|.json\"";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(221, 6);
-            // 
-            // mnuAbout
-            // 
-            this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(224, 26);
-            this.mnuAbout.Text = "Acerca de...";
-            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
             // FormMain
             // 

@@ -46,65 +46,75 @@
             // lblFrom
             // 
             this.lblFrom.AutoSize = true;
-            this.lblFrom.Location = new System.Drawing.Point(12, 18);
+            this.lblFrom.Location = new System.Drawing.Point(16, 22);
+            this.lblFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(24, 13);
+            this.lblFrom.Size = new System.Drawing.Size(28, 16);
             this.lblFrom.TabIndex = 0;
             this.lblFrom.Text = "De:";
             // 
             // dtpFrom
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(50, 14);
+            this.dtpFrom.Location = new System.Drawing.Point(67, 17);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFrom.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(110, 20);
+            this.dtpFrom.Size = new System.Drawing.Size(145, 22);
             this.dtpFrom.TabIndex = 1;
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
-            this.lblTo.Location = new System.Drawing.Point(176, 18);
+            this.lblTo.Location = new System.Drawing.Point(235, 22);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(29, 13);
+            this.lblTo.Size = new System.Drawing.Size(30, 16);
             this.lblTo.TabIndex = 2;
             this.lblTo.Text = "Até:";
             // 
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(214, 14);
+            this.dtpTo.Location = new System.Drawing.Point(285, 17);
+            this.dtpTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpTo.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(110, 20);
+            this.dtpTo.Size = new System.Drawing.Size(145, 22);
             this.dtpTo.TabIndex = 3;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(340, 12);
+            this.btnSearch.Location = new System.Drawing.Point(453, 15);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(90, 27);
+            this.btnSearch.Size = new System.Drawing.Size(120, 33);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Pesquisar";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(436, 12);
+            this.btnToday.Location = new System.Drawing.Point(581, 15);
+            this.btnToday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(80, 27);
+            this.btnToday.Size = new System.Drawing.Size(107, 33);
             this.btnToday.TabIndex = 5;
             this.btnToday.Text = "Hoje";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnLast7Days
             // 
-            this.btnLast7Days.Location = new System.Drawing.Point(522, 12);
+            this.btnLast7Days.Location = new System.Drawing.Point(696, 15);
+            this.btnLast7Days.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLast7Days.Name = "btnLast7Days";
-            this.btnLast7Days.Size = new System.Drawing.Size(110, 27);
+            this.btnLast7Days.Size = new System.Drawing.Size(147, 33);
             this.btnLast7Days.TabIndex = 6;
             this.btnLast7Days.Text = "Últimos 7 dias";
             this.btnLast7Days.UseVisualStyleBackColor = true;
+            this.btnLast7Days.Click += new System.EventHandler(this.btnLast7Days_Click);
             // 
             // dgvLogs
             // 
@@ -115,18 +125,21 @@
             this.colDate,
             this.colAction,
             this.colDetails});
-            this.dgvLogs.Location = new System.Drawing.Point(12, 52);
+            this.dgvLogs.Location = new System.Drawing.Point(16, 64);
+            this.dgvLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvLogs.MultiSelect = false;
             this.dgvLogs.Name = "dgvLogs";
             this.dgvLogs.ReadOnly = true;
             this.dgvLogs.RowHeadersVisible = false;
+            this.dgvLogs.RowHeadersWidth = 51;
             this.dgvLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLogs.Size = new System.Drawing.Size(720, 340);
+            this.dgvLogs.Size = new System.Drawing.Size(960, 418);
             this.dgvLogs.TabIndex = 7;
             // 
             // colDate
             // 
             this.colDate.HeaderText = "Data/Hora";
+            this.colDate.MinimumWidth = 6;
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
             this.colDate.Width = 140;
@@ -134,6 +147,7 @@
             // colAction
             // 
             this.colAction.HeaderText = "Ação";
+            this.colAction.MinimumWidth = 6;
             this.colAction.Name = "colAction";
             this.colAction.ReadOnly = true;
             this.colAction.Width = 110;
@@ -142,23 +156,25 @@
             // 
             this.colDetails.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDetails.HeaderText = "Detalhes";
+            this.colDetails.MinimumWidth = 6;
             this.colDetails.Name = "colDetails";
             this.colDetails.ReadOnly = true;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(12, 404);
+            this.lblTotal.Location = new System.Drawing.Point(16, 497);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(105, 13);
+            this.lblTotal.Size = new System.Drawing.Size(152, 16);
             this.lblTotal.TabIndex = 8;
             this.lblTotal.Text = "Registos encontrados: 0";
             // 
             // FormLogs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 430);
+            this.ClientSize = new System.Drawing.Size(992, 529);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dgvLogs);
             this.Controls.Add(this.btnLast7Days);
@@ -169,6 +185,7 @@
             this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.lblFrom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLogs";
